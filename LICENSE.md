@@ -8,9 +8,9 @@ source code and code snippets, is licensed under a [Creative Commons
 Attribution 4.0 International (CC BY 4.0)
 license](https://creativecommons.org/licenses/by/4.0/).
 
-## BSD 3-clause license with patent grant
-
 Copyright (c) 2017, PlasmaPy Developers.
+
+## BSD 3-clause license with patent grant
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
