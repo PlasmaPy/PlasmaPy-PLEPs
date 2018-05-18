@@ -1,6 +1,6 @@
 # Licenses
 
-Copyright (c) 2017, PlasmaPy Developers.
+Copyright (c) 2017-2018, PlasmaPy Developers.
 
 Except as otherwise noted, content in this repository is licensed
 under a [Creative Commons Attribution 4.0 International (CC BY 4.0)
