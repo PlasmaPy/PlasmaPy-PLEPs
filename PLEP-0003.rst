@@ -1,0 +1,46 @@
+PLEP-0003 – Members of Coordinating Committee
+=============================================
+
++-------------------+-----------------------------------+
+| PLEP              | 3                                 |
++===================+===================================+
+| title             | Members of Coordinating Committee |
++-------------------+-----------------------------------+
+| author(s)         | Nick Murphy                       |
++-------------------+-----------------------------------+
+| contact email     | namurphy@cfa.harvard.edu          |
++-------------------+-----------------------------------+
+| date created      | 2017-09-29                        |
++-------------------+-----------------------------------+
+| date last revised | 2017-11-13                        |
++-------------------+-----------------------------------+
+| type              | informational                     |
++-------------------+-----------------------------------+
+| status            | discussion                        |
++-------------------+-----------------------------------+
+
+Abstract
+--------
+
+This document lists the membership of the PlasmaPy Coordinating
+Committee.
+
+Coordinating Committee Membership
+---------------------------------
+
+The PlasmaPy Coordinating Committee includes the following members:
+
++------------------+---------------------------------------------+
+| Name             | Institution                                 |
++==================+=============================================+
+| Drew Leonard     | Aperio Software                             |
++------------------+---------------------------------------------+
+| Nick Murphy      | Harvard-Smithsonian Center for Astrophysics |
++------------------+---------------------------------------------+
+| Tulasi Parashar  | University of Delaware                      |
++------------------+---------------------------------------------+
+| Dominik Stańczak | Warsaw University of Technology             |
++------------------+---------------------------------------------+
+
+The institutions of Coordinating Committee members are included for
+identification purposes only.
