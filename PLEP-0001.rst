@@ -89,13 +89,17 @@ development releases and after the release of version ``1.0.0``. PLEPs
 are not needed for minor changes.
 
 All new PLEPs should begin with a copy of the PLEP template contained
-within the PlasmaPy/PlasmaPy-PLEPs repository. This copy should be
-renamed to ``PLEP-nnnn.md`` where ``nnnn`` should be the lowest PLEP
+within the PlasmaPy/PlasmaPy-PLEPs repository.  This copy should be
+renamed to ``PLEP-nnnn.rst`` where ``nnnn`` should be the lowest PLEP
 number preceded by zeros that has not been tentatively or permanently
 assigned by the Coordinating Committee. The template contains a
-suggested outline that is most appropriate for a standard PLEP. Not all
-sections included in the template are required for every PLEP, and
-sometimes it is appropriate to create different sections.
+suggested outline that is most appropriate for a standard PLEP. Not
+all sections included in the template are required for every PLEP, and
+sometimes it is appropriate to create different sections.  PLEPs are
+written in the `reStructuredText
+<http://docutils.sourceforge.net/docs/ref/rst/introduction.html>`__.
+format.
+
 
 Amending or superseding a PLEP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
