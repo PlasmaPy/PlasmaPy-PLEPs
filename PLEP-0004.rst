@@ -1,0 +1,336 @@
+PLEP-0004 – Licensing of PlasmaPy Repositories
+==============================================
+
++-------------------+--------------------------+
+| PLEP              | 4                        |
++===================+==========================+
+| author(s)         | Nick Murphy              |
++-------------------+--------------------------+
+| contact email     | namurphy@cfa.harvard.edu |
++-------------------+--------------------------+
+| date created      | 2017-09-28               |
++-------------------+--------------------------+
+| date last revised | 2018-05-18               |
++-------------------+--------------------------+
+| type              | process                  |
++-------------------+--------------------------+
+| status            | in preparation           |
++-------------------+--------------------------+
+
+Summary
+-------
+
+The purpose of this PlasmaPy Enhancement Proposal (PLEP) is to clarify
+the licensing practices of PlasmaPy repositories. Source code files,
+code snippets, and associated documentation shall in general be covered
+by a BSD 3-clause license with an explicit patent grant. Other creative
+works shall in general be covered by the `Creative Commons Attribution
+4.0 International (CC BY 4.0)
+license <https://creativecommons.org/licenses/by/4.0/>`__. If back and
+forth collaboration with a body of work released under a copyleft
+license [e.g., the `Creative Commons Attribution-ShareAlike (CC BY-SA
+4.0) license <https://creativecommons.org/licenses/by-sa/4.0/>`__] is
+desirable, then a PlasmaPy repository may be licensed under one or more
+compatible copyleft licenses. When PlasmaPy adopts or incorporates an
+existing body of creative works released under an `Open Source
+Initiative (OSI) approved
+license <https://opensource.org/licenses/category>`__ or a `Creative
+Commons license <https://creativecommons.org/licenses/>`__, then that
+body of work and its derivatives may continue to use that license.
+PlasmaPy’s Coordinating Committee may make exceptions to this policy
+when there are extenuating circumstances.
+
+Background information
+----------------------
+
+PlasmaPy began development under the permissive `BSD 3-clause
+license <https://opensource.org/licenses/BSD-3-Clause>`__. The primary
+advantage of this license is its
+`compatibility <https://en.wikipedia.org/wiki/License_compatibility>`__
+with other licenses. Code released under a BSD license may be used by or
+incorporated into software covered by most
+`permissive <https://en.wikipedia.org/wiki/Permissive_software_licence>`__,
+`copyleft <https://en.wikipedia.org/wiki/Copyleft>`__, and
+`proprietary <https://en.wikipedia.org/wiki/Proprietary_software>`__
+licenses. The choice of this license allows back and forth sharing of
+code with projects such as `Astropy <http://www.astropy.org/>`__ and
+`SunPy <http://www.sunpy.org/>`__.
+
+Most modern software licenses include language that protects against
+software patents. The `BSD 3-clause
+license <https://opensource.org/licenses/BSD-3-Clause>`__ does not
+explicitly include such language. This oversight leaves potential for a
+contributor to patent their contribution, and then prohibit use of their
+contribution by the PlasmaPy community. Plasma physics has a variety of
+commercial applications, so it is important to provide users with
+protections against software patents. On 2017 October 19, the patent
+grant from the `BSD+Patent
+license <https://opensource.org/licenses/BSDplusPatent>`__ was `added to
+PlasmaPy’s license <https://github.com/PlasmaPy/PlasmaPy/pull/114>`__ to
+give users the right to use contributions even if a contributor later
+patents their contribution. This clause covers all contributions made
+past this date, and the `contributions made by people who have agreed to
+the
+clause <https://github.com/PlasmaPy/PlasmaPy/blob/master/licenses/PlasmaPy_LICENSE_preOct2017.md#notice>`__.
+The patent clause grants users more rights and protections than the
+standard BSD 3-clause license.
+
+Some PlasmaPy repositories contain creative works other than source code
+files, code snippets, and associated documentation. `Creative Commons
+licenses <https://creativecommons.org/licenses/>`__ are much more
+appropriate than open source licenses to cover these other creative
+works. Works released under the `CC BY
+4.0 <https://creativecommons.org/licenses/by/4.0/>`__ license may be
+shared and adapted as long as attribution is provided. Works released
+under the copyleft `CC BY-SA
+3.0 <https://creativecommons.org/licenses/by-sa/3.0/>`__ or `CC BY-SA
+4.0 <https://creativecommons.org/licenses/by-sa/4.0/>`__ licenses may be
+shared and adapted as long as attribution is provided and derived works
+are covered by either the same license or a compatible license. The `GNU
+Free Documentation License
+(GFDL) <https://www.gnu.org/licenses/fdl-1.3.en.html>`__ is another
+commonly used copyleft license.
+
+CC BY and CC BY-SA licenses are compatible with each other in only one
+direction. Works released under a CC BY license may be adapted,
+redistributed, and relicensed under a CC BY-SA license with attribution.
+However, works released under a CC BY-SA license may not be adapted,
+redistributed, or relicensed under a CC BY license. Choosing a copyleft
+license is often appropriate when back and forth collaboration with
+existing bodies of work covered by a copyleft license is desirable. Care
+must be chosen to allow two-way licensing compatibility.
+
+PlasmaPy licensing policy
+-------------------------
+
+Licensing of software repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Software repositories created by PlasmaPy shall use the following BSD
+3-clause license with the explicit patent grant from the OSI-approved
+`BSD+Patent license <https://opensource.org/licenses/BSDplusPatent>`__.
+This license may be used for documentation internal to the project
+(e.g., documentation contained within a ``docs`` subdirectory).
+
+   Copyright (c) 2017-2525, PlasmaPy Developers.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions
+   are met:
+
+   -  Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+
+   -  Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+
+   -  Neither the name of PlasmaPy nor the names of its contributors may
+      be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+   Subject to the terms and conditions of this license, each copyright
+   holder and contributor hereby grants to those receiving rights under
+   this license a perpetual, worldwide, non-exclusive, no-charge,
+   royalty-free, irrevocable (except for failure to satisfy the
+   conditions of this license) patent license to make, have made, use,
+   offer to sell, sell, import, and otherwise transfer this software,
+   where such license applies only to those patent claims, already
+   acquired or hereafter acquired, licensable by such copyright holder
+   or contributor that are necessarily infringed by:
+
+   (a) their Contribution(s) (the licensed copyrights of copyright
+       holders and non-copyrightable additions of contributors, in
+       source or binary form) alone; or
+
+   (b) combination of their Contribution(s) with the work of authorship
+       to which such Contribution(s) was added by such copyright holder
+       or contributor, if, at the time the Contribution is added, such
+       addition causes such combination to be necessarily infringed. The
+       patent license shall not apply to any other combinations which
+       include the Contribution.
+
+   Except as expressly stated above, no rights or licenses from any
+   copyright holder or contributor is granted under this license,
+   whether expressly, by implication, estoppel or otherwise.
+
+   .. rubric:: Disclaimer
+      :name: disclaimer
+
+   This software is provided by the copyright holders and contributors
+   “as is” and any express or implied warranties, including, but not
+   limited to, the implied warranties of merchantability and fitness for
+   a particular purpose are disclaimed. In no event shall the copyright
+   holder or contributors be liable for any direct, indirect,
+   incidental, special, exemplary, or consequential damages (including,
+   but not limited to, procurement of substitute goods or services; loss
+   of use, data, or profits; or business interruption) however caused
+   and on any theory of liability, whether in contract, strict
+   liability, or tort (including negligence or otherwise) arising in any
+   way out of the use of this software, even if advised of the
+   possibility of such damage.
+
+Licensing of creative works other than code and multi-licensing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Creative works besides source code files, code snippets, and
+documentation contained within a ``docs`` directory shall by default be
+covered by the `CC BY
+4.0 <https://creativecommons.org/licenses/by/4.0/>`__ license.
+
+If significant collaboration with an existing body of creative work
+covered by a copyleft license is desired, then a PlasmaPy repository may
+be covered by one or more copyleft licenses that provide for two-way
+compatibility. In order for a work to be fully compatible with
+Wikipedia, for example, it must be both `CC BY-SA
+3.0 <https://creativecommons.org/licenses/by-sa/4.0/>`__ and
+`GFDL <https://opensource.org/licenses/BSDplusPatent>`__ compatible.
+
+If a repository contains both code and creative content besides code,
+then the license file should specify that source code files and code
+snippets are released under a `BSD 3-clause
+license <https://opensource.org/licenses/BSD-3-Clause>`__ (that is
+included in the file) and that all other creative content is released
+under an appropriate Creative Commons license (which may be linked to
+from the license file). As an example, LaTeX code will be covered under
+the `BSD 3-clause
+license <https://opensource.org/licenses/BSD-3-Clause>`__, while the
+document created by compiling that code will be covered under a Creative
+Commons license.
+
+Licenses that do not allow derivative works or commercial use shall not
+be used by PlasmaPy except under extraordinary circumstances.
+
+The following is sample language for a repository that contains code and
+other creative content:
+
+   Source code files and code snippets included in this project are
+   licensed under the BSD 3-clause license with an added patent grant.
+   All other content in this project (including content compiled
+   directly from source code and code snippets) is licensed under the
+   `Creative Commons Attribution 4.0 International (CC BY
+   4.0) <https://creativecommons.org/licenses/by/4.0/>`__ license.
+
+The following is sample language for a repository that contains code as
+well as creative content besides code and that allows two-way
+`compatibility with
+Wikipedia <https://en.wikipedia.org/wiki/Wikipedia:Copyrights>`__:
+
+   Source code files and code snippets included in this project are
+   licensed under a BSD 3-clause license with a patent grant.
+
+   Unless otherwise indicated, all other creative content in this work
+   (including content produced directly from unmodified source code and
+   code snippets) is released under the `Creative Commons
+   Attribution-ShareAlike 4.0 International (CC BY-SA
+   4.0) <https://creativecommons.org/licenses/by-sa/4.0/>`__ license.
+   Original contributions (e.g., contributions that are not derived from
+   another work) to this repository may also be shared, adapted, and
+   redistributed under the `Creative Commons Attribution-ShareAlike 3.0
+   Unported (CC BY-SA
+   3.0) <https://creativecommons.org/licenses/by-sa/3.0/>`__ license
+   and/or the `GNU Free Documentation License
+   (GFDL) <https://www.gnu.org/licenses/fdl-1.3.en.html>`__.
+
+Copyright notices
+~~~~~~~~~~~~~~~~~
+
+A copyright notice must be included in every repository. The phrase
+`“All rights
+reserved” <https://en.wikipedia.org/wiki/All_rights_reserved>`__ no
+longer has any legal significance and should not be included.
+
+Exceptions
+~~~~~~~~~~
+
+The Coordinating Committee may adopt different licenses for different
+repositories when appropriate, as long as the licenses are on the list
+of `OSI approved open source
+licenses <https://opensource.org/licenses/category>`__ (or at the very
+least unambiguously meet the `definition of open
+source <https://opensource.org/osd>`__ as described by OSI). Existing
+open source repositories that are incorporated into PlasmaPy may
+continue to be licensed under its original license.
+
+Issues, Pull Requests, and Branches
+-----------------------------------
+
+-  https://github.com/PlasmaPy/PlasmaPy/pull/114
+-  https://github.com/PlasmaPy/PlasmaPy-Tutorials/issues/1
+-  https://github.com/PlasmaPy/Plasma-Education/issues/3
+-  https://github.com/PlasmaPy/PlasmaPy-Enhancement-Proposals/issues/3
+
+Backward Compatibility
+----------------------
+
+Versions of PlasmaPy prior to 2017 October 17 will continue to be
+available under the `original BSD 3-clause
+license <https://github.com/PlasmaPy/PlasmaPy/blob/master/licenses/PlasmaPy_LICENSE_preOct2017.md>`__.
+
+Alternatives
+------------
+
+Software licensing
+~~~~~~~~~~~~~~~~~~
+
+-  PlasmaPy could use the `BSD 3-clause
+   license <https://opensource.org/licenses/BSD-3-Clause>`__ without the
+   patent grant; however this would remove explicit protections against
+   software patents.
+
+-  Another alternative would be to use the `Apache License, Version
+   2.0 <https://opensource.org/licenses/Apache-2.0>`__ which includes
+   specific protections against patents. However, `the naming of the
+   Apache license constitutes cultural
+   appropriation <https://github.com/Quick/Quick/issues/660>`__ which
+   violates the first bullet point in PlasmaPy’s code of conduct on
+   “using welcoming and inclusive language.”
+
+-  PlasmaPy software could be licensed under the copyleft `GNU General
+   Purpose License 3.0
+   (GPLv3) <https://www.gnu.org/licenses/gpl-3.0.en.html>`__ or weaker
+   copyleft `GNU Lesser General Purpose License 3.0
+   (LGPLv3) <https://www.gnu.org/licenses/lgpl-3.0.en.html>`__. These
+   licenses would require that derivative works be covered by the same
+   license when being redistributed. These restrictions would prevent or
+   restrict use by proprietary packages, but would ensure that
+   derivative works continue to be open. A major disadvantage of these
+   licenses are that they are not two-way compatible with permissive
+   open source licenses, so they would not allow back and forth code
+   sharing with permissively licensed packages. The main disadvantage of
+   not choosing the GPLv3 or LGPLv3 is that code released under those
+   licenses will not be able to be incorporated directly into a package
+   under a different license.
+
+-  Additional alternatives include any of the other `open source
+   licenses approved by
+   OSI <https://opensource.org/licenses/category>`__.
+
+Licensing of creative works
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Alternatives include any of the other `Creative Commons
+   licenses <https://creativecommons.org/share-your-work/licensing-types-examples/>`__
+   or the `GFDL <https://www.gnu.org/licenses/fdl-1.3.en.html>`__.
+
+   -  The `CC0
+      license <https://creativecommons.org/share-your-work/public-domain/cc0/>`__
+      would relinquish the copyright of a creative work to the extent
+      allowed by law so that the work is effectively in the public
+      domain. This license would remove the attribution requirement
+      contained within the CC BY and CC BY-SA licenses. However,
+      attribution is beneficial to the scientific process because it
+      allows recipients to better understand the origin of an idea or
+      data which in turn helps reprodicibility.
+
+   -  Creative Commons licenses that prohibit derivative and/or
+      commercial reuse run contrary to the principles associated with
+      the `Free/Libre and Open Source Software
+      (FLOSS) <https://en.wikipedia.org/wiki/Free_and_open-source_software>`__
+      movement.
+
+Decision Rationale
+------------------
+
+*This PLEP has not yet been decided upon.*
