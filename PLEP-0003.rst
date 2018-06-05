@@ -1,3 +1,4 @@
+
 PLEP-0003 – Members of Coordinating Committee
 =============================================
 
@@ -30,17 +31,17 @@ Coordinating Committee Membership
 
 The PlasmaPy Coordinating Committee includes the following members:
 
-+------------------+---------------------------------------------+
-| Name             | Institution                                 |
-+==================+=============================================+
-| Drew Leonard     | Aperio Software                             |
-+------------------+---------------------------------------------+
-| Nick Murphy      | Harvard-Smithsonian Center for Astrophysics |
-+------------------+---------------------------------------------+
-| Tulasi Parashar  | University of Delaware                      |
-+------------------+---------------------------------------------+
-| Dominik Stańczak | Warsaw University of Technology             |
-+------------------+---------------------------------------------+
++------------------+---------------------------------------------+------------------+
+| Name             | Institution                                 | GitHub nickname  |
++==================+=============================================+==================+
+| Drew Leonard     | Aperio Software                             | @SolarDrew       |
++------------------+---------------------------------------------+------------------+
+| Nick Murphy      | Harvard-Smithsonian Center for Astrophysics | @namurphy        |
++------------------+---------------------------------------------+------------------+
+| Tulasi Parashar  | University of Delaware                      | @tulasinandan    |
++------------------+---------------------------------------------+------------------+
+| Dominik Stańczak | Warsaw University of Technology             | @StanczakDominik |
++------------------+---------------------------------------------+------------------+
 
 The institutions of Coordinating Committee members are included for
 identification purposes only.
