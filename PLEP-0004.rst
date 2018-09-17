@@ -10,7 +10,7 @@ PLEP-0004 – Licensing of PlasmaPy Repositories
 +-------------------+--------------------------+
 | date created      | 2017-09-28               |
 +-------------------+--------------------------+
-| date last revised | 2018-05-18               |
+| date last revised | 2018-09-17               |
 +-------------------+--------------------------+
 | type              | process                  |
 +-------------------+--------------------------+
@@ -57,21 +57,21 @@ code with projects such as `Astropy <http://www.astropy.org/>`__ and
 `SunPy <http://www.sunpy.org/>`__.
 
 Most modern software licenses include language that protects against
-software patents. The `BSD 3-clause
-license <https://opensource.org/licenses/BSD-3-Clause>`__ does not
-explicitly include such language. This oversight leaves potential for a
-contributor to patent their contribution, and then prohibit use of their
-contribution by the PlasmaPy community. Plasma physics has a variety of
-commercial applications, so it is important to provide users with
-protections against software patents. On 2017 October 19, the patent
-grant from the `BSD+Patent
-license <https://opensource.org/licenses/BSDplusPatent>`__ was `added to
-PlasmaPy’s license <https://github.com/PlasmaPy/PlasmaPy/pull/114>`__ to
-give users the right to use contributions even if a contributor later
-patents their contribution. This clause covers all contributions made
-past this date, and the `contributions made by people who have agreed to
-the
-clause <https://github.com/PlasmaPy/PlasmaPy/blob/master/licenses/PlasmaPy_LICENSE_preOct2017.md#notice>`__.
+software patents. The `BSD 3-clause license
+<https://opensource.org/licenses/BSD-3-Clause>`__ does not explicitly
+include such language. This oversight leaves potential for a
+contributor to patent their contribution, and then later prohibit use
+of their contribution by the PlasmaPy community. Plasma physics has a
+variety of commercial applications, so it is important to provide
+users with protections against software patents. On 2017 October 19,
+the patent grant from the `BSD+Patent license
+<https://opensource.org/licenses/BSDplusPatent>`__ was `added to
+PlasmaPy’s license <https://github.com/PlasmaPy/PlasmaPy/pull/114>`__
+to give users the right to use contributions even if a contributor
+later patents their contribution. This clause covers all contributions
+made past this date, and the `contributions made by people who have
+agreed to the clause
+<https://github.com/PlasmaPy/PlasmaPy/blob/master/licenses/PlasmaPy_LICENSE_preOct2017.md#notice>`__.
 The patent clause grants users more rights and protections than the
 standard BSD 3-clause license.
 
@@ -300,8 +300,8 @@ Software licensing
    open source licenses, so they would not allow back and forth code
    sharing with permissively licensed packages. The main disadvantage of
    not choosing the GPLv3 or LGPLv3 is that code released under those
-   licenses will not be able to be incorporated directly into a package
-   under a different license.
+   licenses will not be able to be incorporated into a package under
+   a different license.
 
 -  Additional alternatives include any of the other `open source
    licenses approved by
@@ -329,8 +329,3 @@ Licensing of creative works
       the `Free/Libre and Open Source Software
       (FLOSS) <https://en.wikipedia.org/wiki/Free_and_open-source_software>`__
       movement.
-
-Decision Rationale
-------------------
-
-*This PLEP has not yet been decided upon.*
