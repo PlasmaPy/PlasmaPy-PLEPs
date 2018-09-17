@@ -329,3 +329,15 @@ Licensing of creative works
       the `Free/Libre and Open Source Software
       (FLOSS) <https://en.wikipedia.org/wiki/Free_and_open-source_software>`__
       movement.
+
+Decision Rationale
+------------------
+
+The BSD+Patent license is permissive and contains clear protections
+against software patents.  This license is two-way compatible with
+code from Astropy and SunPy.  Code under this license or a CC BY
+license may be relicensed under most other licenses.  A CC BY-SA
+license may be used to allow greater back and forth collaboration with
+other works under the same license.  This policy provides additional
+flexibility to the Coordinating Committee to deal with extenuating
+circumstances.
