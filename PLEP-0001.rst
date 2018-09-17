@@ -181,7 +181,7 @@ The status of a standard or process PLEP may be any of the following:
    community feedback before a decision has been made. This is the
    default status for informational PLEPs that have been completed.
 
-- **Accepted**: The PLEP has been accepted and it will be assigned a
+-  **Accepted**: The PLEP has been accepted and it will be assigned a
    number and merged into the PlasmaPy/PlasmaPy-PLEPs repository. A
    decision rationale for standard PLEPs should be drafted and added
    to the PLEP by the sponsor of the PLEP or by someone appointed by
