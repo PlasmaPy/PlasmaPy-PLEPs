@@ -13,7 +13,7 @@ PLEP-0001 – Purpose and Guidelines for PlasmaPy Enhancement Proposals
 +-----------------------------------+-----------------------------------+
 | date created                      | 2017-11-13                        |
 +-----------------------------------+-----------------------------------+
-| date last revised                 | 2018-05-18                        |
+| date last revised                 | 2018-09-17                        |
 +-----------------------------------+-----------------------------------+
 | type                              | process                           |
 +-----------------------------------+-----------------------------------+
@@ -56,7 +56,7 @@ PLEP workflow
 -------------
 
 A PLEP may come about when a contributor has an idea for how to improve
-PlasmaPy or when a Coordinating Committee member or subpackage
+PlasmaPy, or when a Coordinating Committee member or subpackage
 maintainer requests a PLEP to be written before a pull request is
 accepted. The following subsections describe the procedure for PLEPs to
 be created, submitted, decided upon, amended, and implemented. Anyone
@@ -69,12 +69,12 @@ Before writing a PLEP, it is generally advisable to bring up your idea
 on the PlasmaPy
 `Matrix <https://riot.im/app/#/room/#plasmapy:matrix.org>`__/`Gitter <https://gitter.im/PlasmaPy/Lobby>`__
 channel and with the Coordinating Committee and/or subpackage
-maintainers to get initial feedback. PLEPs are not necessary for minor
-changes, which are often best `submitted as
+maintainers to get initial feedback. PLEPs are not necessary to
+propose minor changes, which are often best `submitted as
 issues <https://github.com/PlasmaPy/PlasmaPy/issues/new>`__ on the
 `PlasmaPy GitHub repository <https://github.com/PlasmaPy/PlasmaPy>`__.
 
-A PLEP should contain a clear, concise, and well-organized description
+Each PLEP should contain a clear, concise, and well-organized description
 of a new idea or proposal. PLEPs should generally focus on a single
 topic. PLEPs should be written to be understandable to general members
 of the PlasmaPy community rather than just core contributors and
@@ -84,7 +84,7 @@ implementation of a proposed change should be included when needed.
 Standard PLEPs are generally only needed for major improvements to the
 code base such as significant restructuring of the code base or adoption
 of a new standard. PLEPs are more likely to be needed for changes that
-break backwards compatibility, especially for stable subpackages in
+break backward compatibility, especially for stable subpackages in
 development releases and after the release of version ``1.0.0``. PLEPs
 are not needed for minor changes.
 
@@ -152,20 +152,21 @@ When the sponsor and editor decide that the proposal is ready for
 broader discussion, then they should email the PlasmaPy list to
 introduce the PLEP and request community feedback. The status of the
 PLEP should be changed to “Discussion” at this time. Community
-discussion should take place through normal communication channels such
-as the Matrix/Gitter channel, on the pull request on GitHub, and video
-conferences. Concerns that are raised should be constructive and made in
-accordance with the PlasmaPy code of conduct. Important points and
-relevant meeting minutes should be recorded as comments on the GitHub
-pull request so that the community discussion may be archived. During
-the discussion phase, the sponsor should revise the PLEP in order to
-address concerns raised by the community. Others may propose changes as
-well. The discussion should continue until a general consensus among the
-PlasmaPy community has been reached.
+discussion should take place through normal communication channels
+such as the Matrix/Gitter channel, on the pull request on GitHub, and
+community meetings. Concerns that are raised should be constructive
+and made in accordance with the PlasmaPy code of conduct. Important
+points and relevant meeting minutes should be recorded as comments on
+the GitHub pull request so that the community discussion may be
+archived. During the discussion phase, the sponsor should revise the
+PLEP in order to address concerns raised by the community. Others may
+propose changes as well. The discussion should continue until a
+general consensus among the PlasmaPy community has been reached.
 
 The Coordinating Committee is tasked with making the final decision on
-the PLEP. A PLEP shall be accepted when approved by at least two-thirds
-of the Coordinating Committee.
+the PLEP. A PLEP shall be accepted when two-thirds of the Coordinating
+Committee either approves the pull request on GitHub or votes in
+support according to the procedures described in PLEP 2.
 
 PLEP status
 ~~~~~~~~~~~
@@ -180,12 +181,12 @@ The status of a standard or process PLEP may be any of the following:
    community feedback before a decision has been made. This is the
    default status for informational PLEPs that have been completed.
 
--  **Accepted**: The PLEP has been accepted and it will be assigned a
+- **Accepted**: The PLEP has been accepted and it will be assigned a
    number and merged into the PlasmaPy/PlasmaPy-PLEPs repository. A
-   decision rationale must be drafted and added to the PLEP by the
-   sponsor of the PLEP or by someone appointed by the Coordinating
-   Committee. Features proposed in standard PLEPs may now be
-   implemented. Process PLEPs come into effect when accepted.
+   decision rationale for standard PLEPs should be drafted and added
+   to the PLEP by the sponsor of the PLEP or by someone appointed by
+   the Coordinating Committee. Features proposed in standard PLEPs may
+   now be implemented. Process PLEPs come into effect when accepted.
 
 -  **Implemented**: The feature discussed in a standard PLEP has been
    fully implemented and merged into the main repository. At least half
@@ -214,12 +215,12 @@ when the PLEP is no longer relevant.
 Archiving PLEPs
 ~~~~~~~~~~~~~~~
 
-When a PLEP has been decided upon and the decision rationale has been
-incorporated into the text, the Coordinating Committee will upload the
-PLEP to `Zenodo <https://zenodo.org/>`__ for permanent archiving and so
-that the PLEP may get a Digital Object Identifier (DOI) and therefore be
-citable. The PLEP should be included as part of the `PlasmaPy Community
-on Zenodo <https://zenodo.org/communities/plasmapy/>`__. The title
-should be of the form “PlasmaPy Enhancement Proposal *number*: *title*”.
-All PLEPs on Zenodo should be versioned to allow for eventual amendments
-and revisions.
+When a PLEP has been decided upon and merged into the repository, the
+Coordinating Committee will upload the PLEP to `Zenodo
+<https://zenodo.org/>`__ for permanent archiving and so that the PLEP
+may get a Digital Object Identifier (DOI) and therefore be
+citable. The PLEP should be included as part of the `PlasmaPy
+Community on Zenodo <https://zenodo.org/communities/plasmapy/>`__. The
+title should be of the form “PlasmaPy Enhancement Proposal *number*:
+*title*”.  All PLEPs on Zenodo should be versioned to allow for
+eventual amendments and revisions.
