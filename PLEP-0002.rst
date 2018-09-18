@@ -12,7 +12,7 @@ PLEP-0002 – PlasmaPy Governance
 +-------------------+--------------------------+
 | date created      | 2017-11-15               |
 +-------------------+--------------------------+
-| date last revised | 2018-09-17               |
+| date last revised | 2018-09-18               |
 +-------------------+--------------------------+
 | type              | process                  |
 +-------------------+--------------------------+
@@ -120,9 +120,12 @@ determined, or seven days after the proposal has been sent out
 time when the outcome has been determined. Voting by proxy is not
 allowed.
 
-A PlasmaPy Enhancement Proposal (PLEP) shall be accepted if and only
-if two-thirds of all members of the CC either approve it on GitHub or
-vote in favor according to the procedures described in this section.
+A PlasmaPy Enhancement Proposal (PLEP) shall be accepted when at least
+two-thirds of the Coordinating Committee votes in favor of the PLEP.
+The vote may be taken in the discussion of the pull request on GitHub,
+over email, or at a Coordinating Committee meeting where voting is
+recorded in the minutes (as described in `PLEP 1
+<https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0001.md>`__).
 
 Meetings
 ~~~~~~~~
