@@ -164,9 +164,11 @@ propose changes as well. The discussion should continue until a
 general consensus among the PlasmaPy community has been reached.
 
 The Coordinating Committee is tasked with making the final decision on
-the PLEP. A PLEP shall be accepted when two-thirds of the Coordinating
-Committee either approves the pull request on GitHub or votes in
-support according to the procedures described in PLEP 2.
+the PLEP. A PLEP shall be accepted when at least two-thirds of the
+Coordinating Committee votes in favor of the PLEP.  The vote may be
+taken in the discussion of the pull request on GitHub, over email, or
+at a Coordinating Committee meeting where voting is recorded in the
+minutes.
 
 PLEP status
 ~~~~~~~~~~~
