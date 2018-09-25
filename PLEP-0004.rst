@@ -14,7 +14,7 @@ PLEP-0004 – Licensing of PlasmaPy Repositories
 +-------------------+--------------------------+
 | type              | process                  |
 +-------------------+--------------------------+
-| status            | in preparation           |
+| status            | accepted                 |
 +-------------------+--------------------------+
 
 Summary

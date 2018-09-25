@@ -5,8 +5,6 @@ PLEP-0003 – Members of Coordinating Committee
 +-------------------+-----------------------------------+
 | PLEP              | 3                                 |
 +===================+===================================+
-| title             | Members of Coordinating Committee |
-+-------------------+-----------------------------------+
 | author(s)         | Nick Murphy                       |
 +-------------------+-----------------------------------+
 | contact email     | namurphy@cfa.harvard.edu          |
