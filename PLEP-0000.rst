@@ -36,19 +36,19 @@ Accepted PLEPs
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
 | number | title                                                                     | author(s)                 | type          | DOI                                        |
 +========+===========================================================================+===========================+===============+============================================+
-| 1      | `Purpose and Guidelines for PlasmaPy Enhancement Proposals                | Nick Murphy               | process       |                                            |
+| 1      | `Purpose and Guidelines for PlasmaPy Enhancement Proposals                | Nicholas A. Murphy        | process       |                                            |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0001.rst>`__ |                           |               |                                            |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
-| 2      | `PlasmaPy Governance                                                      | Nick Murphy               | process       |                                            |
+| 2      | `PlasmaPy Governance                                                      | Nicholas A. Murphy        | process       |                                            |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0002.rst>`__ |                           |               |                                            |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
-| 4      | `Licensing of PlasmaPy Repositories                                       | Nick Murphy               | process       |                                            |
+| 4      | `Licensing of PlasmaPy Repositories                                       | Nicholas A. Murphy        | process       |                                            |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0004.rst>`__ |                           |               |                                            |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
-| 5      | `PlasmaPy Versioning and Releases                                         | Nick Murphy and           | process       |                                            |
-|        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0005.rst>`__ | Stuart Mumford            |               |                                            |
+| 5      | `PlasmaPy Versioning and Releases                                         | Nicholas A. Murphy and    | process       |                                            |
+|        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0005.rst>`__ | Stuart J. Mumford         |               |                                            |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
-| 6      | `A New General-Purpose Plasma Object                                      | Andrew Leonard            | standard      |                                            |
+| 6      | `A New General-Purpose Plasma Object                                      | Andrew J. Leonard         | standard      |                                            |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0007.rst>`__ |                           |               |                                            |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+--------------------------------------------+
 
