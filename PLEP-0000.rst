@@ -26,7 +26,7 @@ Informational PLEPs
 | number | title                                                                     | author(s)                 | type          | DOI                                         |
 +========+===========================================================================+===========================+===============+=============================================+
 | 0      | `Index of PlasmaPy Enhancement Proposals                                  | PlasmaPy Community        | informational | `10.5281/zenodo.1435972                     |
-|        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0000.rst>`__ |                           |               | <https://doi.org/10.5281/zenodo.1435972>`__ |                                           |
+|        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0000.rst>`__ |                           |               | <https://doi.org/10.5281/zenodo.1435972>`__ |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+---------------------------------------------+
 | 3      | `Members of Coordinating Committee                                        | PlasmaPy Community        | informational | `10.5281/zenodo.1435988                     |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0003.rst>`__ |                           |               | <https://doi.org/10.5281/zenodo.1435988>`__ |
