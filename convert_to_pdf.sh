@@ -26,7 +26,7 @@ authors=( \
     [0003]="PlasmaPy Community" \
     [0004]="Nicholas A. Murphy" \
     [0005]="Nicholas A. Murphy and Stuart J. Mumford" \
-    [0007]="Andrew J. Leonard" \
+    [0006]="Andrew J. Leonard" \
 )
 
 for rstfile in PLEP-????.rst; do

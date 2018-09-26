@@ -1,23 +1,17 @@
-
+=============================================
 PLEP-0003 – Members of Coordinating Committee
 =============================================
 
 +-------------------+-----------------------------------+
 | PLEP              | 3                                 |
 +===================+===================================+
-| title             | Members of Coordinating Committee |
-+-------------------+-----------------------------------+
-| author(s)         | Nick Murphy                       |
-+-------------------+-----------------------------------+
-| contact email     | namurphy@cfa.harvard.edu          |
+| author(s)         | PlasmaPy Community                |
 +-------------------+-----------------------------------+
 | date created      | 2017-09-29                        |
 +-------------------+-----------------------------------+
-| date last revised | 2017-11-13                        |
+| date last revised | 2018-09-26                        |
 +-------------------+-----------------------------------+
 | type              | informational                     |
-+-------------------+-----------------------------------+
-| status            | discussion                        |
 +-------------------+-----------------------------------+
 
 Abstract
@@ -31,17 +25,17 @@ Coordinating Committee Membership
 
 The PlasmaPy Coordinating Committee includes the following members:
 
-+------------------+---------------------------------------------+------------------+
-| Name             | Institution                                 | GitHub nickname  |
-+==================+=============================================+==================+
-| Drew Leonard     | Aperio Software                             | @SolarDrew       |
-+------------------+---------------------------------------------+------------------+
-| Nick Murphy      | Harvard-Smithsonian Center for Astrophysics | @namurphy        |
-+------------------+---------------------------------------------+------------------+
-| Tulasi Parashar  | University of Delaware                      | @tulasinandan    |
-+------------------+---------------------------------------------+------------------+
-| Dominik Stańczak | Warsaw University of Technology             | @StanczakDominik |
-+------------------+---------------------------------------------+------------------+
++------------------+---------------------------------------------+-----------------------------------------------------------+
+| Name             | Institution                                 | GitHub nickname                                           |
++==================+=============================================+===========================================================+
+| Drew Leonard     | Aperio Software                             | `@SolarDrew <https://github.com/SolarDrew>`__             |
++------------------+---------------------------------------------+-----------------------------------------------------------+
+| Nicholas Murphy  | Harvard-Smithsonian Center for Astrophysics | `@namurphy <https://github.com/namurphy>`__               |
++------------------+---------------------------------------------+-----------------------------------------------------------+
+| Tulasi Parashar  | University of Delaware                      | `@tulasinandan <https://github.com/tulasinandan>`__       |
++------------------+---------------------------------------------+-----------------------------------------------------------+
+| Dominik Stańczak | University of Warsaw                        | `@StanczakDominik <https://github.com/StanczakDominik>`__ |
++------------------+---------------------------------------------+-----------------------------------------------------------+
 
 The institutions of Coordinating Committee members are included for
 identification purposes only.
