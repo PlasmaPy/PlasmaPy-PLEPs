@@ -113,3 +113,9 @@ Untitled*
 untitled*
 *debuglog*
 .DS_Store
+
+# Generated files
+*.pdf
+*.ps
+*.eps
+*.dvi
