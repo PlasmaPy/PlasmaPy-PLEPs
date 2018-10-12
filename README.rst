@@ -29,6 +29,9 @@ convenience, an abbreviated index of PLEPs is provided below.
 | 4      | `Licensing of PlasmaPy Repositories <./PLEP-0004.rst>`__                         | .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1435990.svg |
 |        |                                                                                  |    :target: https://doi.org/10.5281/zenodo.1435990                 |
 +--------+----------------------------------------------------------------------------------+--------------------------------------------------------------------+
-| 6      | `A New General-Purpose Plasma Object <./PLEP-0006.rst>`__                        |                                                                    |
-|        |                                                                                  |                                                                    |
+| 5      | `PlasmaPy Versioning and Releases <./PLEP-0005.rst>`__                           | .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1451974.svg |
+|        |                                                                                  |    :target: https://doi.org/10.5281/zenodo.1451974                 |
++--------+----------------------------------------------------------------------------------+--------------------------------------------------------------------+
+| 6      | `A New General-Purpose Plasma Object <./PLEP-0006.rst>`__                        | .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.1460977.svg |
+|        |                                                                                  |    :target:  http://doi.org/10.5281/zenodo.1460977                 |
 +--------+----------------------------------------------------------------------------------+--------------------------------------------------------------------+
