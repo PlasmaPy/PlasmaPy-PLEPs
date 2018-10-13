@@ -48,7 +48,7 @@ Accepted PLEPs
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0004.rst>`__ |                           |               | <https://doi.org/10.5281/zenodo.1435990>`__ |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+---------------------------------------------+
 | 5      | `PlasmaPy Versioning and Releases                                         | Nicholas A. Murphy and    | process       | `10.5281/zenodo.1451974                     |
-|        |<https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0005.rst>`__  | Stuart J. Mumford         |               | <https://doi.org/10.5281/zenodo.1451974>`__ |
+|        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0005.rst>`__ | Stuart J. Mumford         |               | <https://doi.org/10.5281/zenodo.1451974>`__ |
 +--------+---------------------------------------------------------------------------+---------------------------+---------------+---------------------------------------------+
 | 6      | `A New General-Purpose Plasma Object                                      | Andrew J. Leonard         | standard      | `10.5281/zenodo.1460976                     |
 |        | <https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0006.rst>`__ |                           |               | <https://doi.org/10.5281/zenodo.1460976>`__ |
