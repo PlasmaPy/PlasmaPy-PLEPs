@@ -98,7 +98,7 @@ suggested outline that is most appropriate for a standard PLEP. Not
 all sections included in the template are required for every PLEP, and
 sometimes it is appropriate to create different sections.  PLEPs are
 written in the `reStructuredText
-<http://docutils.sourceforge.net/docs/ref/rst/introduction.html>`__.
+<http://docutils.sourceforge.net/docs/ref/rst/introduction.html>`__
 format.
 
 
