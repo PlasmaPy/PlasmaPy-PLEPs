@@ -1,0 +1,208 @@
+==============================================
+PLEP-0007 – A Next Generation Plasma Simulator
+==============================================
+
++-------------------+---------------------------------------------+
+| PLEP              | number                                      |
++===================+=============================================+
+| author(s)         | Nicholas A. Murphy                          |
++-------------------+---------------------------------------------+
+| contact email     | namurphy@cfa.harvard.edu                    |
++-------------------+---------------------------------------------+
+| date created      | 2018-12-17                                  |
++-------------------+---------------------------------------------+
+| date last revised | 2018-12-17                                  |
++-------------------+---------------------------------------------+
+| type              | standard                                    |
++-------------------+---------------------------------------------+
+| status            | discussion                                  |
++-------------------+---------------------------------------------+
+| DOI               |                                             |
+|                   |                                             |
++-------------------+---------------------------------------------+
+
+Abstract
+========
+
+This proposal describes the current status of simulation software in
+the plasma physics community and describes a next generation general
+purpose plasma simulation framework in the PlasmaPy ecosystem.  This
+plasma simulator should be developed with sufficient modularity and
+flexibility to enable straightforward switching of both physical
+models and numerical methods.
+
+Detailed Description
+====================
+
+Current Status of Plasma Simulation
+-----------------------------------
+
+* **Codes are usually written in low level compiled languages such as
+  Fortran and C.** While these compiled languages offer excellent
+  performance, code development is significantly slowed down because
+  the languages are not interactive and variable types must be
+  declared.
+
+* **Access to codes is commonly restricted in some way.** Closed
+  source codes hinder scientific reproducibility.  Open source codes
+  often have a lower density of bugs because more people are able to
+  review the code and make contributions.
+
+* **Codes often lack sufficient documentation.**  Often it is
+  necessary to work closely with a core developer of a code in order
+  to set up a problem.
+
+* **Code compilation and installation is often difficult and
+  time-consuming.** This is particularly true for codes that depend on
+  external libraries or include multiple languages.  Compilation often
+  requires detailed knowledge of makefiles which is a significant
+  barrier to entry for newcomers.  Lack of documentation on how to
+  compile code exacerbates this problem.
+
+* **Codes frequently lack unit testing and continuous integration
+  testing frameworks.** These testing strategies help us improve the
+  reliability of the code, track down bugs as soon as they appear, and
+  greatly reduce the likelihood that we will introduce bugs as we
+  modify or maintain the code.  Continuous integration testing
+  platforms such as Travis CI do not support direct testing of Fortran
+  code.
+
+* **Code is often diffucult to read.** Often code uses highly
+  abbreviated variable names that obfuscate what the variable
+  represents.
+
+* **Code is often difficult to maintain.**
+
+* **Benchmarking two algorithms or comparing physical models usually
+  requires setting up the same problem in multiple codes.** Usually
+  the same case must be set up by an experienced or expert user of
+  each code.  Often this requires careful discussions to make sure
+  that things like normalizations and boundary conditions are able to
+  be matched.  The data are often stored in different formats, so 
+
+* **The code for the problem setup, physical model, and numerical
+  method are often intertwined with each other.**  
+
+* **Simulation output is rarely stored in a standardized form.** Few
+  standards exist (with the exception of OpenPMD).  The lack of a
+  standardized format makes developing general purpose plotting
+  software much more difficult.
+
+* **Research projects involving plasma simulations are almost always
+  difficult to reproduce.**
+
+Development Principles
+----------------------
+
+* **Optimize for both productivity and performance.**  Plasma
+  simulation should be straightforward and not require expertise into
+  the details of the code.  Optimize code only after it works, and
+  then only after it becomes apparent what the bottlenecks are.
+
+* **Prioritize readability, usability, and maintainability.**  Code
+  should be straightforward to install.
+
+* **Prioritize documentation.**  The documentation should be
+  sufficient for a student taking their first plasma physics class to
+  be able to use it without too much difficulty.
+
+* **Make the code as modular as possible.**
+
+* **Use the SOLID principles for software development.**
+
+  - The *single responsibility principle*: There should never be more
+    than one reason for a class to change.
+
+  - The *open-closed principle*: Software entities (classes, modules,
+    functions, etc.) should be open for extension but closed for
+    modification.
+
+  - The *Liskov substitution principle*: Objects in a program should
+    be replaceable with instances of their subtypes without altering
+    the correctness of that program.
+
+  - The *interface segregation principle*: Clients should not be
+    forced to depend upon interfaces that they do not use.
+
+  - The *dependency inversion principle*: High level modules should
+    not depend upon low level modules.  Abstractions should not depend
+    upon details.  Details should depend upon abstractions.
+
+
+Implementation
+==============
+
+Choice of language
+------------------
+
+Most plasma simulation software is currently written in low level
+languages such as Fortran and C.  These languages offer excellent
+performance.  However, development tends to be slow because the
+languages are not interactive and types must be declared.
+
+Pure Python code is slow because Python is an interpreted language.
+Considerable speedup can be achieved using NumPy, though NumPy does
+not provide the performance of compiled languages.  Performance
+comparable to compiled languages can be achieved using several
+methods.  Python can call code from Fortran and C, but with the
+drawbacks that (1) the implementations in code are often clunkier; (2)
+developers must understand and maintain code in more than one
+language; and (3) difficulties with compilers sometimes arise.  Cython
+is a superset of the Python language.  By adding type declarations,
+Cython is able to generate C code from Python-like code which is then
+compiled in order to give very good performance.  In practice, we
+found Cython to be difficult to implement in PlasmaPy.  Numba provides
+a just-in-time compiler to get compiled speeds at run-time.  However,
+Numba compiles different functions separately and cannot do global
+optimizations.
+
+Julia is a new high-level open source language that synthesizes the
+best features of Fortran, C, Python, R, MATLAB, and Lisp for
+scientific computing.  Julia uses a just-in-time compiler with type
+inference and multiple dispatch to acheive performance comparable to C
+and Fortran.  Unlike C and Fortran, Julia can be run interactively
+which greatly speeds up code development and allows prototyping in the
+same language to be used for performance runs.  Julia natively
+supports parallelization and can call code from Fortran, C, and
+Python.  Julia proves that high performance can be acheived with a
+dynamic interactive language.
+
+Abstract Interfaces
+-------------------
+
+`Abstract base classes
+<https://docs.python.org/3.7/library/abc.html>`_ (ABCs) in Python
+allow users to define what methods and attributes must be defined in a
+subclass of that ABC.  This functionality is used in PlasmaPy's
+``Plasma`` class.  An equivalent to ABCs has not yet been implemented
+in Julia (see `Julia issue #6875 on GitHub
+<https://github.com/JuliaLang/julia/issues/6975>`_).  An alternative
+to ABCs would be to create a macro that checks that a particular class
+or class instance has all of the required methods.
+
+Python interface
+----------------
+
+The implementation shall be written entirely in Julia, but shall have
+a Python interface.  The interface may either be included in the
+PlasmaPy core package or as an affiliated package.
+
+Issues, Pull Requests, and Branches
+===================================
+
+
+
+Backward Compatibility
+======================
+
+Creation of this general purpose plasma simulator may necessitate
+changes to base classes such as ``Plasma`` which are still under
+development.
+
+Alternatives
+============
+
+
+
+Decision Rationale
+==================
