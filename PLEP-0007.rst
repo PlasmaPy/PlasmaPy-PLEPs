@@ -11,7 +11,7 @@ PLEP-0007 – A Next Generation Plasma Simulator
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2018-12-17                                  |
+| date last revised | 2018-12-18                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -31,11 +31,22 @@ plasma simulator should be developed with sufficient modularity and
 flexibility to enable straightforward switching of both physical
 models and numerical methods.
 
-Detailed Description
-====================
+*Due to the magnitude of this project, this PLEP will be implemented
+only if sufficient funding for code development becomes available.*
+
+Background
+==========
+
+Numerical simulation is a powerful research tool that allows us to
+investigate plasma phenomena such as disruptions in tokamaks, solar
+eruptions, and accretion into black holes.  Numerical methods for
+plasma simulation are continually advancing.  
 
 Current Status of Plasma Simulation
 -----------------------------------
+
+* **Development of numerical methods for plasma simulations are very
+  advanced.**
 
 * **Codes are usually written in low level compiled languages such as
   Fortran and C.** While these compiled languages offer excellent
@@ -71,8 +82,6 @@ Current Status of Plasma Simulation
   abbreviated variable names that obfuscate what the variable
   represents.
 
-* **Code is often difficult to maintain.**
-
 * **Benchmarking two algorithms or comparing physical models usually
   requires setting up the same problem in multiple codes.** Usually
   the same case must be set up by an experienced or expert user of
@@ -81,18 +90,27 @@ Current Status of Plasma Simulation
   be matched.  The data are often stored in different formats, so 
 
 * **The code for the problem setup, physical model, and numerical
-  method are often intertwined with each other.**  
+  method are often intertwined with each other.**  When these aspects
 
 * **Simulation output is rarely stored in a standardized form.** Few
   standards exist (with the exception of OpenPMD).  The lack of a
   standardized format makes developing general purpose plotting
   software much more difficult.
 
-* **Research projects involving plasma simulations are almost always
-  difficult to reproduce.**
+* **Code is often difficult to maintain.**
+
+* **Research projects involving plasma simulations are difficult to
+  reproduce.**
+
+Detailed Description
+====================
+
+
+
+
 
 Development Principles
-----------------------
+======================
 
 * **Optimize for both productivity and performance.**  Plasma
   simulation should be straightforward and not require expertise into
@@ -128,33 +146,11 @@ Development Principles
     not depend upon low level modules.  Abstractions should not depend
     upon details.  Details should depend upon abstractions.
 
-
 Implementation
 ==============
 
 Choice of language
 ------------------
-
-Most plasma simulation software is currently written in low level
-languages such as Fortran and C.  These languages offer excellent
-performance.  However, development tends to be slow because the
-languages are not interactive and types must be declared.
-
-Pure Python code is slow because Python is an interpreted language.
-Considerable speedup can be achieved using NumPy, though NumPy does
-not provide the performance of compiled languages.  Performance
-comparable to compiled languages can be achieved using several
-methods.  Python can call code from Fortran and C, but with the
-drawbacks that (1) the implementations in code are often clunkier; (2)
-developers must understand and maintain code in more than one
-language; and (3) difficulties with compilers sometimes arise.  Cython
-is a superset of the Python language.  By adding type declarations,
-Cython is able to generate C code from Python-like code which is then
-compiled in order to give very good performance.  In practice, we
-found Cython to be difficult to implement in PlasmaPy.  Numba provides
-a just-in-time compiler to get compiled speeds at run-time.  However,
-Numba compiles different functions separately and cannot do global
-optimizations.
 
 Julia is a new high-level open source language that synthesizes the
 best features of Fortran, C, Python, R, MATLAB, and Lisp for
@@ -190,7 +186,7 @@ PlasmaPy core package or as an affiliated package.
 Issues, Pull Requests, and Branches
 ===================================
 
-
+* 
 
 Backward Compatibility
 ======================
@@ -202,7 +198,63 @@ development.
 Alternatives
 ============
 
+Julia is not the only language that could be used for this project.
+The main alternatives are listed below.  The most significant
+disadvantages are shown in bold.
 
+* **Fortran**, **C**, or **C++**
+  - Advantages
+    - Exceptional performance as a compiled language
+    - Many plasma physicists have considerable knowledge and
+      experience with these languages
+    - Can call code from Python
+  - Disadvantages
+    - **Development is greatly slowed because the language is not
+      interactive**
+    - Code in these languages is often several times the length of
+      equivalent code in Julia or Python
+    - Continuous integration testing platforms such as Travis CI do
+      not directly support testing of Fortran code
+    - Experience with Fortran is less likely to be helpful for plasma
+      physics students who find jobs outside of research and academia
+
+* **Python with NumPy**
+  - Advantages
+    - Fast development
+    - No need to compile code
+  - Disadvantage
+    - **Slow performance as an interpreted language**
+    - NumPy does not offer a sufficient speedup
+
+* **Python with Cython**
+  - Advantages
+    - Because Cython allows us to generate C code from Python-like
+      code, we are able to get compiled speeds
+    - Allows for a Python interface
+  - Disadvantages
+    - **Difficult to work with and maintain**
+
+* **Python with Numba**
+  - Advantages
+    - Uses a just-in-time compiler to get compiled speeds
+    - Often decorating a function with ``numba.jit`` is enough to get
+      compiled speeds
+  - Disadvantages
+    - Because Numba compiles one function at a time, it may be unable
+      to do global optimizations while compiling
+    - **Does not yet provide a full language solution to the
+      performance vs. productivity conundrum**
+
+* **LuaJIT**
+  - Advantages
+    - Uses a just-in-time compiler to get compiled speeds
+    - Offers exceptional performance, including for graphical
+      processing units (GPUs)
+  - Disadvantages
+    - **Less active community surrounding scientific LuaJIT**
+    - Fewer scientific libraries written in LuaJIT
 
 Decision Rationale
 ==================
+
+This PLEP has not been decided upon yet.
