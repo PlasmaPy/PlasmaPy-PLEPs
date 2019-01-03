@@ -11,7 +11,7 @@ PLEP-0007 – A Next Generation Plasma Simulator
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2018-12-18                                  |
+| date last revised | 2019-01-02                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -40,19 +40,21 @@ Background
 Numerical simulation is a powerful research tool that allows us to
 investigate plasma phenomena such as disruptions in tokamaks, solar
 eruptions, and accretion into black holes.  Numerical methods for
-plasma simulation are continually advancing.  
+plasma simulation are continually advancing.
 
 Current Status of Plasma Simulation
 -----------------------------------
 
-* **Development of numerical methods for plasma simulations are very
-  advanced.**
+* **Numerical methods for plasma simulations are very advanced.**
+  Plasma scientists have developed highly sophisticated numerical
+  methods for simulating the behavior of laboratory, heliospheric,
+  space, and astrophysical plasmas.
 
-* **Codes are usually written in low level compiled languages such as
-  Fortran and C.** While these compiled languages offer excellent
-  performance, code development is significantly slowed down because
-  the languages are not interactive and variable types must be
-  declared.
+* **Plasma simulation codes are usually written in low level compiled
+  languages such as Fortran and C.** While these compiled languages
+  offer excellent performance, code development is significantly slowed
+  down because the languages are not interactive and variable types must
+  be declared.
 
 * **Access to codes is commonly restricted in some way.** Closed
   source codes hinder scientific reproducibility.  Open source codes
@@ -71,23 +73,21 @@ Current Status of Plasma Simulation
   compile code exacerbates this problem.
 
 * **Codes frequently lack unit testing and continuous integration
-  testing frameworks.** These testing strategies help us improve the
+  testing frameworks.**  These testing strategies help us improve the
   reliability of the code, track down bugs as soon as they appear, and
   greatly reduce the likelihood that we will introduce bugs as we
-  modify or maintain the code.  Continuous integration testing
-  platforms such as Travis CI do not support direct testing of Fortran
-  code.
+  modify or maintain the code.
 
-* **Code is often diffucult to read.** Often code uses highly
+* **Code is often difficult to read.**  Codes commonly use highly
   abbreviated variable names that obfuscate what the variable
-  represents.
+  represents, especially when there are no comments that describe what
 
 * **Benchmarking two algorithms or comparing physical models usually
   requires setting up the same problem in multiple codes.** Usually
   the same case must be set up by an experienced or expert user of
   each code.  Often this requires careful discussions to make sure
   that things like normalizations and boundary conditions are able to
-  be matched.  The data are often stored in different formats, so 
+  be matched.  The data are often stored in different formats, so
 
 * **The code for the problem setup, physical model, and numerical
   method are often intertwined with each other.**  When these aspects
@@ -99,12 +99,47 @@ Current Status of Plasma Simulation
 
 * **Code is often difficult to maintain.**
 
-* **Research projects involving plasma simulations are difficult to
-  reproduce.**
+* **Research projects involving plasma simulations are usually very
+  difficult to reproduce.**
+
+Project Goals
+=============
+
+We propose to develop a flexible open source framework for plasma
+simulation.  The choice of Julia will allow us to optimize both
+performance and productivity.  Julia's use of a JIT compiler allows
+programs to achieve performance comparable to compiled languages like
+Fortran and C.  Productivity is enhanced because Julia is a dynamically
+typed language that can be used interactively and because
+parallelization is a built-in feature of the language.  Flexibility will
+be achieved by taking a modular approach and using well-defined abstract
+interfaces.
 
 Detailed Description
 ====================
 
+Project Goals
+-------------
+
+* **Allow users to perform high quality plasma simulations with the
+  minimal amount of effort and required knowledge.**
+
+* **Allow users to switch between physical models and numerical methods
+  with minimal effort.**
+
+* **Optimize for both productivity and performance.**
+
+* **Code should be readable, and self-documenting when possible.**
+
+* **Provide readable and maintainable code.**  Code should be
+  self-documenting when possible.
+
+* **Make it hard for users to make mistakes.**
+
+* **Provide a package that can be installed in one or two lines.**
+
+* **Begin development using well-understood, published numerical
+  methods.**
 
 
 
@@ -112,19 +147,38 @@ Detailed Description
 Development Principles
 ======================
 
-* **Optimize for both productivity and performance.**  Plasma
-  simulation should be straightforward and not require expertise into
-  the details of the code.  Optimize code only after it works, and
-  then only after it becomes apparent what the bottlenecks are.
+* **Make the code as modular as possible.**
 
-* **Prioritize readability, usability, and maintainability.**  Code
-  should be straightforward to install.
+* **Optimize for both productivity and performance.**  Plasma simulation
+  should be straightforward.  Running plasma simulations should not
+  require expertise into the details of the code.  Code should be
+  optimized for performance only after it works, and then only after it
+  becomes apparent what the bottlenecks are.
+
+* **Prioritize usability, readability, and maintainability.**  Code
+  should be straightforward to install.  The packages resulting from
+  this project should all be installable by using Julia's built-in
+  package manager.
+
+* **The software should be easy to install.**  The plasma simulation
+  package should be installable using Julia's built-in package manager.
+  Users shall not be required to run bash scripts or install libraries.
 
 * **Prioritize documentation.**  The documentation should be
   sufficient for a student taking their first plasma physics class to
   be able to use it without too much difficulty.
 
-* **Make the code as modular as possible.**
+* **Prioritize flexible numerical methods.**  There are a number of
+  numerical methods that have been developed for systems of equations
+  written in conservative form.
+
+* **Minimize the amount of work and knowledge required by the end
+  user.**
+
+* **Make it difficult for users to make silent mistakes.**
+
+* **Make it straightforward to perform convergence studies and to test
+  solutions using different numerical methods.**
 
 * **Use the SOLID principles for software development.**
 
@@ -160,8 +214,8 @@ and Fortran.  Unlike C and Fortran, Julia can be run interactively
 which greatly speeds up code development and allows prototyping in the
 same language to be used for performance runs.  Julia natively
 supports parallelization and can call code from Fortran, C, and
-Python.  Julia proves that high performance can be acheived with a
-dynamic interactive language.
+Python.  Julia proves that high performance can be achieved with a
+dynamically typed interactive language.
 
 Abstract Interfaces
 -------------------
@@ -185,8 +239,6 @@ PlasmaPy core package or as an affiliated package.
 
 Issues, Pull Requests, and Branches
 ===================================
-
-* 
 
 Backward Compatibility
 ======================
@@ -214,7 +266,7 @@ disadvantages are shown in bold.
     - Code in these languages is often several times the length of
       equivalent code in Julia or Python
     - Continuous integration testing platforms such as Travis CI do
-      not directly support testing of Fortran code
+      not support direct testing of Fortran code
     - Experience with Fortran is less likely to be helpful for plasma
       physics students who find jobs outside of research and academia
 
@@ -232,7 +284,7 @@ disadvantages are shown in bold.
       code, we are able to get compiled speeds
     - Allows for a Python interface
   - Disadvantages
-    - **Difficult to work with and maintain**
+    - **Cython is difficult to work with and maintain**
 
 * **Python with Numba**
   - Advantages
