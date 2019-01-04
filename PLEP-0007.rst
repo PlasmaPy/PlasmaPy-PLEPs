@@ -42,8 +42,34 @@ investigate plasma phenomena such as disruptions in tokamaks, solar
 eruptions, and accretion into black holes.  Numerical methods for
 plasma simulation are continually advancing.
 
-Current Status of Plasma Simulation
------------------------------------
+
+Major problems include:
+
+* Verification and validation (how do we compare against reality?)
+
+Open source plasma simulation codes include:
+
+Current Status of Plasma Simulation Research
+--------------------------------------------
+
+Major successes include:
+
+* Highly sophisticated simulations of tokamaks
+
+* Reaching petascale computing
+
+* Turbulence studies
+
+* GRMHD, simulation of plasmas in extreme environments
+
+Sample major topics include:
+
+* Whole device simulation of tokamaks
+* Multi-scale simulations of magnetic reconnection in the solar corona
+  (where PIC and fluid codes are important)
+
+Current Status of Plasma Simulation Software
+--------------------------------------------
 
 * **Numerical methods for plasma simulations are very advanced.**
   Plasma scientists have developed highly sophisticated numerical
@@ -115,12 +141,6 @@ parallelization is a built-in feature of the language.  Flexibility will
 be achieved by taking a modular approach and using well-defined abstract
 interfaces.
 
-Detailed Description
-====================
-
-Project Goals
--------------
-
 * **Allow users to perform high quality plasma simulations with the
   minimal amount of effort and required knowledge.**
 
@@ -141,11 +161,156 @@ Project Goals
 * **Begin development using well-understood, published numerical
   methods.**
 
+Anticipated User Experience
+===========================
+
+A requirement of this package is to allow users to specify the problem
+setup, physical model, and numerical method as independently as
+possible.  This separation of responsibilities is necessary to allow
+users to straightforwardly switch between different systems of equations
+and computational algorithms.
+
+Users will first create a problem setup object or module that should
+contain all of the information necessary to set up a simulation
+independent of physical model and numerical method.
+
+* Coordinate system
+* Physical domain
+* Initial conditions
+* Boundary conditions
+* Time interval
+
+The choice of coordinate system will provide the dimensionality (i.e.,
+if the simulation is 1D, 2D, or 3D).  The physical domain should be
+capable of being multiply connected or with a more complicated geometry
+(such as a stellarator).  The initial and boundary conditions will
+provide a list of the dependent variables.  The initial conditions
+should be able to be specified by
+
+* Choosing a pre-defined standard setup
+* Specifying functions for different fields
+* Passing in arrays of values
+* Using helper tools such as a Grad-Shafranov solver
+
+The boundary conditions should be able to be specified by
+
+* Choosing pre-defined boundary conditions (e.g., periodic or no-slip
+  conducting wall boundaries)
+* Specifying functions for different fields along different boundaries
+
+For fluid simulations, users will create a physical model object that
+contains the system of equations.
 
 
+.. Users will next define the system of equations or physical model to be
+   solved.  It is at this point that users will choose the style of
+   simulation (including but not limited to fluid, particle-in-cell, and
+   hybrid approaches).  The physical model will be checked to be consistent
+   with the initial and boundary conditions.
+
+.. Users will then define the numerical method and specify inputs for the
+
+.. Users define the problem setup.  This is done independently of the
+    physical model (with the caveat that all fields have to be defined or
+    assumed to be zero, and also be physically realizable).  The package
+    will check that all three are consistent with each other.
+  - Physical domain
+    - Coordinate system
+    - Dimensionality
+    - Size
+    - Allow for multiply connected geometries (like in MRX)
+  - Initial conditions
+  - Boundary conditions
+    - Have pre-set BCs for things like a conducting wall.  BCs can be
+      messy to implement, like putting them into a
+* Users define the physical model.
+  - Options for user input
+    - Pre-defined sets of equations with options to specify different
+      coefficients (like resistive MHD with uniform, Spitzer, anomalous,
+      or a user-defined function)
+    - List of strings containing the different equations
+  - If the equations are in conservative form (including with sources
+    and sinks) then
+  - We can have pre-defined sets of equations
+  - We can have pre-defined sets of equations as a string (including
+    unicode characters) following Dedalus approach
+    - This can be done best if numerical method can be automagically
+      generated
+    - Julia allows us to pass functions around as arguments (A function
+      can have a function as an argument, and a function can return a
+      function)
+  - We can sometimes use pre-set equations (like resistive MHD, with
+    uniform or temperature dependent or anomalous resistivity)
+  - Numerical method
+  * Post-processing
+  - Maybe we could create a function that automatically writes text that
+    describes the numerical method and such.
+
+Proposed Package Structure
+==========================
+
+.. Mathematical functions
+  - Basis functions that are not defined in other packages
+  * Physics coefficients
+  - Resistivities
+  - Transport coefficients
+  - Plasma parameters
+  * Built-in grid tools
+  - Methods for creating a grid
+  - Should be able to define:
+    - Finite difference grids (including staggered grids)
+    - Finite volume grids (including staggered grids)
+    - Finite element and spectral element grids
+      - Including for multiply defined geometries
+  - Ways to specify grids for finite difference and finite volume
+    methods (including on staggered grids)
+  - Ways to specify grids
+
+Choice of language
+==================
+
+Julia is a new high-level open source language that synthesizes the best
+features of Fortran, C, Python, R, MATLAB, and Lisp for scientific
+computing.  Julia uses a just-in-time (JIT) compiler with type inference
+and multiple dispatch to achieve performance comparable to C and
+Fortran.  Unlike C and Fortran, Julia can be run interactively and does
+not require type declarations.  These features greatly speed up code
+development by allowing prototyping in the same language to be used for
+performance runs.  Julia natively supports parallelization, and has been
+used to achieve petascale computing.  **Julia proves that high
+performance can be achieved with a dynamically typed interactive
+language without sacrificing usability.**
+
+Julia can call code from Fortran and C, and can act as a wrapper for
+codes written in these compiled languages.  The main drawback of this
+approach is that the resulting code would be harder to maintain because
+developers would need to know two or three languages.  A potential
+drawback is that problems can arise in practice when code in one
+language is called from a different language.  Global optimizations
+might also not be possible when mixing more than one language (though
+Julia may become capable of optimizations across language boundaries in
+the future.  If possible, the package itself should be written entirely
+in Julia and depend only on packages that can be installed using Julia's
+built-in package manager.  Users shall *not* be required to compile or
+install any external libraries or use any shell scripts.
+
+The implementation shall be written entirely in Julia, but shall have a
+Python interface.  The interface may either be included in the PlasmaPy
+core package or in an affiliated package.  The ``Plasma`` class should
+be able to handle the output of simulations performed using this plasma
+simulation framework.
 
 Development Principles
 ======================
+
+* **Optimize for both productivity and performance.**  With Julia, it is
+  possible to have the performance of a compiled language with the
+
+.. Plasma simulation
+  should be straightforward
+
+* **Develop the overall architecture under the point of view that we
+  have not decided on the numerical method or physical model yet.**
 
 * **Make the code as modular as possible.**
 
@@ -200,22 +365,8 @@ Development Principles
     not depend upon low level modules.  Abstractions should not depend
     upon details.  Details should depend upon abstractions.
 
-Implementation
-==============
-
-Choice of language
-------------------
-
-Julia is a new high-level open source language that synthesizes the
-best features of Fortran, C, Python, R, MATLAB, and Lisp for
-scientific computing.  Julia uses a just-in-time compiler with type
-inference and multiple dispatch to acheive performance comparable to C
-and Fortran.  Unlike C and Fortran, Julia can be run interactively
-which greatly speeds up code development and allows prototyping in the
-same language to be used for performance runs.  Julia natively
-supports parallelization and can call code from Fortran, C, and
-Python.  Julia proves that high performance can be achieved with a
-dynamically typed interactive language.
+Implementation Notes
+====================
 
 Abstract Interfaces
 -------------------
@@ -229,13 +380,6 @@ in Julia (see `Julia issue #6875 on GitHub
 <https://github.com/JuliaLang/julia/issues/6975>`_).  An alternative
 to ABCs would be to create a macro that checks that a particular class
 or class instance has all of the required methods.
-
-Python interface
-----------------
-
-The implementation shall be written entirely in Julia, but shall have
-a Python interface.  The interface may either be included in the
-PlasmaPy core package or as an affiliated package.
 
 Issues, Pull Requests, and Branches
 ===================================
