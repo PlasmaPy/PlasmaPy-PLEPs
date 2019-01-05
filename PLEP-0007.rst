@@ -170,6 +170,9 @@ possible.  This separation of responsibilities is necessary to allow
 users to straightforwardly switch between different systems of equations
 and computational algorithms.
 
+Defining the problem
+--------------------
+
 Users will first create a problem setup object or module that should
 contain all of the information necessary to set up a simulation
 independent of physical model and numerical method.
@@ -182,25 +185,33 @@ independent of physical model and numerical method.
 
 The choice of coordinate system will provide the dimensionality (i.e.,
 if the simulation is 1D, 2D, or 3D).  The physical domain should be
-capable of being multiply connected or with a more complicated geometry
-(such as a stellarator).  The initial and boundary conditions will
-provide a list of the dependent variables.  The initial conditions
-should be able to be specified by
+capable of being multiply connected or a more complicated geometry (such
+as a stellarator).  The initial and boundary conditions will provide a
+list of the dependent variables.  The initial conditions should be able
+to be specified by:
 
 * Choosing a pre-defined standard setup
 * Specifying functions for different fields
 * Passing in arrays of values
 * Using helper tools such as a Grad-Shafranov solver
 
-The boundary conditions should be able to be specified by
+The boundary conditions should be able to be specified by:
 
 * Choosing pre-defined boundary conditions (e.g., periodic or no-slip
   conducting wall boundaries)
-* Specifying functions for different fields along different boundaries
+* Specifying functions or conditions that need to be met for different
+  fields along different boundaries
 
-For fluid simulations, users will create a physical model object that
-contains the system of equations.
+Specifying the numerical method
+-------------------------------
 
+.. Right now I am not certain how to deal with boundary conditions, and
+   how we could treat them similarly for fluid and PIC simulations.
+   If we have a problem setup for a fluid case that has Dirichlet BCs
+   for density, then how do we transfer that to a PIC case?  Should we
+   have BCs defined separately?  Or include them in the numerical method
+   definition maybe?  Maybe we should have a way to convert a fluid
+   simulation setup into a PIC
 
 .. Users will next define the system of equations or physical model to be
    solved.  It is at this point that users will choose the style of
@@ -306,9 +317,6 @@ Development Principles
 * **Optimize for both productivity and performance.**  With Julia, it is
   possible to have the performance of a compiled language with the
 
-.. Plasma simulation
-  should be straightforward
-
 * **Develop the overall architecture under the point of view that we
   have not decided on the numerical method or physical model yet.**
 
@@ -367,6 +375,19 @@ Development Principles
 
 Implementation Notes
 ====================
+
+Boundary Conditions
+-------------------
+
+A goal of this effort is to make the setup of fluid, particle, and
+hybrid simulations as similar as possible.  Ideally, the same problem
+setup object should be able to be used to initialize all of these
+different types of simulations as similarly as possible.  However, the
+formulation of boundary conditions between fluid and PIC simulations can
+be substantially different and potentially incompatible.
+
+.. I'm not sure how to handle this yet, particularly because I do not
+   know enough about boundary conditions for PIC simulations. -Nick
 
 Abstract Interfaces
 -------------------
