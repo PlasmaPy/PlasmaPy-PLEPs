@@ -11,7 +11,7 @@ PLEP-0007 – A Next Generation Plasma Simulator
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2019-01-02                                  |
+| date last revised | 2019-02-11                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -24,140 +24,158 @@ PLEP-0007 – A Next Generation Plasma Simulator
 Abstract
 ========
 
-This proposal describes the current status of simulation software in
-the plasma physics community and describes a next generation general
-purpose plasma simulation framework in the PlasmaPy ecosystem.  This
-plasma simulator should be developed with sufficient modularity and
-flexibility to enable straightforward switching of both physical
-models and numerical methods.
+Most plasma simulation codes are written in low-level compiled
+languages, solve a particular class of equations, and use a specific
+numerical method.  These codes often lack sufficient documentation and
+tests, and are difficult to install and modify.  Codes tend to not be
+interoperable with each other: if you wish to change numerical
+methods, compare different classes of equations, or perform a
+benchmark, then you generally need to set up the same problem in a
+different code.
 
-*Due to the magnitude of this project, this PLEP will be implemented
-only if sufficient funding for code development becomes available.*
+This proposal describes a plan for a modular plasma simulation
+framework within the PlasmaPy ecosystem.  The framework will be
+written in Julia and also have a Python interface.  The initial
+conditions and domain specification will be defined separately from
+the system of equations and numerical method.  Consequently, the same
+problem setup can be used for different systems of equations and
+numerical methods.  The users will be able to input the system of
+equations and boundary conditions in strings that will be interpreted
+by the framework.  Tools to discretize the system of equations
+directly will be used when possible to maximize flexibility.  The
+framework will be capable of performing fluid, kinetic, and hybrid
+simulations.  The output will be provided in standardized forms.
 
 Background
 ==========
 
 Numerical simulation is a powerful research tool that allows us to
-investigate plasma phenomena such as disruptions in tokamaks, solar
-eruptions, and accretion into black holes.  Numerical methods for
-plasma simulation are continually advancing.
+investigate plasma phenomena such as tokamak disruptions, solar
+eruptions, geomagnetic storms, and accretion into black holes.
+Numerical simulations can be used to understand experiments and act as
+a bridge between laboratory, heliospheric, and astrophysical plasma
+phenomena.  The numerical techniques used to simulate plasmas are
+sophisticated and continually advancing.  It is essential that the
+PlasmaPy ecosystem include flexible plasma simulation capabilities
+that allow for high performance but without sacrificing usability.
 
-
-Major problems include:
-
-* Verification and validation (how do we compare against reality?)
-
-Open source plasma simulation codes include:
-
-Current Status of Plasma Simulation Research
+Current status of plasma simulation software
 --------------------------------------------
 
-Major successes include:
+Before 
 
-* Highly sophisticated simulations of tokamaks
+* **Numerical methods for plasma simulations are highly advanced.**
+  Plasma scientists have developed and implemented highly
+  sophisticated numerical methods for simulating the behavior of
+  laboratory, heliospheric, space, and astrophysical plasmas in a wide
+  variety of different regimes.
 
-* Reaching petascale computing
+* **Plasma simulation codes are usually written in compiled languages
+  such as Fortran and C.** These compiled languages offer excellent
+  performance, but code development is slower because these languages
+  are not interactive and types must be declared.
 
-* Turbulence studies
+* **Access to codes is commonly restricted in some way.** Plasma
+  simulation codes are often not released under an open source
+  license, especially for codes used to simulate burning plasmas.
+  Often prospective users must sign a user agreement form that
+  restricts modification and/or redistribution.  
 
-* GRMHD, simulation of plasmas in extreme environments
+..  Using open source codes greatly improves scientific
+    reproducibility.  Open source codes often have a lower density of
+    bugs because more people are able to review the code and make
+    contributions.
 
-Sample major topics include:
+* **Codes often lack sufficient documentation.** Scientists are
+  generally under high pressure to publish in order to get tenure, win
+  grants, or get hired for their next job.  Documentation then becomes
+  a lower priority.  When documentation is inadequate, it is often
+  necessary to work closely with a core developer with limited time in
+  order to set up or modify a problem.
 
-* Whole device simulation of tokamaks
-* Multi-scale simulations of magnetic reconnection in the solar corona
-  (where PIC and fluid codes are important)
-
-Current Status of Plasma Simulation Software
---------------------------------------------
-
-* **Numerical methods for plasma simulations are very advanced.**
-  Plasma scientists have developed highly sophisticated numerical
-  methods for simulating the behavior of laboratory, heliospheric,
-  space, and astrophysical plasmas.
-
-* **Plasma simulation codes are usually written in low level compiled
-  languages such as Fortran and C.** While these compiled languages
-  offer excellent performance, code development is significantly slowed
-  down because the languages are not interactive and variable types must
-  be declared.
-
-* **Access to codes is commonly restricted in some way.** Closed
-  source codes hinder scientific reproducibility.  Open source codes
-  often have a lower density of bugs because more people are able to
-  review the code and make contributions.
-
-* **Codes often lack sufficient documentation.**  Often it is
-  necessary to work closely with a core developer of a code in order
-  to set up a problem.
-
-* **Code compilation and installation is often difficult and
-  time-consuming.** This is particularly true for codes that depend on
-  external libraries or include multiple languages.  Compilation often
-  requires detailed knowledge of makefiles which is a significant
+* **Installing and compiling codes is often difficult and
+  time-consuming.** When plasma codes depend on external libraries or
+  include multiple languages, users must often change compiler flags
+  or edit make files.  This requirement can provide a significant
   barrier to entry for newcomers.  Lack of documentation on how to
-  compile code exacerbates this problem.
+  install and compile code can exacerbate this problem.
 
 * **Codes frequently lack unit testing and continuous integration
-  testing frameworks.**  These testing strategies help us improve the
+  testing frameworks.** These testing strategies help to improve the
   reliability of the code, track down bugs as soon as they appear, and
-  greatly reduce the likelihood that we will introduce bugs as we
-  modify or maintain the code.
+  greatly reduce the likelihood that new bugs will be introduced when
+  the code is modified or maintained.
 
-* **Code is often difficult to read.**  Codes commonly use highly
-  abbreviated variable names that obfuscate what the variable
-  represents, especially when there are no comments that describe what
-
-* **Benchmarking two algorithms or comparing physical models usually
-  requires setting up the same problem in multiple codes.** Usually
-  the same case must be set up by an experienced or expert user of
-  each code.  Often this requires careful discussions to make sure
-  that things like normalizations and boundary conditions are able to
-  be matched.  The data are often stored in different formats, so
-
-* **The code for the problem setup, physical model, and numerical
-  method are often intertwined with each other.**  When these aspects
+* **Code is often difficult to read.** Codes commonly use highly
+  abbreviated names that obfuscate the meanings of variables,
+  functions, and classes.  Often there are no or inadequate comments
+  to describe the meanings of these objects.
 
 * **Simulation output is rarely stored in a standardized form.** Few
-  standards exist (with the exception of OpenPMD).  The lack of a
-  standardized format makes developing general purpose plotting
-  software much more difficult.
+  standards or specifications exist for the storage of plasma
+  simulation output (with the exception of OpenPMD).  When output is
+  not kept in a standardized form, then different software is needed
+  to access and analyze the results.  The shortage of standardized
+  formats makes it more difficult to develop general purpose analysis
+  and plotting software.
 
-* **Code is often difficult to maintain.**
+.. The way yt does it, I think, is to have different software to read
+   in the outputs of different simulations.  We could incorporate our
+   new standards into yt.
+  
+* **Benchmarking algorithms or comparing physical models usually
+  requires setting up the same problem for multiple codes.** Each code
+  generally has unique methods for defining initial conditions,
+  boundary conditions, and the computational domain.  The problem
+  setup for one code cannot be easily transferred to another code.
+  Typically the same case must be set up by an experienced user of
+  each code.  Often benchmarks requires careful discussions to make
+  sure that normalizations and boundary conditions are able to be
+  matched, and different analysis software must often be used.
 
-* **Research projects involving plasma simulations are usually very
-  difficult to reproduce.**
+.. * **The code for the problem setup, physical model, and numerical
+   method are often intertwined with each other.**  When these aspects
+
+.. * **Code is often difficult to maintain.**
+
+.. * **Research projects involving plasma simulations are usually very
+    difficult to reproduce.**
 
 Project Goals
 =============
 
-We propose to develop a flexible open source framework for plasma
-simulation.  The choice of Julia will allow us to optimize both
-performance and productivity.  Julia's use of a JIT compiler allows
-programs to achieve performance comparable to compiled languages like
-Fortran and C.  Productivity is enhanced because Julia is a dynamically
-typed language that can be used interactively and because
-parallelization is a built-in feature of the language.  Flexibility will
-be achieved by taking a modular approach and using well-defined abstract
-interfaces.
+We propose to develop a flexible modular open source framework for
+plasma simulation as part of the PlasmaPy ecosystem.  We will develop
+this framework using Julia (with a Python interface) so that we may
+optimize both performance and productivity.  Julia's use of a JIT
+compiler allows programs to achieve performance comparable to compiled
+languages like Fortran and C.  Productivity is enhanced because Julia
+is a dynamically typed language that can be used interactively and
+because parallelization is a built-in feature of the language.
+Flexibility will be achieved by taking a modular approach and using
+well-defined abstract interfaces.
+
+The highly ambitious development goals are to:
 
 * **Allow users to perform high quality plasma simulations with the
   minimal amount of effort and required knowledge.**
 
-* **Allow users to switch between physical models and numerical methods
-  with minimal effort.**
-
 * **Optimize for both productivity and performance.**
 
-* **Code should be readable, and self-documenting when possible.**
+* **Provide a package that can be installed in a single line.**
+  
+* **Develop readable and maintainable code that is self-documenting
+  when possible.**
+  
+* **Allow users to switch to a different physical model or to a
+  different numerical method with minimal effort.**
 
-* **Provide readable and maintainable code.**  Code should be
-  self-documenting when possible.
+* **Make it hard for users to make mistakes while providing useful
+  error messages.**
 
-* **Make it hard for users to make mistakes.**
-
-* **Provide a package that can be installed in one or two lines.**
-
+* **Implement fluid, particle-in-cell (PIC), and hybrid simulation
+  capabilities.**
+  
 * **Begin development using well-understood, published numerical
   methods.**
 
@@ -170,28 +188,28 @@ possible.  This separation of responsibilities is necessary to allow
 users to straightforwardly switch between different systems of equations
 and computational algorithms.
 
-Defining the problem
---------------------
+Defining the problem setup
+--------------------------
 
-Users will first create a problem setup object or module that should
-contain all of the information necessary to set up a simulation
-independent of physical model and numerical method.
+Users will first instantiate a class or create a module that contains
+all of the information needed to set up the physical problem, including:
 
-* Coordinate system
+* Coordinate system and dimensionality
 * Physical domain
 * Initial conditions
 * Boundary conditions
 * Time interval
 
-The choice of coordinate system will provide the dimensionality (i.e.,
-if the simulation is 1D, 2D, or 3D).  The physical domain should be
-capable of being multiply connected or a more complicated geometry (such
-as a stellarator).  The initial and boundary conditions will provide a
-list of the dependent variables.  The initial conditions should be able
-to be specified by:
+The physical domain should be capable of being multiply connected or a
+more complicated geometry (such as a stellarator).
+
+The initial and boundary conditions will provide a list of the
+dependent variables.  The initial conditions should be able to be
+specified by:
 
 * Choosing a pre-defined standard setup
-* Specifying functions for different fields
+* Specifying functions for different fields (either as callable
+  objects or string representations of the equations)
 * Passing in arrays of values
 * Using helper tools such as a Grad-Shafranov solver
 
@@ -200,10 +218,27 @@ The boundary conditions should be able to be specified by:
 * Choosing pre-defined boundary conditions (e.g., periodic or no-slip
   conducting wall boundaries)
 * Specifying functions or conditions that need to be met for different
-  fields along different boundaries
+  fields along different boundaries (either as callable objects or
+  string representations of the equations)
+
+Choosing the physical model
+---------------------------
+
+Users will choose what general class of simulation to perform,
+including but not limited to fluid, PIC, and hybrid.
+
+For simulations using the fluid approximation, users will have the
+option to choose pre-defined systems of equations such as resistive
+MHD, Hall MHD, and so on.
+
+If the equations are in conservative form (including with sources and
+sinks), then more general numerical methods may be used.
 
 Specifying the numerical method
 -------------------------------
+
+If the users choose a PIC simulation, then they will get to choose the
+particle pusher for the time advance.
 
 .. Right now I am not certain how to deal with boundary conditions, and
    how we could treat them similarly for fluid and PIC simulations.
@@ -211,7 +246,7 @@ Specifying the numerical method
    for density, then how do we transfer that to a PIC case?  Should we
    have BCs defined separately?  Or include them in the numerical method
    definition maybe?  Maybe we should have a way to convert a fluid
-   simulation setup into a PIC
+   simulation setup into a PIC simulation.
 
 .. Users will next define the system of equations or physical model to be
    solved.  It is at this point that users will choose the style of
@@ -225,15 +260,8 @@ Specifying the numerical method
     physical model (with the caveat that all fields have to be defined or
     assumed to be zero, and also be physically realizable).  The package
     will check that all three are consistent with each other.
-  - Physical domain
-    - Coordinate system
-    - Dimensionality
-    - Size
-    - Allow for multiply connected geometries (like in MRX)
-  - Initial conditions
-  - Boundary conditions
-    - Have pre-set BCs for things like a conducting wall.  BCs can be
-      messy to implement, like putting them into a
+    
+
 * Users define the physical model.
   - Options for user input
     - Pre-defined sets of equations with options to specify different
@@ -305,21 +333,28 @@ in Julia and depend only on packages that can be installed using Julia's
 built-in package manager.  Users shall *not* be required to compile or
 install any external libraries or use any shell scripts.
 
-The implementation shall be written entirely in Julia, but shall have a
-Python interface.  The interface may either be included in the PlasmaPy
-core package or in an affiliated package.  The ``Plasma`` class should
-be able to handle the output of simulations performed using this plasma
-simulation framework.
+The implementation shall be written entirely in Julia, and shall have
+a Python interface in addition to a Julia interface.  The interface
+may either be included in the PlasmaPy core package or in an
+affiliated package.  The ``Plasma`` class should be able to handle the
+output of simulations performed using this plasma simulation
+framework.
 
 Development Principles
 ======================
 
-* **Optimize for both productivity and performance.**  With Julia, it is
-  possible to have the performance of a compiled language with the
+* **Optimize for both productivity and performance.** Most plasma
+  simulation codes prioritize performance over user-friendliness and
+  usability.  With Julia, we can achieve high performance without
+  sacrificing usability.
 
+* **Make the code as modular as possible.** Separate the initial
+  conditions from the system of equations and the numerical method.
+  
 * **Develop the overall architecture under the point of view that we
   have not decided on the numerical method or physical model yet.**
 
+  
 * **Make the code as modular as possible.**
 
 * **Optimize for both productivity and performance.**  Plasma simulation
@@ -333,13 +368,15 @@ Development Principles
   this project should all be installable by using Julia's built-in
   package manager.
 
-* **The software should be easy to install.**  The plasma simulation
-  package should be installable using Julia's built-in package manager.
-  Users shall not be required to run bash scripts or install libraries.
+* **Installation should be simple.** After installing Julia, users
+  should only be required to type in one line in order to install the
+  plasma simulation package using Julia's built-in package manager.
+  Users shall not be required to run shell scripts or install
+  libraries manually.
 
-* **Prioritize documentation.**  The documentation should be
-  sufficient for a student taking their first plasma physics class to
-  be able to use it without too much difficulty.
+* **Prioritize documentation.** The documentation should be sufficient
+  for a student taking their first plasma physics class to be able to
+  use it without too much difficulty.
 
 * **Prioritize flexible numerical methods.**  There are a number of
   numerical methods that have been developed for systems of equations
@@ -421,23 +458,25 @@ disadvantages are shown in bold.
 
 * **Fortran**, **C**, or **C++**
   - Advantages
-    - Exceptional performance as a compiled language
+    - Exceptional performance as compiled languages
     - Many plasma physicists have considerable knowledge and
       experience with these languages
-    - Can call code from Python
+    - Codes can be called from other languages like Python and Julia
   - Disadvantages
-    - **Development is greatly slowed because the language is not
+    - **Productivity is reduced because these languages are not
       interactive**
     - Code in these languages is often several times the length of
       equivalent code in Julia or Python
     - Continuous integration testing platforms such as Travis CI do
       not support direct testing of Fortran code
-    - Experience with Fortran is less likely to be helpful for plasma
-      physics students who find jobs outside of research and academia
+    - Experience with Fortran is less helpful for plasma physics
+      students searching for jobs outside of research and academia
+    - Limited metaprogramming capabilities
 
 * **Python with NumPy**
   - Advantages
-    - Fast development
+    - Very fast development
+    - Useful for prototyping
     - No need to compile code
   - Disadvantage
     - **Slow performance as an interpreted language**
@@ -445,22 +484,24 @@ disadvantages are shown in bold.
 
 * **Python with Cython**
   - Advantages
-    - Because Cython allows us to generate C code from Python-like
-      code, we are able to get compiled speeds
-    - Allows for a Python interface
+    - C code generated from Cython provides compiled speeds
+    - Better usability for end users because they can interact with a
+      Python interface
   - Disadvantages
+    - Does not provide a whole-language solution
     - **Cython is difficult to work with and maintain**
-
+      
 * **Python with Numba**
   - Advantages
     - Uses a just-in-time compiler to get compiled speeds
     - Often decorating a function with ``numba.jit`` is enough to get
       compiled speeds
   - Disadvantages
-    - Because Numba compiles one function at a time, it may be unable
-      to do global optimizations while compiling
-    - **Does not yet provide a full language solution to the
-      performance vs. productivity conundrum**
+    - Because Numba compiles one function at a time, it is unable to
+      do global optimizations while compiling
+    - Not currently well-suited for massively parallel computing
+    - **Does not provide a full language solution to the performance
+      vs. productivity conundrum**
 
 * **LuaJIT**
   - Advantages
