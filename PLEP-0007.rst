@@ -24,23 +24,33 @@ PLEP-0007 – A Next Generation Plasma Simulator
 Abstract
 ========
 
-This proposal describes a plan for a flexible plasma simulation
-framework for the PlasmaPy ecosystem.  Most plasma simulation codes
+This document describes a proposed flexible plasma simulation
+framework within the PlasmaPy ecosystem.  Most plasma simulation codes
 solve a particular class of equations and use a specific numerical
-method.  These codes generally lack interoperability with each other.
-In order to change numerical methods, compare different classes of
-equations, or perform a benchmark, then it is necessary to set up the
-same problem in different codes with different conventions for
-defining initial and boundary conditions.  By creating a boundary with
-a clear interface that separates the problem setup from the physical
-model and numerical method, the same problem setup can be used with
-different physical models and numerical methods.  Such boundaries will
-enable the framework to include different numerical method and
-standard analysis modules with the same high level user interface that
-can therefore be used largely interchangeably.  Code development will
-equally prioritizer usability, maintainability, and performance. User
-documentation will be written to be useful to students and scientists
-doing their first research project in plasma physics.
+method.  These codes usually lack interoperability with each other.
+Changing to a different physical model or numerical method often
+requires setting up the same problem in a different code with
+different conventions for defining initial and boundary conditions.
+By designing a boundary with a clear interface that separates the
+problem setup from the physical model and numerical method, the same
+problem setup can be used with different physical models and numerical
+methods.  Such boundaries will enable the framework to include
+different numerical methods and analysis modules with the same high
+level user interface that can therefore be used largely
+interchangeably.  The framework should include its own interchangeable
+numerical methods for fluid, particle-in-cell, and hybrid simulations,
+and also allow for existing open source codes to be called via
+wrappers designed to this interface.  Output will be created in
+standardized forms.  The framework should include general methods for
+solution of systems of partial differential equations written in
+conservative form that can be inputted by the user in strings that are
+processed by the framework.  Code development will equally prioritize
+readability, usability, reliability, maintainability, and performance.
+User documentation will be aimed toward both students taking their
+first course in plasma physics as well as experienced researchers.
+The documentation will include advice to users on how best choose a
+physical model and numerical method and describe potential pitfalls
+for different types of simulations.
 
 
 .. This proposal describes a plan for a modular plasma simulation
