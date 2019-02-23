@@ -24,27 +24,38 @@ PLEP-0007 – A Next Generation Plasma Simulator
 Abstract
 ========
 
-Most plasma simulation codes are written in low-level compiled
-languages, solve a particular class of equations, and use a specific
-numerical method. These codes often lack sufficient documentation and
-tests, and are difficult to install and modify. Codes tend to not be
-interoperable with each other: if you wish to change numerical
-methods, compare different classes of equations, or perform a
-benchmark, then you generally need to set up the same problem in a
-different code.
+This proposal describes a plan for a flexible plasma simulation
+framework for the PlasmaPy ecosystem.  Most plasma simulation codes
+solve a particular class of equations and use a specific numerical
+method.  These codes generally lack interoperability with each other.
+In order to change numerical methods, compare different classes of
+equations, or perform a benchmark, then it is necessary to set up the
+same problem in different codes with different conventions for
+defining initial and boundary conditions.  By creating a boundary with
+a clear interface that separates the problem setup from the physical
+model and numerical method, the same problem setup can be used with
+different physical models and numerical methods.  Such boundaries will
+enable the framework to include different numerical method and
+standard analysis modules with the same high level user interface that
+can therefore be used largely interchangeably.  Code development will
+equally prioritizer usability, maintainability, and performance. User
+documentation will be written to be useful to students and scientists
+doing their first research project in plasma physics.
 
-This proposal describes a plan for a modular plasma simulation
-framework within the PlasmaPy ecosystem. The framework will be
-written in Julia and also have a Python interface. The initial
-conditions and domain specification will be defined separately from
-the system of equations and numerical method. Consequently, the same
-problem setup can be used for different systems of equations and
-numerical methods. The users will be able to input the system of
-equations and boundary conditions in strings that will be interpreted
-by the framework. Tools to discretize the system of equations
-directly will be used when possible to maximize flexibility. The
-framework will be capable of performing fluid, kinetic, and hybrid
-simulations. The output will be provided in standardized forms.
+
+.. This proposal describes a plan for a modular plasma simulation
+   framework within the PlasmaPy ecosystem. The framework will be
+   written in Julia and also have a Python interface. The initial
+   conditions and domain specification will be defined separately from
+   the system of equations and numerical method. Consequently, the
+   same problem setup can be used for different systems of equations
+   and numerical methods. The users will be able to input the system
+   of equations and boundary conditions in strings that will be
+   interpreted by the framework. Tools to discretize the system of
+   equations directly will be used when possible to maximize
+   flexibility. The framework will be capable of performing fluid,
+   kinetic, and hybrid simulations. The output will be provided in
+   standardized forms.
 
 Background
 ==========
