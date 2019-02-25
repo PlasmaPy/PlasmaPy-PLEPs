@@ -1,6 +1,6 @@
-==============================================
-PLEP-0007 – A Next Generation Plasma Simulator
-==============================================
+==============================================================================
+PLEP-0007 – Plasma Simulation Capabilities for the PlasmaPy Software Ecosystem
+==============================================================================
 
 +-------------------+---------------------------------------------+
 | PLEP              | number                                      |
@@ -11,7 +11,7 @@ PLEP-0007 – A Next Generation Plasma Simulator
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2019-02-22                                  |
+| date last revised | 2019-02-24                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -24,7 +24,7 @@ PLEP-0007 – A Next Generation Plasma Simulator
 Abstract
 ========
 
-This document describes a proposed flexible plasma simulation
+This document proposed the development of a flexible plasma simulation
 framework within the PlasmaPy ecosystem.  Most plasma simulation codes
 solve a particular class of equations and use a specific numerical
 method.  These codes usually lack interoperability with each other.
@@ -52,21 +52,6 @@ The documentation will include advice to users on how best choose a
 physical model and numerical method and describe potential pitfalls
 for different types of simulations.
 
-
-.. This proposal describes a plan for a modular plasma simulation
-   framework within the PlasmaPy ecosystem. The framework will be
-   written in Julia and also have a Python interface. The initial
-   conditions and domain specification will be defined separately from
-   the system of equations and numerical method. Consequently, the
-   same problem setup can be used for different systems of equations
-   and numerical methods. The users will be able to input the system
-   of equations and boundary conditions in strings that will be
-   interpreted by the framework. Tools to discretize the system of
-   equations directly will be used when possible to maximize
-   flexibility. The framework will be capable of performing fluid,
-   kinetic, and hybrid simulations. The output will be provided in
-   standardized forms.
-
 Background
 ==========
 
@@ -83,20 +68,36 @@ that allow for high performance but without sacrificing usability.
 Current status of plasma simulation software
 --------------------------------------------
 
-Before describing our proposal in detail, we should first describe the
-current status of plasma simulation based largely on personal
-experience.
+.. For this section, I am wondering if it would be best to structure
+   it like:
+   
+   Problem: We often have spaghetti code.  This makes unit testing
+   difficult because there are no distinct units.
 
-* **Numerical methods for plasma simulations are highly advanced.**
-  Plasma scientists have developed and implemented highly
-  sophisticated numerical methods for simulating the behavior of
-  laboratory, heliospheric, space, and astrophysical plasmas in a wide
-  variety of different regimes.
+   Solution: Break up code into multiple functions.  Make sure there
+   are tests for each function.
 
+Before making a proposal for the future, it is worth considering
+common programming practices and the current culture within plasma
+physics.  A critical evaluation of the current status of plasma
+simulation software based on experiences with multiple codes will
+provide insight into how the plasma simulation community can improve
+in the future.
+
+* **Numerical methods for plasma simulations are highly advanced and
+  continually advancing.** Plasma scientists have developed and
+  implemented highly sophisticated numerical methods for simulating
+  the behavior of laboratory, heliospheric, space, and astrophysical
+  plasmas in a wide variety of different regimes.
+
+.. The above point should make sure to strongly value the
+   contributions that have been made by numerous scientists on how to
+   improve plasma simulation.
+  
 * **Plasma simulation codes are usually written in low-level languages
   such as Fortran and C.** These compiled languages offer excellent
   performance, but code development is slower because these languages
-  are not interactive and types must be declared.
+  are not interactive and types must be declared.  
 
 * **Access to codes is commonly restricted in some way.** Plasma
   simulation codes are often not released under an open source
@@ -155,16 +156,16 @@ experience.
   to set up a particular simulation and analyze its results is usually
   not cited or available for inspection or reuse.
 
-* **Code bases often contain interdependencies.**  The code for the
-  problem setup, physical model, and numerical method are often
-  intertwined with each other.  
+* **Codes often lack clear boundaries between different components.**
+  The code for the problem setup, physical model, and numerical method
+  are often intertwined with each other.  Different components
+  sometimes contain interdependencies with each other.
 
-.. Dependency diagrams often look like "hairball" diagrams.
+* **High-level code is often intermixed with low-level code.**  Code
+  related to the time advance can be intermixed with MPI calls related
+  to transferring data between processors.
 
 .. Often code is not broken up into separate functions.  Spaghetti code.
-
-..  High-level code is often intermixed with low-level code.
-
 
 Project Goals
 =============
