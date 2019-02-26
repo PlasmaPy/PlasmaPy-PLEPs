@@ -63,23 +63,27 @@ in a wide variety of regimes. It is essential that the PlasmaPy
 ecosystem include flexible plasma simulation capabilities that allow
 for high performance but without sacrificing usability.
 
-Addressing technical debt in plasma simulation software
--------------------------------------------------------
-
+Motivation
+==========
+   
 Most scientific programmers are self-taught. Graduate programs in
 plasma physics generally lack courses on scientific programming, so
-students often learn programming on their own unless they had taken a
-computer science course while an undergraduate. Students and
-scientists are under high pressure to publish, which incentivizes
-building up long-term technical debt to enable faster short-term
-progress. Critically evaluating the current status of plasma
-simulation software provides insight into how the plasma simulation
-community can improve its practices in the future.
+students are often left to learn these skills on their own. Students
+and scientists often have not had the time or opportunity to learn
+techniques and best practices from computer science and software
+engineering that can greatly improve the reliability, maintainability,
+and usability of software. The high pressure to publish and get
+results out quickly incentivizes building up long-term technical debt
+to enable faster short-term progress. A critical evaluation of the
+current status of plasma simulation software based on years of
+experience with multiple codes provides motivation to adopt strategies
+that reduce technical debt and insight into how the plasma community
+can improve its practices into the future.
 
 **Common practice: Plasma simulation codes are usually written in
-low-level compiled languages such as Fortran and C.** While these
-languages allow for excellent performance, code development is slower
-because these languages are not interactive and types must be
+low-level compiled languages such as Fortran, C, and C++.** While
+these languages allow for excellent performance, code development is
+slower because these languages are not interactive and types must be
 declared. Making a change often requires additional steps such as
 declaring a type, communicating that variable to different processors,
 and compiling the code. Using Fortran and C prioritizes performance at
@@ -163,29 +167,35 @@ obsolete.
 computing.** Take the time to learn about how to improve programming
 skills and develop sustainable software from different resources.
 
-.. 
-
 .. TODO: add citations above to Wilson article, Clean Code/Clean
    Architecture.
 
 .. Have coding standards and stick to them (like PEP8)
 
-**Problem: Benchmarking algorithms or comparing physical models
-requires setting up the same problem for multiple codes.** Each code
-generally has unique conventions for defining initial conditions,
-boundary conditions, and the computational domain. The problem setup
-for one code cannot be easily transferred to another code. Typically
-the same case must be set up by an experienced user of each
-code. Often benchmarks require careful discussions to make sure that
-normalizations and boundary conditions are able to be matched, and
-different analysis software must often be used.
+**Problem: Changing numerical methods, comparing physical models, and
+performing benchmarks requires setting up the same problem for
+multiple codes.** Each plasma simulation code generally has unique
+conventions for defining initial conditions, boundary conditions, and
+the computational domain. The problem setup for one code cannot be
+easily transferred to another code. Typically the same case must be
+set up by an experienced user of each code. Often benchmarks require
+careful discussions to make sure that normalizations and boundary
+conditions are able to be matched, and different analysis software
+must often be used.
 
-**Solution: Develop a standard mechanism for representing the problem
-setup that can be implemented by multiple codes.** Create a boundary
-with a well-defined interface that separates the problem setup from
-the physical model and numerical method. Develop this interface so
-that it can be implemented with existing codes. Implement multiple
-numerical methods that can be adapted to different physical models.
+**Solution: Develop a standard for representing the problem setup
+independently of the physical model and numerical method.** Creating a
+boundary with a well-defined interface will allow a clear separation
+of responsibilities between the specification of the problem and the
+numerics.  This strategy will enable the same problem setup to be used
+interchangeably with different physical models and numerical methods.
+A boundary between the physical model and numerical method would
+provide a means of switching just one of the physical model and
+numerical method while keeping the other constant.  Such a boundary is
+possible with code generation and/or some numerical methods for
+conservation laws, but often the numerical method must be fine-tuned
+to the physical model. These interfaces should be developed so that
+they can be implemented by existing codes.
 
 **Problem: Simulation output is rarely stored in a standardized
 form.** Few standards or specifications exist for the storage of
@@ -194,6 +204,10 @@ is not kept in a standardized form, then different software is needed
 to access and analyze the results. The shortage of standardized
 formats makes it more difficult to develop general purpose analysis
 and plotting software.
+
+**Solution:**
+
+.. 
 
 **Problem: Reproducing plasma simulation results usually requires
 significant effort.** All source code and raw data must be available
