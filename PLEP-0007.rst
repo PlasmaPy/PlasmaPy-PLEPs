@@ -152,7 +152,7 @@ Without tests, we will not know if our changes lead to new errors.
 using test-driven development.** These testing strategies help to
 improve the reliability of the code, track down bugs as soon as they
 appear, and greatly reduce the likelihood that new bugs will be
-introduced when the code is modified or maintained.  Test-driven
+introduced when the code is modified or maintained. Test-driven
 development involves writing tests first and then developing the code
 until the tests pass. Tests should be developed according to the same
 standards as the main part of the code.
@@ -187,92 +187,67 @@ must often be used.
 independently of the physical model and numerical method.** Creating a
 boundary with a well-defined interface will allow a clear separation
 of responsibilities between the specification of the problem and the
-numerics.  This strategy will enable the same problem setup to be used
+numerics. This strategy will enable the same problem setup to be used
 interchangeably with different physical models and numerical methods.
-A boundary between the physical model and numerical method would
-provide a means of switching just one of the physical model and
-numerical method while keeping the other constant.  Such a boundary is
-possible with code generation and/or some numerical methods for
-conservation laws, but often the numerical method must be fine-tuned
-to the physical model. These interfaces should be developed so that
-they can be implemented by existing codes.
+Such interfaces should be developed so that they can be implemented
+for existing codes. Prioritizing the implementation of numerical
+methods that can be separated from the physical model will allow
+additional boundaries between these two aspects of the problem. This
+separation will be possible with some numerical methods designed for
+conservation laws or with code generation, though in some cases the
+numerical method will need to be fine-tuned to the physical model.
 
 **Problem: Simulation output is rarely stored in a standardized
 form.** Few standards or specifications exist for the storage of
-plasma simulation output (with the exception of OpenPMD). When output
-is not kept in a standardized form, then different software is needed
-to access and analyze the results. The shortage of standardized
-formats makes it more difficult to develop general purpose analysis
-and plotting software.
+plasma simulation data. When output is not kept in a standardized
+form, then different software is needed to access and analyze the
+results. The shortage of standardized formats makes simulations less
+reproducible and increases the difficulty of developing general
+purpose analysis and plotting software.
 
-**Solution:**
+**Solution: Implement standard formats for simulation output.** A few
+standardized formats or metadata and naming standards do exist such as
+`OpenPMD <https://doi.org/10.5281/zenodo.591699>`_ for particle-mesh
+data. Implementing existing standards will generally be advantageous
+when possible. New standards should be developed and made openly
+available as necessary.  A high-level interface can be developed and
+matched to different low-level routines that are designed to access
+different formats.
 
-.. 
+**Problem: Plasma research is usually very difficult to replicate or
+reproduce.** Many of the best practices for scientific reproducibility
+being adopted in other fields have yet to be implemented for plasma
+research. It is uncommon to make experimental and numerical results
+openly available, and the specific source code to perform and analyze
+a simulation is rarely make openly available and cited.
 
-**Problem: Reproducing plasma simulation results usually requires
-significant effort.** All source code and raw data must be available
-and usable in order for a computational result to be replicable. While
-the software packages used to perform simulations are often open
-source, the specific version of the software is rarely cited. The code
-used to set up a particular simulation and analyze its results is
-usually not cited or available for inspection or reuse.
-
-**Solution: Make reproducibility part of the standard workflow.**  
+**Solution: Build reproducibility into the standard workflow for
+performing and analyzing numerical simulations.** Make it
+straightforward to create a container that includes all of the source
+code and associated materials to perform and analyze the simulation.
 
 .. TODO: Clarify and add more detail.
 
-**Problem: Codes often lack clear boundaries between different
-components.** The code for the problem setup, physical model, and
-numerical method are often intertwined with each other. Different
-components sometimes contain interdependencies with each other.
+**Problem: Codes often lack boundaries between different components.**
+The code for the problem setup, physical model, and numerical method
+are often intertwined with each other. Different components sometimes
+contain interdependencies with each other. High-level code is often
+intermixed with low-level code, such as when MPI routines to transfer
+data to different subprocesses are next to high-level calls for the
+numerical method.
 
-**Solution:**
-
-**Problem: High-level code is often intermixed with low-level code.**
-Code related to the time advance can be intermixed with MPI calls
-related to transferring data between processors.
-
-**Solution:**
-
-.. Code development should take place using best practices for scientific
-   and object-oriented programming.
-
-.. * **Optimize for both productivity and performance.** High
-   performance should not come at the cost of decreased usability.
-
-.. * **Provide and maintain thorough documentation.** The documentation
-   should be sufficient for a student beginning their first research
-   project in plasma physics.
-
-.. * **Plan the program architecture in advance.** Separate the
-   different aspects of the
-
-.. * **Define abstract interfaces between the objects that define the
-   problem setup and numerical method.**
-   Program each side to the interface.
-
-.. **Make the code as modular as possible.** Separate the initial
-   conditions from the system of equations and the numerical method.
+**Solution: Implement well-defined software architecture with clear
+boundaries.** Use the SOLID principles for software development. Do
+not allow circular software dependencies.  
 
 .. **Develop the overall architecture under the point of view that we
    have not decided on the numerical method or physical model yet.**
-
-.. **Make the code as modular as possible.**
 
 .. **Optimize for both productivity and performance.** Plasma
    simulation should be straightforward. Running plasma simulations
    should not require expertise into the details of the code. Code
    should be optimized for performance only after it works, and then
    only after it becomes apparent what the bottlenecks are.
-
-.. **Prioritize usability, readability, and maintainability.** Code
-   should be straightforward to install. The packages resulting from
-   this project should all be installable by using Julia's built-in
-   package manager.
-
-.. **Prioritize documentation.** The documentation should be
-   sufficient for a student taking their first plasma physics class to
-   be able to use it without too much difficulty.
 
 .. **Prioritize flexible numerical methods.** There are a number of
    numerical methods that have been developed for systems of equations
