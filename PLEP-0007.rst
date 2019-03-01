@@ -387,7 +387,7 @@ against multiple plasma diagnostics.
 Modeling the solar chromosphere
 -------------------------------
 
-
+The solar chromosphere is the worst layer of the solar atmosphere.
 
 
 Software Requirements Specification
