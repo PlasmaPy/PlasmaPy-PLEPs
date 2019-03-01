@@ -63,23 +63,27 @@ in a wide variety of regimes. It is essential that the PlasmaPy
 ecosystem include flexible plasma simulation capabilities that allow
 for high performance but without sacrificing usability.
 
-Addressing technical debt in plasma simulation software
--------------------------------------------------------
-
+Motivation
+==========
+   
 Most scientific programmers are self-taught. Graduate programs in
 plasma physics generally lack courses on scientific programming, so
-students often learn programming on their own unless they had taken a
-computer science course while an undergraduate. Students and
-scientists are under high pressure to publish, which incentivizes
-building up long-term technical debt to enable faster short-term
-progress. Critically evaluating the current status of plasma
-simulation software provides insight into how the plasma simulation
-community can improve its practices in the future.
+students are often left to learn these skills on their own. Students
+and scientists often have not had the time or opportunity to learn
+techniques and best practices from computer science and software
+engineering that can greatly improve the reliability, maintainability,
+and usability of software. The high pressure to publish and get
+results out quickly incentivizes building up long-term technical debt
+to enable faster short-term progress. A critical evaluation of the
+current status of plasma simulation software based on years of
+experience with multiple codes provides motivation to adopt strategies
+that reduce technical debt and insight into how the plasma community
+can improve its practices into the future.
 
 **Common practice: Plasma simulation codes are usually written in
-low-level compiled languages such as Fortran and C.** While these
-languages allow for excellent performance, code development is slower
-because these languages are not interactive and types must be
+low-level compiled languages such as Fortran, C, and C++.** While
+these languages allow for excellent performance, code development is
+slower because these languages are not interactive and types must be
 declared. Making a change often requires additional steps such as
 declaring a type, communicating that variable to different processors,
 and compiling the code. Using Fortran and C prioritizes performance at
@@ -148,7 +152,7 @@ Without tests, we will not know if our changes lead to new errors.
 using test-driven development.** These testing strategies help to
 improve the reliability of the code, track down bugs as soon as they
 appear, and greatly reduce the likelihood that new bugs will be
-introduced when the code is modified or maintained.  Test-driven
+introduced when the code is modified or maintained. Test-driven
 development involves writing tests first and then developing the code
 until the tests pass. Tests should be developed according to the same
 standards as the main part of the code.
@@ -169,7 +173,8 @@ practices that are favorable to software sustainability
 (Hettrick2016_, Wilkinson2016_).
 
 .. [Wilson2014] G. Wilson (2014), `Best Practices for Scientific
-   Computing <https://doi.org/10.1371/journal.pbio.1001745>`_
+   Computing <https://doi.org/10.1371/journal.pbio.1001745>`_, PLoS
+   Biology, 12, e1001745, doi: 10.1371/journal.pbio.1001745
 
 .. [Hettrick2016] S. Hettrick (2016), `Research Software
    Sustainability: Report on a Knowledge Exchange Workshop
@@ -178,7 +183,7 @@ practices that are favorable to software sustainability
 .. [Wilkinson2016] M. D. Wilkinson et al. (2016), `The FAIR Guiding
    Principles for scientific data management and stewardship
    <https://doi.org/10.1038/sdata.2016.18>`_, Scientific Data, 3,
-   160018
+   160018, doi: 10.1038/sdata.2016.18
 
 .. [Martin2009] R. C. Martin, *Clean Code: A Handbook of Agile
    Software Craftsmanship* (2009, Prentice Hall)
@@ -186,77 +191,220 @@ practices that are favorable to software sustainability
 .. [Martin2018] R. C. Martin, *Clean Architecture: A Craftman's Guide
    to Software Structure and Design* (2018, Prentice Hall)
 
-**Problem: Benchmarking algorithms or comparing physical models
-requires setting up the same problem for multiple codes.** Each code
-generally has unique conventions for defining initial conditions,
-boundary conditions, and the computational domain. The problem setup
-for one code cannot be easily transferred to another code. Typically
-the same case must be set up by an experienced user of each
-code. Often benchmarks require careful discussions to make sure that
-normalizations and boundary conditions are able to be matched, and
-different analysis software must often be used.
+**Problem: Codes often lack boundaries between different components.**
+The code for the problem setup, physical model, and numerical method
+are often intertwined with each other. Different components sometimes
+contain interdependencies with each other. High-level code is often
+intermixed with low-level code, such as when MPI routines to transfer
+data to different subprocesses are next to high-level calls for the
+numerical method.
 
-**Solution: Develop a standard mechanism for representing the problem
-setup that can be implemented by multiple codes.** Create a boundary
-with a well-defined interface that separates the problem setup from
-the physical model and numerical method. Develop this interface so
-that it can be implemented with existing codes. Implement multiple
-numerical methods that can be adapted to different physical models.
+**Solution: Implement well-defined software architecture with clear
+boundaries.** Use the SOLID principles for software development. Do
+not allow circular software dependencies.
+
+**Problem: Changing numerical methods, comparing physical models, and
+performing benchmarks requires setting up the same problem for
+multiple codes.** Each plasma simulation code generally has unique
+conventions for defining initial conditions, boundary conditions, and
+the computational domain. The problem setup for one code cannot be
+easily transferred to another code. Typically the same case must be
+set up by an experienced user of each code. Often benchmarks require
+careful discussions to make sure that normalizations and boundary
+conditions are able to be matched, and different analysis software
+must often be used.
+
+**Solution: Develop a standard for representing the problem setup
+independently of the physical model and numerical method.** Creating a
+boundary with a well-defined interface will allow a clear separation
+of responsibilities between the specification of the problem and the
+numerics. This strategy will enable the same problem setup to be used
+interchangeably with different physical models and numerical methods.
+Such interfaces should be developed so that they can be implemented
+for existing codes. Prioritizing the implementation of numerical
+methods that can be separated from the physical model will allow
+additional boundaries between these two aspects of the problem. This
+separation will be possible with some numerical methods designed for
+conservation laws or with code generation, though in some cases the
+numerical method will need to be fine-tuned to the physical model.
 
 **Problem: Simulation output is rarely stored in a standardized
 form.** Few standards or specifications exist for the storage of
-plasma simulation output (with the exception of `OpenPMD <>`_). When
-output is not kept in a standardized form, then different software is
-needed to access and analyze the results. The limited use of
-standardized formats makes it more difficult to develop general
+plasma simulation data. When output is not kept in a standardized
+form, then different software is needed to access and analyze the
+results. The shortage of standardized formats makes simulations less
+reproducible and increases the difficulty of developing general
 purpose analysis and plotting software.
 
-**Problem: Codes often lack clear boundaries between different
-components.** The code for the problem setup, physical model, and
-numerical method are often intertwined with each other. Different
-components sometimes contain interdependencies with each other.
+**Solution: Implement standard formats for simulation output.** A few
+standardized formats or metadata and naming standards do exist such as
+`OpenPMD <https://doi.org/10.5281/zenodo.591699>`_ for particle-mesh
+data. Implementing existing standards will generally be advantageous
+when possible. New standards should be developed and made openly
+available as necessary.  A high-level interface can be developed and
+matched to different low-level routines that are designed to access
+different formats.
 
-**Solution:**
+**Problem: Plasma research is usually very difficult to reproduce.**
+Many of the best practices for scientific reproducibility adopted by
+other fields have yet to be implemented in plasma physics
+(`Murphy2019`_). While the software packages used to perform
+simulations are sometimes open source, the specific version of the
+software is typically not cited. The source code and analysis software
+are often customized for a particular project. The specific software
+and input files used to perform and analyze a simulation are rarely
+made openly available for inspection or reuse.
 
-**Problem: High-level code is often intermixed with low-level code.**
-Code related to the time advance can be intermixed with MPI calls
-related to transferring data between processors.
+.. [Murphy2019] N. A. Murphy, B. Alterman, and D. Stansby (2019), `Making
+		plasma research reproducible
+		<https://doi.org/10.5281/zenodo.2578291>`_, Zenodo,
+		doi: 10.5281/zenodo.2578291
 
-**Solution:**
-
-**Problem: Reproducing plasma simulation results usually requires
-significant effort.** All source code and raw data must be available
-and usable in order for a computational result to be replicable. While
-the software packages used to perform simulations are often open
-source, the specific version of the software is rarely cited. The code
-used to set up a particular simulation and analyze its results is
-usually not cited or available for inspection or reuse.
-
-**Solution: Make reproducibility part of the standard workflow.**  
+**Solution: Build reproducibility into the standard workflow for
+performing and analyzing numerical simulations.** Allow users to
+create containers that include all of the source code, dependency
+version numbers, and other materials needed to perform and analyze a
+numerical simulation. 
 
 Project Goals
 =============
 
+.. The goal of this framework is to minimize the time, effort, and
+   energy necessary for users to perform high quality numerical
+   simulations of diverse plasma phenomena while maximizing scientific
+   and computational reproducibility.
+
 We propose to create an open source framework for plasma simulation
-within the PlasmaPy ecosystem. The goal of this framework is to
-enable users to perform high quality simulations with the minimum
-amount of effort and without requiring knowledge of the details of the
-implementation. Code design will prioritize usability, readability,
-and maintainability. Optimization of performance should not come at
-the cost of decreased user-friendliness. The functionality for
-initial conditions, boundary conditions, physical model, and numerical
-method should be separated from each other with abstract interfaces.
-Users should be provided with the flexibility to switch to a different
-physical model or different numerical method with minimal effort.
-This framework should include fluid, particle-in-cell (PIC), and
-hybrid simulation capabilities using a variety of well-described
-numerical methods.
+within the PlasmaPy ecosystem. The goals of this framework are to:
+
+* Enable users to perform high quality numerical simulations of
+  diverse plasma phenomena;
+
+* Minimize the time, effort, and frustration needed to achieve
+  scientific understanding through numerical simulation; and
+
+* Maximize scientific and computational reproducibility.
+
+.. The framework specifications
+
+.. We propose to create an open source framework for plasma simulation
+   within the PlasmaPy ecosystem. The goal of this framework is to
+   minimize the time, effort, and frustration needed to achieve
+   scientific understanding via numerical simulation. Code design will
+   prioritize usability, readability, and
+   maintainability. Optimization for performance should not come at
+   the cost of decreased user-friendliness. The
+
+.. We propose to create an open source framework for plasma simulation
+   within the PlasmaPy ecosystem. The goal of this framework is to
+   enable users to perform high quality simulations with the minimum
+   amount of effort and without requiring knowledge of the details of
+   the implementation. Code design will prioritize usability,
+   readability, and maintainability. Optimization of performance
+   should not come at the cost of decreased user-friendliness. The
+   functionality for initial conditions, boundary conditions, physical
+   model, and numerical method should be separated from each other
+   with abstract interfaces.  Users should be provided with the
+   flexibility to switch to a different physical model or different
+   numerical method with minimal effort.  This framework should
+   include fluid, particle-in-cell (PIC), and hybrid simulation
+   capabilities using a variety of well-described numerical methods.
 
 .. Minimize the amount of time, effort, and frustration to needed to
    reach scientific understanding.
 
-Requirements
-============
+Sample Use Cases
+================
+
+We describe some potential use cases for students, scientists, and
+engineers doing plasma simulations roughly in order of difficulty
+(from *low* at the top to *walking into Mordor* near the bottom).
+
+.. _waves:
+
+MHD waves
+---------
+
+The professor of an introductory course on plasma physics decides that
+she wants students to have a chance to visualize Alfvén waves, slow
+magnetosonic waves, and fast magnetosonic waves. She assigns a
+homework assignment to perform MHD simulations of these three
+different types of waves and produce movies of different
+quantities. Many of the students in her class have never performed a
+numerical simulation.  
+
+.. _GEM:
+
+Reproducing the GEM Challenge
+-----------------------------
+
+The Geospace Environmental Modeling (GEM) Challenge was performed to
+isolate the essential physics required to model collisionless magnetic
+reconnection (Birn2001_). The strategy was to perform simulations with
+the same initial and boundary conditions using multiple codes with
+different physical models, ranging from resistive MHD to fully
+electromagnetic PIC.  A scientist decides to attempt to reproduce the
+results of the GEM challenge using a larger computational domain and
+higher resolution.
+
+.. [Birn2001] J. Birn et al. (2001), `*Geospace Environmental Modeling
+   (GEM) Magnetic Reconnection Challenge*
+   <https://doi.org/10.1029/1999JA900449>`_, Journal of Geophysical
+   Research, 106, 3715, doi: 10.1029/1999JA900449
+
+.. _testPIC:
+
+Testing PIC algorithms
+----------------------
+
+Different PIC algorithms and particle pushers offer different
+advantages and are needed for different situations. A researcher
+decides to test different algorithms for a variety of different
+physical situations.
+
+.. _WholeDevice:
+
+Integrated tokamak modeling
+---------------------------
+
+A major goal of magnetic fusion energy science is to create robust
+predictive whole-device models for tokamaks and other magnetic
+confinement devices (Poli2018_). Whole-device models will be used by
+scientists who wish to understand fundamental plasma behavior,
+engineers who wish to design new devices, and control room operators
+who are overseeing discharges. The model must account for a wide
+variety of effects ranging from 
+
+
+All of these users have different
+requirements. The model must account for a wide variety of effects
+ranging from current drive
+
+
+
+The model must include ohmic current drive, radio frequency (RF)
+heating, neutral beam injection, and several other effects.
+
+Simulation results will need to be tested against multiple plasma
+diagnostics.
+
+
+.. [Poli2018] F. M. Poli (2018), `*Integrated Tokamak modeling: When
+   physics informs engineering and research planning*
+   <https://doi.org/10.1063/1.5021489>`_, Physics of Plasmas, 25,
+   055602, doi: 10.1063/1.5021489
+
+Modeling the solar chromosphere
+-------------------------------
+
+
+
+
+Software Requirements Specification
+===================================
+
+
+
 
 * Allow the same problem setup to be used for different systems of
   equations and numerical methods.
