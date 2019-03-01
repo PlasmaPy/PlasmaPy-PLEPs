@@ -11,7 +11,7 @@ PLEP-0007 – Plasma Simulation Capabilities for PlasmaPy
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2019-02-25                                  |
+| date last revised | 2019-03-01                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -367,27 +367,17 @@ physical situations.
 Integrated tokamak modeling
 ---------------------------
 
-A major goal of magnetic fusion energy science is to create robust
-predictive whole-device models for tokamaks and other magnetic
-confinement devices (Poli2018_). Whole-device models will be used by
-scientists who wish to understand fundamental plasma behavior,
-engineers who wish to design new devices, and control room operators
-who are overseeing discharges. The model must account for a wide
-variety of effects ranging from 
-
-
-All of these users have different
-requirements. The model must account for a wide variety of effects
-ranging from current drive
-
-
-
-The model must include ohmic current drive, radio frequency (RF)
-heating, neutral beam injection, and several other effects.
-
-Simulation results will need to be tested against multiple plasma
-diagnostics.
-
+A major goal of magnetic fusion energy science is to create predictive
+whole-device models for magnetic confinement devices such as tokamaks
+(Poli2018_). Whole-device models will be used by scientists who wish
+to understand fundamental plasma behavior, engineers who wish to
+design new devices, and control room operators who are overseeing
+discharges. Different physical processes will be important in
+different parts of the device and at different time and length scales.
+The model would need to include a variety of effects including but not
+limited to plasma-wall interactions, radio frequency heating, and
+neutral beam injection.  Simulation results will need to be tested
+against multiple plasma diagnostics.
 
 .. [Poli2018] F. M. Poli (2018), `*Integrated Tokamak modeling: When
    physics informs engineering and research planning*
@@ -402,9 +392,6 @@ Modeling the solar chromosphere
 
 Software Requirements Specification
 ===================================
-
-
-
 
 * Allow the same problem setup to be used for different systems of
   equations and numerical methods.
