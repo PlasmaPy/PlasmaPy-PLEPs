@@ -30,24 +30,24 @@ particular class of equations and use a specific numerical method.
 Different codes generally lack interoperability with each other.
 Changing to a different physical model or numerical method often
 requires setting up the same problem in a different code with
-different conventions for defining initial and boundary conditions.
-By designing a boundary with a clear interface that separates the
-problem setup from the physical model and numerical method, the same
-problem setup can be used with different physical models and numerical
-methods. The framework should include interchangeable numerical
-methods for fluid, particle-in-cell, gyrokinetic, and hybrid
-simulations. Boundaries and interfaces should be designed to allow
-existing codes to implement them. The framework should include general
-methods for solution of systems of partial differential equations
-written in conservative form that can be inputted by the user in
-strings that are processed by the framework. Code development will
-equally prioritize readability, usability, reliability,
-maintainability, and performance. User documentation will be aimed
-toward both students taking their first course in plasma physics as
-well as experienced researchers. The documentation will include
-advice to users on how best choose a physical model and numerical
-method and describe potential pitfalls for different types of
-simulations.
+different conventions for defining initial conditions (ICs) and
+boundary conditions (BCs).  By designing a boundary with a clear
+interface that separates the problem setup from the physical model and
+numerical method, the same problem setup can be used with different
+physical models and numerical methods. The framework should include
+interchangeable numerical methods for fluid, particle-in-cell,
+gyrokinetic, and hybrid simulations. Boundaries and interfaces should
+be designed to allow existing codes to implement them. The framework
+should include general methods for solution of systems of partial
+differential equations written in conservative form that can be
+inputted by the user in strings that are processed by the
+framework. Code development will equally prioritize readability,
+usability, reliability, maintainability, and performance. User
+documentation will be aimed toward both students taking their first
+course in plasma physics as well as experienced researchers. The
+documentation will include advice to users on how best choose a
+physical model and numerical method and describe potential pitfalls
+for different types of simulations.
 
 Background
 ==========
@@ -206,13 +206,12 @@ not allow circular software dependencies.
 **Problem: Changing numerical methods, comparing physical models, and
 performing benchmarks requires setting up the same problem for
 multiple codes.** Each plasma simulation code generally has unique
-conventions for defining initial conditions, boundary conditions, and
-the computational domain. The problem setup for one code cannot be
-easily transferred to another code. Typically the same case must be
-set up by an experienced user of each code. Often benchmarks require
-careful discussions to make sure that normalizations and boundary
-conditions are able to be matched, and different analysis software
-must often be used.
+conventions for defining ICs, BCs, and the computational domain. The
+problem setup for one code cannot be easily transferred to another
+code. Typically the same case must be set up by an experienced user of
+each code. Often benchmarks require careful discussions to make sure
+that normalizations and boundary conditions are able to be matched,
+and different analysis software must often be used.
 
 **Solution: Develop a standard for representing the problem setup
 independently of the physical model and numerical method.** Creating a
@@ -319,6 +318,7 @@ Sample Use Cases
 We describe some potential use cases for students, scientists, and
 engineers doing plasma simulations roughly in order of difficulty
 (from *low* at the top to *walking into Mordor* near the bottom).
+These use cases show the variety of 
 
 .. _waves:
 
@@ -341,11 +341,10 @@ Reproducing the GEM Challenge
 The Geospace Environmental Modeling (GEM) Challenge was performed to
 isolate the essential physics required to model collisionless magnetic
 reconnection (Birn2001_). The strategy was to perform simulations with
-the same initial and boundary conditions using multiple codes with
-different physical models, ranging from resistive MHD to fully
-electromagnetic PIC.  A scientist decides to attempt to reproduce the
-results of the GEM challenge using a larger computational domain and
-higher resolution.
+the same ICs and BCs using multiple codes with different physical
+models, ranging from resistive MHD to fully electromagnetic PIC.  A
+scientist decides to attempt to reproduce the results of the GEM
+challenge using a larger computational domain and higher resolution.
 
 .. [Birn2001] J. Birn et al. (2001), `*Geospace Environmental Modeling
    (GEM) Magnetic Reconnection Challenge*
@@ -387,21 +386,155 @@ against multiple plasma diagnostics.
 Modeling the solar chromosphere
 -------------------------------
 
-The solar chromosphere is host to a rich variety of physical processes.
-
+The solar chromosphere hosts a rich variety of physical processes.
+Many of the simplifying assumptions that are valid in either the
+photosphere below or the corona above cannot be applied to the
+chromosphere [e.g., the assumption of local thermodynamic equilibrium
+(LTE)].  The plasma is partially ionized, so interactions between
+neutrals and charged particles are important.  Non-LTE radiative
+transfer is required.  Shocks contribute to the heating.  Some solar
+physicists will want to model a beam of energetic electrons
+precipitating from the corona into the chromosphere during solar
+flares. Synthetic observables will be required to validate simulation
+results against reality.
 
 Software Requirements Specification
 ===================================
 
-* Allow the same problem setup to be used for different systems of
-  equations and numerical methods.
+Availability requirements
+-------------------------
 
-* Allow users to change the system of equations or numerical method in
-  the middle of a simulation with minimal effort.
+* Develop openly under the Open Source Initiative approved BSD+Patent
+  license.
 
-* Be able to use the same analysis techniques on
+* Allow installation in a single line with a package manager.  
 
-* Stretch goals:
+  - Do not require users to compile external libraries, edit make
+    files, or run bash scripts.
+
+* Design the package to run in Linux, macOS, and Windows environments
+  and on scales ranging from a single core to the most powerful
+  supercomputers.
+
+Language requirements
+---------------------
+
+* Develop the core functionality using Julia because it is an
+  interactive language with dynamic typing that uses a just-in-time
+  compiler with type inference and multiple dispatch and has
+  parallelism built into the language.
+
+  - Do not include any statically typed or non-interactive languages
+    because that will decrease long-term maintainability and because
+    mixing languages can cause problems with compilers.
+
+* Provide a Python interface to the core functionality.
+
+Base requirements
+-----------------
+
+* Create a standardized representation for the problem setup so that
+  the same problem setup can be used interchangeably for different
+  physical models and numerical methods.
+
+  - Include distinct representations for the domain, ICs, and BCs.
+
+    - Check that different domain, IC, and BC representations are
+      consistent with each other.
+
+    - Provide clear, well-defined interfaces for each of these
+      representations.
+
+  - Allow distinct representation of volumetric source terms that are
+    needed to drive turbulence.
+
+  - Implement checks that the domain, ICs, and BCs are consistent with
+    each other.
+
+    - Use exception handling to provide useful error messages that
+      help users quickly pinpoint problems.
+
+  - Issue a warning when the initial conditions are far out of
+    equilibrium.
+
+  - Allow users to select pre-defined initial conditions that are
+    commonly used.
+
+* Incorporate grid generation capabilities.
+
+  - Implement general tools to create non-uniform logically
+    rectangular grids.
+
+  - Implement or use tools to create a finite element grid for
+    experimental geometries.
+
+* Prioritize flexible numerical methods that can solve almost
+  arbitrary systems of equations written in conservative form.
+
+  - Allow users to select pre-defined systems of equations.
+
+  - Allow users to provide equations as strings.
+  
+    - Parse each string to extract the flux and source terms for each
+      equation.
+
+    - Create functions for each of the fluxes and sources that can be
+      compiled at runtime (with automatic differentiation to calculate
+      Jacobians, when needed).
+
+  - Implement finite difference capabilities.
+
+  - Implement finite volume capabilities.
+
+  - Implement finite element/spectral element capabilities.
+
+  - Provide shock capturing algorithms.
+
+* Implement auxiliary functionality.
+
+  - Grad-Shafranov solver
+
+  - Synthetic diagnostic generators
+
+* Implement particle-in-cell simulation capabilities.
+
+  - Define abstract interfaces in the implementation to allow
+    different particle-pushers and other simulation components to be
+    used interchangeably.
+
+* Implement standardized formats and metadata naming conventions for
+  output data.
+
+  - Use existing standards when reasonable to do so.
+
+  - Develop new open standards when necessary.
+
+
+Testing requirements
+--------------------
+
+* Adopt test-driven development.
+
+* Develop a suite of tests 
+
+* 
+
+
+Code quality requirements
+-------------------------
+
+
+Documentation requirements
+--------------------------
+
+* Provide narrative documentation 
+
+* All user-facing functions and classes should have 
+
+* Provide a cookbook of recipes
+
+* Documentation should be developed to be 
+
 
 Anticipated User Experience
 ===========================
@@ -483,6 +616,11 @@ At this point, users will specify the numerical input parameters.
    have BCs defined separately?  Or include them in the numerical method
    definition maybe?  Maybe we should have a way to convert a fluid
    simulation setup into a PIC simulation.
+
+.. Thinking more: if the boundary conditions are different between
+   fluid and PIC, then they should be denoted in different ways.  We
+   could provide some suggestions on adapting a problem for PIC vs
+   fluid approximation simulations.
 
 .. Users will next define the system of equations or physical model to be
    solved. It is at this point that users will choose the style of
