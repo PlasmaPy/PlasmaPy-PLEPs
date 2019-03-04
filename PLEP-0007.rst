@@ -57,7 +57,7 @@ investigate plasma phenomena such as tokamak disruptions, solar
 eruptions, geomagnetic storms, and accretion into black holes.
 Numerical simulations can be used to understand experiments and act as
 a bridge between laboratory, heliospheric, and astrophysical plasma
-phenomena. Numerical methods have developed and implemented highly
+phenomena. Plasma physicists have developed and implemented highly
 sophisticated numerical methods for simulating the behavior of plasmas
 in a wide variety of regimes. It is essential that the PlasmaPy
 ecosystem include flexible plasma simulation capabilities that allow
@@ -65,7 +65,17 @@ for high performance but without sacrificing usability.
 
 Motivation
 ==========
-   
+
+.. The points being made in this section are really worth making, but
+   the section has become really long, and the suggestions are much
+   more general than this.
+
+.. Plasma simulation in the 24½th century
+
+.. There are important points being made in this section, but it's
+   long and not directly related to the 
+
+
 Most scientific programmers are self-taught. Graduate programs in
 plasma physics generally lack courses on scientific programming, so
 students are often left to learn these skills on their own. Students
@@ -318,7 +328,8 @@ Sample Use Cases
 We describe some potential use cases for students, scientists, and
 engineers doing plasma simulations roughly in order of difficulty
 (from *low* at the top to *walking into Mordor* near the bottom).
-These use cases show the variety of 
+These use cases show the variety of needs that general plasma
+simulation software must meet.
 
 .. _waves:
 
@@ -404,13 +415,13 @@ Software Requirements Specification
 Availability requirements
 -------------------------
 
-* Develop openly under the Open Source Initiative approved BSD+Patent
-  license.
+* Develop openly under the Open Source Initiative approved `BSD+Patent
+  <https://opensource.org/licenses/BSDplusPatent>`_ license.
 
-* Allow installation in a single line with a package manager.  
+* Allow installation in a single line using a package manager.  
 
   - Do not require users to compile external libraries, edit make
-    files, or run bash scripts.
+    files, change compiler flags, or run bash scripts.
 
 * Design the package to run in Linux, macOS, and Windows environments
   and on scales ranging from a single core to the most powerful
@@ -430,13 +441,36 @@ Language requirements
 
 * Provide a Python interface to the core functionality.
 
-Base requirements
------------------
+Application programming interface requirements
+----------------------------------------------
+
+* Create APIs for multiple levels of abstraction.  Greater abstraction
+  will make the code easier to use, whereas less abstraction will
+  provide more options for customizability.
+
+  - Enable a simple simulation (e.g., analytical initial conditions on
+    a uniform rectangular grid with periodic boundary conditions) to
+    be set up in the minimal number of lines of code while maintaining
+    readability and not hiding important details.
+
+  - Provide narrative documentation that progresses from a simulation
+    set up using the highest level of abstraction to lower levels of
+    abstraction.
+
+* Each numerical method should be programmed to a well-defined
+  interface.  PIC and fluid simulations should have identical
+  interfaces at the highest level of abstraction.
+  
+Functionality requirements
+--------------------------
 
 * Create a standardized representation for the problem setup so that
   the same problem setup can be used interchangeably for different
   physical models and numerical methods.
 
+.. Create a class or object that represents the dependent variables so
+   that it can be used when creating the other classes when needed?
+  
   - Include distinct representations for the domain, ICs, and BCs.
 
     - Check that different domain, IC, and BC representations are
@@ -509,15 +543,15 @@ Base requirements
 
   - Develop new open standards when necessary.
 
-
 Testing requirements
 --------------------
 
-* Adopt test-driven development.
+* Use test-driven development as appropriate.  Write tests first and
+  then develop code until tests pass.
 
-* Develop a suite of tests 
+* Create 
 
-* 
+* Test 
 
 
 Code quality requirements
