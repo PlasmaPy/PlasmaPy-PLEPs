@@ -49,6 +49,20 @@ documentation will include advice to users on how best choose a
 physical model and numerical method and describe potential pitfalls
 for different types of simulations.
 
+Project Goals
+=============
+
+We propose to create an open source framework for plasma simulation
+within the PlasmaPy ecosystem. The goals of this framework are to:
+
+* Enable users to perform high quality numerical simulations of
+  diverse plasma phenomena;
+
+* Minimize the time, effort, and frustration needed to achieve
+  scientific understanding through numerical simulation; and
+
+* Maximize scientific and computational reproducibility.
+
 Background
 ==========
 
@@ -66,15 +80,9 @@ for high performance but without sacrificing usability.
 Motivation
 ==========
 
-.. The points being made in this section are really worth making, but
-   the section has become really long, and the suggestions are much
-   more general than this.
-
-.. Plasma simulation in the 24½th century
-
-.. There are important points being made in this section, but it's
-   long and not directly related to the 
-
+.. A possibility for this section would be to transform it into its
+   own article and call it something like "Plasma simulation in the
+   24½th century"
 
 Most scientific programmers are self-taught. Graduate programs in
 plasma physics generally lack courses on scientific programming, so
@@ -182,25 +190,6 @@ expert programmers. Have a coding standard and stick to it. Adopt
 practices that are favorable to software sustainability
 (Hettrick2016_, Wilkinson2016_).
 
-.. [Wilson2014] G. Wilson (2014), `Best Practices for Scientific
-   Computing <https://doi.org/10.1371/journal.pbio.1001745>`_, PLoS
-   Biology, 12, e1001745, doi: 10.1371/journal.pbio.1001745
-
-.. [Hettrick2016] S. Hettrick (2016), `Research Software
-   Sustainability: Report on a Knowledge Exchange Workshop
-   <http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1005&context=scholcom>`_
-
-.. [Wilkinson2016] M. D. Wilkinson et al. (2016), `The FAIR Guiding
-   Principles for scientific data management and stewardship
-   <https://doi.org/10.1038/sdata.2016.18>`_, Scientific Data, 3,
-   160018, doi: 10.1038/sdata.2016.18
-
-.. [Martin2009] R. C. Martin, *Clean Code: A Handbook of Agile
-   Software Craftsmanship* (2009, Prentice Hall)
-
-.. [Martin2018] R. C. Martin, *Clean Architecture: A Craftman's Guide
-   to Software Structure and Design* (2018, Prentice Hall)
-
 **Problem: Codes often lack boundaries between different components.**
 The code for the problem setup, physical model, and numerical method
 are often intertwined with each other. Different components sometimes
@@ -208,6 +197,8 @@ contain interdependencies with each other. High-level code is often
 intermixed with low-level code, such as when MPI routines to transfer
 data to different subprocesses are next to high-level calls for the
 numerical method.
+
+.. TODO: Expand the following point.
 
 **Solution: Implement well-defined software architecture with clear
 boundaries.** Use the SOLID principles for software development. Do
@@ -275,59 +266,12 @@ create containers that include all of the source code, dependency
 version numbers, and other materials needed to perform and analyze a
 numerical simulation. 
 
-Project Goals
-=============
-
-.. The goal of this framework is to minimize the time, effort, and
-   energy necessary for users to perform high quality numerical
-   simulations of diverse plasma phenomena while maximizing scientific
-   and computational reproducibility.
-
-We propose to create an open source framework for plasma simulation
-within the PlasmaPy ecosystem. The goals of this framework are to:
-
-* Enable users to perform high quality numerical simulations of
-  diverse plasma phenomena;
-
-* Minimize the time, effort, and frustration needed to achieve
-  scientific understanding through numerical simulation; and
-
-* Maximize scientific and computational reproducibility.
-
-.. The framework specifications
-
-.. We propose to create an open source framework for plasma simulation
-   within the PlasmaPy ecosystem. The goal of this framework is to
-   minimize the time, effort, and frustration needed to achieve
-   scientific understanding via numerical simulation. Code design will
-   prioritize usability, readability, and
-   maintainability. Optimization for performance should not come at
-   the cost of decreased user-friendliness. The
-
-.. We propose to create an open source framework for plasma simulation
-   within the PlasmaPy ecosystem. The goal of this framework is to
-   enable users to perform high quality simulations with the minimum
-   amount of effort and without requiring knowledge of the details of
-   the implementation. Code design will prioritize usability,
-   readability, and maintainability. Optimization of performance
-   should not come at the cost of decreased user-friendliness. The
-   functionality for initial conditions, boundary conditions, physical
-   model, and numerical method should be separated from each other
-   with abstract interfaces.  Users should be provided with the
-   flexibility to switch to a different physical model or different
-   numerical method with minimal effort.  This framework should
-   include fluid, particle-in-cell (PIC), and hybrid simulation
-   capabilities using a variety of well-described numerical methods.
-
-.. Minimize the amount of time, effort, and frustration to needed to
-   reach scientific understanding.
-
 Sample Use Cases
 ================
 
 We describe some potential use cases for students, scientists, and
 engineers doing plasma simulations roughly in order of difficulty
-(from *low* at the top to *walking into Mordor* near the bottom).
+(from *low* near the top to *walking into Mordor* near the bottom).
 These use cases show the variety of needs that general plasma
 simulation software must meet.
 
@@ -356,11 +300,6 @@ the same ICs and BCs using multiple codes with different physical
 models, ranging from resistive MHD to fully electromagnetic PIC.  A
 scientist decides to attempt to reproduce the results of the GEM
 challenge using a larger computational domain and higher resolution.
-
-.. [Birn2001] J. Birn et al. (2001), `*Geospace Environmental Modeling
-   (GEM) Magnetic Reconnection Challenge*
-   <https://doi.org/10.1029/1999JA900449>`_, Journal of Geophysical
-   Research, 106, 3715, doi: 10.1029/1999JA900449
 
 .. _testPIC:
 
@@ -418,10 +357,14 @@ Availability requirements
 * Develop openly under the Open Source Initiative approved `BSD+Patent
   <https://opensource.org/licenses/BSDplusPatent>`_ license.
 
-* Allow installation in a single line using a package manager.  
+* Allow installation in a single line with widely-used package
+  managers.
 
   - Do not require users to compile external libraries, edit make
     files, change compiler flags, or run bash scripts.
+
+  - Depend only on packages that can be installed using that package
+    manager.
 
 * Design the package to run in Linux, macOS, and Windows environments
   and on scales ranging from a single core to the most powerful
@@ -430,10 +373,7 @@ Availability requirements
 Language requirements
 ---------------------
 
-* Develop the core functionality using Julia because it is an
-  interactive language with dynamic typing that uses a just-in-time
-  compiler with type inference and multiple dispatch and has
-  parallelism built into the language.
+* Develop the base functionality using Julia.
 
   - Do not include any statically typed or non-interactive languages
     because that will decrease long-term maintainability and because
@@ -441,17 +381,19 @@ Language requirements
 
 * Provide a Python interface to the core functionality.
 
-Application programming interface requirements
+  - Include this interface in PlasmaPy or an affiliated package in the
+    PlasmaPy ecosystem.
+
+Application programming interface (API) requirements
 ----------------------------------------------
 
-* Create APIs for multiple levels of abstraction.  Greater abstraction
-  will make the code easier to use, whereas less abstraction will
-  provide more options for customizability.
+* Create APIs that enable multiple levels of abstraction.  Greater
+  abstraction will make the code easier to use, whereas less
+  abstraction will provide more options for customizability and
+  fine-tuning.
 
-  - Enable a simple simulation (e.g., analytical initial conditions on
-    a uniform rectangular grid with periodic boundary conditions) to
-    be set up in the minimal number of lines of code while maintaining
-    readability and not hiding important details.
+  - Enable a simple simulation to be set up in ten to twenty lines of
+    code.
 
   - Provide narrative documentation that progresses from a simulation
     set up using the highest level of abstraction to lower levels of
@@ -524,11 +466,15 @@ Functionality requirements
 
   - Provide shock capturing algorithms.
 
-* Implement auxiliary functionality.
+* Implement auxiliary functionality, including:
 
   - Grad-Shafranov solver
 
-  - Synthetic diagnostic generators
+  - Synthetic diagnostics
+
+  - Magnetic topology analysis tools
+
+  - Turbulence analysis tools
 
 * Implement particle-in-cell simulation capabilities.
 
@@ -536,23 +482,28 @@ Functionality requirements
     different particle-pushers and other simulation components to be
     used interchangeably.
 
+  - Keep a similar API to fluid-approximation simulations at high
+    levels of abstraction.
+    
 * Implement standardized formats and metadata naming conventions for
   output data.
 
-  - Use existing standards when reasonable to do so.
+  - Use existing standards as appropriate.
 
-  - Develop new open standards when necessary.
+  - Develop new open standards as necessary.
 
 Testing requirements
 --------------------
 
-* Use test-driven development as appropriate.  Write tests first and
-  then develop code until tests pass.
+* Use test-driven development.
 
-* Create 
+* Create unit tests for all core functionality.
 
-* Test 
+* Create continuous integration tests to make sure that different
+  parts of the code work with each other as required.
 
+* Test that numerical methods have the same order of convergence as
+  expected theoretically.
 
 Code quality requirements
 -------------------------
@@ -560,6 +511,8 @@ Code quality requirements
 
 Documentation requirements
 --------------------------
+
+* Provide narrative documentation that allows users to 
 
 * Provide narrative documentation 
 
@@ -684,27 +637,26 @@ At this point, users will specify the numerical input parameters.
      Maybe we could create a function that automatically writes text that
        describes the numerical method and such.
 
-Grid generation
----------------
+.. Grid generation
+   ---------------
 
 .. More detail needed on grid generation. Need to discuss mesh
    packing capabilities and how to generate complicated grids. For
    finite element simulations, more information on the mapping will be
    necessary, but might not be worth discussing here.
 
-Users will be able to generate the grid after the domain is specified
-and the numerical method is chosen.
+.. Users will be able to generate the grid after the domain is
+   specified and the numerical method is chosen.
 
-Performing the simulation
--------------------------
+.. Performing the simulation
+   -------------------------
 
-Users will have varying amounts of control over how the simulation is
-performed. If no special processing is required, then users would be
-able to perform the simulation in a single command.
+.. Users will have varying amounts of control over how the simulation
+   is performed. If no special processing is required, then users
+   would be able to perform the simulation in a single command.
 
-
-Proposed Package Structure
-==========================
+.. Proposed Package Structure
+   ==========================
 
 .. Mathematical functions
      Basis functions that are not defined in other packages
@@ -726,13 +678,13 @@ Proposed Package Structure
 Choice of language
 ==================
 
-Julia is a new high-level open source language that synthesizes the
-best features of Fortran, C, Python, R, MATLAB, and Lisp for
-scientific computing. Julia uses a just-in-time (JIT) compiler with
-type inference and multiple dispatch to achieve performance comparable
-to C and Fortran. Unlike C and Fortran, Julia can be run interactively
-and does not require type declarations. These features greatly speed
-up code development by allowing prototyping in the same language to be
+Julia is a high-level open source language that synthesizes the best
+features of Fortran, C, Python, R, MATLAB, and Lisp for scientific
+computing (JuliaIntro_). Julia uses a just-in-time (JIT) compiler with type
+inference and multiple dispatch to achieve performance comparable to C
+and Fortran. Unlike C and Fortran, Julia can be run interactively and
+does not require type declarations. These features greatly speed up
+code development by allowing prototyping in the same language to be
 used for performance runs. Julia natively supports parallelization,
 and has been used to achieve petascale computing. **Julia proves that
 high performance can be achieved with a dynamically typed interactive
@@ -814,7 +766,7 @@ disadvantages are shown in bold.
     - Codes can be called from other languages like Python and Julia
   - Disadvantages
     - **Productivity is reduced because these languages are not
-      interactive**
+      interactive or dynamically typed**
     - Code in these languages is often several times the length of
       equivalent code in Julia or Python
     - Continuous integration testing platforms such as Travis CI do
@@ -866,3 +818,30 @@ Decision Rationale
 ==================
 
 This PLEP has not been decided upon yet.
+
+References
+==========
+
+.. [Birn2001] J. Birn et al. (2001), `*Geospace Environmental Modeling
+   (GEM) Magnetic Reconnection Challenge*
+   <https://doi.org/10.1029/1999JA900449>`_, Journal of Geophysical
+   Research, 106, 3715, doi: 10.1029/1999JA900449
+
+.. [Hettrick2016] S. Hettrick (2016), `Research Software
+   Sustainability: Report on a Knowledge Exchange Workshop
+   <http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1005&context=scholcom>`_
+
+.. [Martin2009] R. C. Martin, *Clean Code: A Handbook of Agile
+   Software Craftsmanship* (2009, Prentice Hall)
+
+.. [Martin2018] R. C. Martin, *Clean Architecture: A Craftman's Guide
+   to Software Structure and Design* (2018, Prentice Hall)
+   
+.. [Wilkinson2016] M. D. Wilkinson et al. (2016), `The FAIR Guiding
+   Principles for scientific data management and stewardship
+   <https://doi.org/10.1038/sdata.2016.18>`_, Scientific Data, 3,
+   160018, doi: 10.1038/sdata.2016.18
+   
+.. [Wilson2014] G. Wilson (2014), `Best Practices for Scientific
+   Computing <https://doi.org/10.1371/journal.pbio.1001745>`_, PLoS
+   Biology, 12, e1001745, doi: 10.1371/journal.pbio.1001745
