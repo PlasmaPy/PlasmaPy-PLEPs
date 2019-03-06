@@ -255,16 +255,13 @@ are often customized for a particular project. The specific software
 and input files used to perform and analyze a simulation are rarely
 made openly available for inspection or reuse.
 
-.. [Murphy2019] N. A. Murphy, B. Alterman, and D. Stansby (2019), `Making
-		plasma research reproducible
-		<https://doi.org/10.5281/zenodo.2578291>`_, Zenodo,
-		doi: 10.5281/zenodo.2578291
-
 **Solution: Build reproducibility into the standard workflow for
 performing and analyzing numerical simulations.** Allow users to
 create containers that include all of the source code, dependency
 version numbers, and other materials needed to perform and analyze a
 numerical simulation. 
+
+.. _usecases
 
 Sample Use Cases
 ================
@@ -392,17 +389,21 @@ Application programming interface (API) requirements
   abstraction will provide more options for customizability and
   fine-tuning.
 
-  - Enable a simple simulation to be set up in ten to twenty lines of
+  - Enable a simple simulation to be set up in as few as ten lines of
     code.
 
   - Provide narrative documentation that progresses from a simulation
     set up using the highest level of abstraction to lower levels of
     abstraction.
 
-* Each numerical method should be programmed to a well-defined
-  interface.  PIC and fluid simulations should have identical
-  interfaces at the highest level of abstraction.
-  
+* Program each numerical method to the same well-defined high level
+  interface.
+
+  - PIC and fluid simulations should use identical interfaces at the
+    highest level of abstraction.
+
+  - The interface should be expandable.
+
 Functionality requirements
 --------------------------
 
@@ -512,16 +513,23 @@ Code quality requirements
 Documentation requirements
 --------------------------
 
-* Provide narrative documentation that allows users to 
+* Provide narrative documentation
 
-* Provide narrative documentation 
+  - Write a quickstart guide for new contributors, including people
+    who are new to plasma physics.
 
-* All user-facing functions and classes should have 
+  - Develop more detailed documentation for experienced users who may
+    wish to engage in more complex tasks like implement a new
+    numerical method.
 
-* Provide a cookbook of recipes
+* All user-facing functions and classes should have a numpydoc style
+  docstring.
 
-* Documentation should be developed to be 
+* All private functions and classes should have a docstring unless it
+  is simple 
 
+* Provide a cookbook of sample programs that do different things that
+  users may end up trying to implement (akin to the matplotlib gallery).
 
 Anticipated User Experience
 ===========================
@@ -680,7 +688,7 @@ Choice of language
 
 Julia is a high-level open source language that synthesizes the best
 features of Fortran, C, Python, R, MATLAB, and Lisp for scientific
-computing (JuliaIntro_). Julia uses a just-in-time (JIT) compiler with type
+computing (JuliaIntro_). Julia uses a JIT compiler with type
 inference and multiple dispatch to achieve performance comparable to C
 and Fortran. Unlike C and Fortran, Julia can be run interactively and
 does not require type declarations. These features greatly speed up
@@ -751,6 +759,14 @@ development.
 Alternatives
 ============
 
+Numerical method code development
+---------------------------------
+
+.. When going between
+
+.. Additionally, some plasma simulation codes like BOUT++ and PLUTO
+   are licensed under the GPLv3.
+
 Choice of language
 ------------------
 
@@ -773,7 +789,8 @@ disadvantages are shown in bold.
       not support direct testing of Fortran code
     - Experience with Fortran is less helpful for plasma physics
       students searching for jobs outside of research and academia
-    - Limited metaprogramming capabilities
+    - Limited metaprogramming capabilities and cannot compile code at
+      runtime
 
 * **Python with NumPy**
   - Advantages
@@ -795,7 +812,7 @@ disadvantages are shown in bold.
 
 * **Python with Numba**
   - Advantages
-    - Uses a just-in-time compiler to get compiled speeds
+    - Uses a JIT compiler to get compiled speeds
     - Often decorating a function with ``numba.jit`` is enough to get
       compiled speeds
   - Disadvantages
@@ -807,11 +824,10 @@ disadvantages are shown in bold.
 
 * **LuaJIT**
   - Advantages
-    - Uses a just-in-time compiler to get compiled speeds
-    - Offers exceptional performance, including for graphical
-      processing units (GPUs)
+    - Uses a JIT compiler to get compiled speeds
+    - Offers great performance
   - Disadvantages
-    - **Less active community surrounding scientific LuaJIT**
+    - **Smaller scientific community surrounding LuaJIT**
     - Fewer scientific libraries written in LuaJIT
 
 Decision Rationale
@@ -836,6 +852,11 @@ References
 
 .. [Martin2018] R. C. Martin, *Clean Architecture: A Craftman's Guide
    to Software Structure and Design* (2018, Prentice Hall)
+
+.. [Murphy2019] N. A. Murphy, B. Alterman, and D. Stansby (2019),
+   `Making plasma research reproducible
+   <https://doi.org/10.5281/zenodo.2578291>`_, Zenodo, doi:
+   10.5281/zenodo.2
    
 .. [Wilkinson2016] M. D. Wilkinson et al. (2016), `The FAIR Guiding
    Principles for scientific data management and stewardship
