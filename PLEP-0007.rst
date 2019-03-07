@@ -527,7 +527,7 @@ Documentation requirements
 
 * All private functions and classes should have a docstring unless it
   is simple 
-
+* provide Jupyter notebook examples for ease of use
 * Provide a cookbook of sample programs that do different things that
   users may end up trying to implement (akin to the matplotlib gallery).
 
