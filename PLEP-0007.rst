@@ -1,6 +1,6 @@
-=======================================================
-PLEP-0007 – Plasma Simulation Capabilities for PlasmaPy
-=======================================================
+==================================================
+PLEP-0007 – Plasma simulation for the 24½th century
+==================================================
 
 +-------------------+---------------------------------------------+
 | PLEP              | number                                      |
@@ -11,7 +11,7 @@ PLEP-0007 – Plasma Simulation Capabilities for PlasmaPy
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2019-03-01                                  |
+| date last revised | 2019-03-17                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -58,9 +58,12 @@ within the PlasmaPy ecosystem. The goals of this framework are to:
 * Enable users to perform high quality numerical simulations of
   diverse plasma phenomena;
 
+* Enable users to straightforwardly compare numerical results to
+  experimental and observational data;
+
 * Minimize the time, effort, and frustration needed to achieve
   scientific understanding through numerical simulation; and
-
+  
 * Maximize scientific and computational reproducibility.
 
 Background
@@ -80,32 +83,30 @@ for high performance but without sacrificing usability.
 Motivation
 ==========
 
-.. A possibility for this section would be to transform it into its
-   own article and call it something like "Plasma simulation in the
-   24½th century"
-
-Most scientific programmers are self-taught. Graduate programs in
-plasma physics generally lack courses on scientific programming, so
-students are often left to learn these skills on their own. Students
-and scientists often have not had the time or opportunity to learn
-techniques and best practices from computer science and software
-engineering that can greatly improve the reliability, maintainability,
-and usability of software. The high pressure to publish and get
-results out quickly incentivizes building up long-term technical debt
-to enable faster short-term progress. A critical evaluation of the
-current status of plasma simulation software based on years of
-experience with multiple codes provides motivation to adopt strategies
-that reduce technical debt and insight into how the plasma community
-can improve its practices into the future.
+Most scientific programmers are self-taught. Undergraduate and
+graduate programs in physics and astronomy generally lack courses on
+scientific programming, so students are often left to learn these
+skills on their own. Students and scientists often have not had the
+time or opportunity to learn techniques and best practices from
+computer science and software engineering that can greatly improve the
+reliability, maintainability, and usability of software and prevent
+future headaches. The high pressure to publish results quickly
+incentivizes building up long-term technical debt to enable faster
+short-term progress. A candid evaluation of the current status of
+plasma simulation software based on experiences using a variety of
+codes over multiple years provides motivation to adopt strategies that
+reduce technical debt and insight into how the plasma community can
+improve its practices into the future.
 
 **Common practice: Plasma simulation codes are usually written in
-low-level compiled languages such as Fortran, C, and C++.** While
+low-level pre-compiled languages such as Fortran, C, and C++.** While
 these languages allow for excellent performance, code development is
-slower because these languages are not interactive and types must be
-declared. Making a change often requires additional steps such as
-declaring a type, communicating that variable to different processors,
-and compiling the code. Using Fortran and C prioritizes performance at
-the cost of usability and maintainability.
+slower because these languages are not interactive and the types of
+variables must be declared. Making a change often requires additional
+steps such as declaring a type, communicating that variable to
+different processors, and re-compiling the code. Using pre-compiled
+languages prioritizes performance at the cost of usability and
+maintainability.
 
 **Alternative: Develop using modern languages that do not require
 sacrificing usability to achieve high performance.** Dynamically typed
@@ -113,7 +114,7 @@ languages that can be used interactively allow for faster development,
 but often at the cost of reduced performance. Modern languages such
 as Julia make use of just-in-time (JIT) compilation with type
 inference and multiple dispatch so that users do not need to choose
-between usability and performance.
+between usability and performance. 
 
 **Problem: Access to existing plasma physics codes is frequently
 restricted in some way.** Plasma simulation codes are often not
@@ -195,8 +196,8 @@ The code for the problem setup, physical model, and numerical method
 are often intertwined with each other. Different components sometimes
 contain interdependencies with each other. High-level code is often
 intermixed with low-level code, such as when MPI routines to transfer
-data to different subprocesses are next to high-level calls for the
-numerical method.
+data to different subprocesses are next to high-level calls related to
+the numerical method.
 
 .. TODO: Expand the following point.
 
@@ -354,18 +355,20 @@ Availability requirements
 * Develop openly under the Open Source Initiative approved `BSD+Patent
   <https://opensource.org/licenses/BSDplusPatent>`_ license.
 
-* Allow installation in a single line with widely-used package
-  managers.
-
+* Allow installation in a single command with the appropriate standard
+  package managers.
+  
   - Do not require users to compile external libraries, edit make
     files, change compiler flags, or run bash scripts.
 
-  - Depend only on packages that can be installed using that package
-    manager.
+  - Depend only on packages that can be installed automatically with
+    the package manager when running the installation command.
 
 * Design the package to run in Linux, macOS, and Windows environments
   and on scales ranging from a single core to the most powerful
   supercomputers.
+
+* Provide thorough online documentation.
 
 Language requirements
 ---------------------
@@ -393,16 +396,19 @@ Application programming interface (API) requirements
     code.
 
   - Provide narrative documentation that progresses from a simulation
-    set up using the highest level of abstraction to lower levels of
-    abstraction.
-
+    set up using the highest level of abstraction (e.g., a quick start
+    guide) to lower levels of abstraction.
+    
 * Program each numerical method to the same well-defined high level
   interface.
 
   - PIC and fluid simulations should use identical interfaces at the
     highest level of abstraction.
 
-  - The interface should be expandable.
+  - The interface must be expandable.
+
+* Use exception handling and provide useful error messages to help
+  users pinpoint problems quickly.
 
 Functionality requirements
 --------------------------
@@ -410,29 +416,22 @@ Functionality requirements
 * Create a standardized representation for the problem setup so that
   the same problem setup can be used interchangeably for different
   physical models and numerical methods.
-
-.. Create a class or object that represents the dependent variables so
-   that it can be used when creating the other classes when needed?
   
-  - Include distinct representations for the domain, ICs, and BCs.
+  - Provide standardized representations with well-defined interfaces
+    for the domain, ICs, and BCs.
 
-    - Check that different domain, IC, and BC representations are
-      consistent with each other.
+    - Implement checks that different domain, IC, and BC
+      representations are consistent with each other.
 
-    - Provide clear, well-defined interfaces for each of these
-      representations.
+    - Issue a warning when the initial conditions are far out of
+      equilibrium.
 
-  - Allow distinct representation of volumetric source terms that are
-    needed to drive turbulence.
-
-  - Implement checks that the domain, ICs, and BCs are consistent with
-    each other.
-
-    - Use exception handling to provide useful error messages that
-      help users quickly pinpoint problems.
-
-  - Issue a warning when the initial conditions are far out of
-    equilibrium.
+    - Raise an exception when the magnetic field is not approximately
+      divergence-free.
+            
+  - Provide a standardized representation for how to define volumetric
+    source terms that, for example, may be needed to drive turbulence
+    or initiate magnetic reconnection.
 
   - Allow users to select pre-defined initial conditions that are
     commonly used.
@@ -445,12 +444,12 @@ Functionality requirements
   - Implement or use tools to create a finite element grid for
     experimental geometries.
 
-* Prioritize flexible numerical methods that can solve almost
-  arbitrary systems of equations written in conservative form.
+* Prioritize flexible numerical methods intended to solve systems of
+  equations written in conservative form (LeVeque1992_, Lukin2015_).
 
-  - Allow users to select pre-defined systems of equations.
+  - Enable users to select pre-defined systems of equations.
 
-  - Allow users to provide equations as strings.
+  - Enable users to provide equations as strings.
   
     - Parse each string to extract the flux and source terms for each
       equation.
@@ -528,6 +527,7 @@ Documentation requirements
 * All private functions and classes should have a docstring unless it
   is simple 
 * provide Jupyter notebook examples for ease of use
+
 * Provide a cookbook of sample programs that do different things that
   users may end up trying to implement (akin to the matplotlib gallery).
 
@@ -838,8 +838,8 @@ This PLEP has not been decided upon yet.
 References
 ==========
 
-.. [Birn2001] J. Birn et al. (2001), `*Geospace Environmental Modeling
-   (GEM) Magnetic Reconnection Challenge*
+.. [Birn2001] J. Birn et al. (2001), `Geospace Environmental Modeling
+   (GEM) Magnetic Reconnection Challenge
    <https://doi.org/10.1029/1999JA900449>`_, Journal of Geophysical
    Research, 106, 3715, doi: 10.1029/1999JA900449
 
@@ -847,6 +847,14 @@ References
    Sustainability: Report on a Knowledge Exchange Workshop
    <http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1005&context=scholcom>`_
 
+.. [Lukin2016] V. S. Lukin et al. (2016), `Overview of HiFi - implicit
+   spectral element code framework for multi-fluid plasma applications
+   <https://arxiv.org/abs/1608.06030>`_, arXiv:1608.06030
+
+.. [LeVeque1992] R. J. LeVeque, `Numerical Methods for Conservation
+   Laws <https://www.springer.com/la/book/9783764327231>`_ (1992,
+   Birkhäuser Basel)
+		 
 .. [Martin2009] R. C. Martin, *Clean Code: A Handbook of Agile
    Software Craftsmanship* (2009, Prentice Hall)
 
