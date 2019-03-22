@@ -1,6 +1,6 @@
-==================================================
-PLEP-0007 – Plasma simulation for the 24½th century
-==================================================
+===================================================
+PLEP-0007 – Plasma Simulation for the 24½th Century
+===================================================
 
 +-------------------+---------------------------------------------+
 | PLEP              | number                                      |
@@ -11,7 +11,7 @@ PLEP-0007 – Plasma simulation for the 24½th century
 +-------------------+---------------------------------------------+
 | date created      | 2018-12-17                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2019-03-17                                  |
+| date last revised | 2019-03-22                                  |
 +-------------------+---------------------------------------------+
 | type              | standard                                    |
 +-------------------+---------------------------------------------+
@@ -63,7 +63,7 @@ within the PlasmaPy ecosystem. The goals of this framework are to:
 
 * Minimize the time, effort, and frustration needed to achieve
   scientific understanding through numerical simulation; and
-  
+
 * Maximize scientific and computational reproducibility.
 
 Background
@@ -114,7 +114,7 @@ languages that can be used interactively allow for faster development,
 but often at the cost of reduced performance. Modern languages such
 as Julia make use of just-in-time (JIT) compilation with type
 inference and multiple dispatch so that users do not need to choose
-between usability and performance. 
+between usability and performance.
 
 **Problem: Access to existing plasma physics codes is frequently
 restricted in some way.** Plasma simulation codes are often not
@@ -152,7 +152,7 @@ scripts.
 publish often makes writing documentation a lower priority. When
 documentation is inadequate, it is often necessary to work closely
 with a core developer with limited time in order to begin setting up
-or modifying a problem. 
+or modifying a problem.
 
 **Solution: Prioritize user documentation.** Each function and class
 should have its own documentation. Each subpackage should have its own
@@ -180,7 +180,7 @@ standards as the main part of the code.
 Codes commonly use highly abbreviated names that obfuscate the
 meanings of variables, functions, and classes. Functions and classes
 often lack documentation. Comments are not always helpful and may be
-obsolete. 
+obsolete.
 
 **Solution: Develop using modern best practices for scientific
 computing.** Take the time to learn and improve programming skills
@@ -260,9 +260,9 @@ made openly available for inspection or reuse.
 performing and analyzing numerical simulations.** Allow users to
 create containers that include all of the source code, dependency
 version numbers, and other materials needed to perform and analyze a
-numerical simulation. 
+numerical simulation.
 
-.. _usecases
+.. _usecases:
 
 Sample Use Cases
 ================
@@ -284,7 +284,7 @@ magnetosonic waves, and fast magnetosonic waves. She assigns a
 homework assignment to perform MHD simulations of these three
 different types of waves and produce movies of different
 quantities. Many of the students in her class have never performed a
-numerical simulation.  
+numerical simulation.
 
 .. _GEM:
 
@@ -357,7 +357,7 @@ Availability requirements
 
 * Allow installation in a single command with the appropriate standard
   package managers.
-  
+
   - Do not require users to compile external libraries, edit make
     files, change compiler flags, or run bash scripts.
 
@@ -398,7 +398,7 @@ Application programming interface (API) requirements
   - Provide narrative documentation that progresses from a simulation
     set up using the highest level of abstraction (e.g., a quick start
     guide) to lower levels of abstraction.
-    
+
 * Program each numerical method to the same well-defined high level
   interface.
 
@@ -416,7 +416,7 @@ Functionality requirements
 * Create a standardized representation for the problem setup so that
   the same problem setup can be used interchangeably for different
   physical models and numerical methods.
-  
+
   - Provide standardized representations with well-defined interfaces
     for the domain, ICs, and BCs.
 
@@ -428,7 +428,7 @@ Functionality requirements
 
     - Raise an exception when the magnetic field is not approximately
       divergence-free.
-            
+
   - Provide a standardized representation for how to define volumetric
     source terms that, for example, may be needed to drive turbulence
     or initiate magnetic reconnection.
@@ -450,7 +450,7 @@ Functionality requirements
   - Enable users to select pre-defined systems of equations.
 
   - Enable users to provide equations as strings.
-  
+
     - Parse each string to extract the flux and source terms for each
       equation.
 
@@ -484,7 +484,7 @@ Functionality requirements
 
   - Keep a similar API to fluid-approximation simulations at high
     levels of abstraction.
-    
+
 * Implement standardized formats and metadata naming conventions for
   output data.
 
@@ -525,7 +525,7 @@ Documentation requirements
   docstring.
 
 * All private functions and classes should have a docstring unless it
-  is simple 
+  is simple
 * provide Jupyter notebook examples for ease of use
 
 * Provide a cookbook of sample programs that do different things that
@@ -854,7 +854,7 @@ References
 .. [LeVeque1992] R. J. LeVeque, `Numerical Methods for Conservation
    Laws <https://www.springer.com/la/book/9783764327231>`_ (1992,
    Birkhäuser Basel)
-		 
+
 .. [Martin2009] R. C. Martin, *Clean Code: A Handbook of Agile
    Software Craftsmanship* (2009, Prentice Hall)
 
@@ -864,13 +864,18 @@ References
 .. [Murphy2019] N. A. Murphy, B. Alterman, and D. Stansby (2019),
    `Making plasma research reproducible
    <https://doi.org/10.5281/zenodo.2578291>`_, Zenodo, doi:
-   10.5281/zenodo.2
-   
+   10.5281/zenodo.2578291
+
+.. [Poli2018] F. M. Poli (2018), `*Integrated Tokamak modeling: When
+   physics informs engineering and research planning*
+   <https://doi.org/10.1063/1.5021489>`_, Physics of Plasmas, 25,
+   055602, doi: 10.1063/1.5021489
+
 .. [Wilkinson2016] M. D. Wilkinson et al. (2016), `The FAIR Guiding
    Principles for scientific data management and stewardship
    <https://doi.org/10.1038/sdata.2016.18>`_, Scientific Data, 3,
    160018, doi: 10.1038/sdata.2016.18
-   
+
 .. [Wilson2014] G. Wilson (2014), `Best Practices for Scientific
    Computing <https://doi.org/10.1371/journal.pbio.1001745>`_, PLoS
    Biology, 12, e1001745, doi: 10.1371/journal.pbio.1001745
