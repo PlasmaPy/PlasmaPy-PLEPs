@@ -49,6 +49,11 @@ documentation will include advice to users on how best choose a
 physical model and numerical method and describe potential pitfalls
 for different types of simulations.
 
+*Due to the scope of the proposed work, the decision on and
+implementation of this PLEP have been postponed until sufficient
+funding to support the development of the PlasmaPy software ecosystem
+has been made available.*
+
 Project Goals
 =============
 
