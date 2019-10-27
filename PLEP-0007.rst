@@ -36,8 +36,45 @@ sub-packages are created.
 Detailed Description
 ====================
 
-*Provide an extended description of the problem and the proposed
-changes, including usage examples when needed.*
+Why?
+----
+
+By defining a top-level sub-package namespace, developers are better
+directed to where code can be added and the ``PlasmaPy``
+**Coordinating Committee** can better manage package bloat.
+
+Top-Level Sub-Packages
+----------------------
+
+analysis
+~~~~~~~~
+
+diagnostics
+~~~~~~~~~~~
+
+dispersion
+~~~~~~~~~~
+
+examples
+~~~~~~~~
+
+formulary
+~~~~~~~~~
+
+particle
+~~~~~~~~
+
+plasma
+~~~~~~
+
+simulations
+~~~~~~~~~~~
+
+tests
+~~~~~
+
+utils
+~~~~~
 
 Implementation
 ==============
