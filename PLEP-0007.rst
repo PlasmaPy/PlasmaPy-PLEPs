@@ -60,8 +60,8 @@ analysis
 +------------------------------------------------------------------------------+
 | :access: ``plasamapy.diagnostics``                                           |
 | :scope:                                                                      |
-|   blah blah blah                                                             |
-|   blah blah blah                                                             |
+|   | blah blah blah                                                             |
+|   | blah blah blah                                                             |
 +------------------------------------------------------------------------------+
 
 diagnostics
