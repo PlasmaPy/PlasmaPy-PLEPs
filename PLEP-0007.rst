@@ -46,50 +46,86 @@ directed to where code can be added and the ``PlasmaPy``
 Top-Level Sub-Packages
 ----------------------
 
-analysis
-~~~~~~~~
-
 +------------------------------------------------------------------------------+
 | **analysis**                                                                 |
 +------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/analysis/``                                         |
 | :access: ``plasamapy.analysis``                                              |
 | :scope:                                                                      |
 |   blah blah blah                                                             |
 +------------------------------------------------------------------------------+
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/diagnostics/``                                      |
 | :access: ``plasamapy.diagnostics``                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
 +------------------------------------------------------------------------------+
-
-diagnostics
-~~~~~~~~~~~
-
-dispersion
-~~~~~~~~~~
-
-examples
-~~~~~~~~
-
-formulary
-~~~~~~~~~
-
-particle
-~~~~~~~~
-
-plasma
-~~~~~~
-
-simulations
-~~~~~~~~~~~
-
-tests
-~~~~~
-
-utils
-~~~~~
+| **dispersion**                                                               |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/dispersion/``                                       |
+| :access: ``plasamapy.dispersion``                                            |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **examples**                                                                 |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/examples/``                                         |
+| :access: ``plasamapy.examples``                                              |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **formulary**                                                                |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/formulary/``                                        |
+| :access: ``plasamapy.formulary``                                             |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **particle**                                                                 |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/particle/``                                         |
+| :access: ``plasamapy.particle``                                              |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **plasma**                                                                   |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/plasma/``                                           |
+| :access: ``plasamapy.plasma``                                                |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **simulations**                                                              |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/simulations/``                                      |
+| :access: ``plasamapy.simulations``                                           |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **tests**                                                                    |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/tests/``                                            |
+| :access: ``plasamapy.tests``                                                 |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
+| **utils**                                                                    |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/utils/``                                            |
+| :access: ``plasamapy.utils``                                                 |
+| :scope:                                                                      |
+|   | blah blah blah                                                           |
+|   | blah blah blah                                                           |
++------------------------------------------------------------------------------+
 
 Implementation
 ==============
