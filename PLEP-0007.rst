@@ -49,6 +49,14 @@ Top-Level Sub-Packages
 analysis
 ~~~~~~~~
 
++------------------------------------------+
+| analysis                                 |
++==========================================+
+| :access: ``plasamapy.analysis``          |
+| :scope:                                  |
+|   blah blah blah                         |
++------------------------------------------+
+
 diagnostics
 ~~~~~~~~~~~
 
