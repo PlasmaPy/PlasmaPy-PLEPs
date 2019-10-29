@@ -136,8 +136,12 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.plasma``                                                 |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of functions, classes, and sub-packages that fully defines a  |
+|   plasma.  This would include the plasma's species constituents and physical |
+|   parameters (like temperature, boundary conditions, magnetic fields, etc.). |
+|                                                                              |
+|   Any tools that go into defining a plasma or its environment (e.g. a field  |
+|   solver) should be included in a sub-package withing ``plasmapy.plasma``.   |
 +------------------------------------------------------------------------------+
 | **simulation**                                                               |
 +------------------------------------------------------------------------------+
