@@ -54,11 +54,13 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.analysis``                                              |
 | :scope:                                                                      |
 |   blah blah blah                                                             |
+| :additional PLEP:                                                            |
 +------------------------------------------------------------------------------+
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/diagnostics/``                                      |
 | :access: ``plasamapy.diagnostics``                                           |
+| :additional PLEP:                                                            |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
