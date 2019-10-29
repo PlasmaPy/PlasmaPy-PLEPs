@@ -27,7 +27,9 @@ Abstract
 
 This PLEP defines the top-level structure of ``PlasmaPy`` (i.e.
 ``plasmapy.<subpackage>``).  Its intent is to name the top-level
-sub-packages and define the type of code they encompass.  This
+sub-packages and define the general scope of code they encompass.
+Sub-package details are left to be finely defined in package focused
+PLEPs, which should NOT conflict with this PLEP.  This
 structure should help developers decided where new code should be
 placed and keep the top-level namespace from getting bloated.  If
 new code does NOT fall within the current framework, then this PLEP
@@ -52,15 +54,15 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/analysis/``                                         |
 | :access: ``plasamapy.analysis``                                              |
+| :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   blah blah blah                                                             |
-| :additional PLEP:                                                            |
 +------------------------------------------------------------------------------+
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/diagnostics/``                                      |
 | :access: ``plasamapy.diagnostics``                                           |
-| :additional PLEP:                                                            |
+| :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
