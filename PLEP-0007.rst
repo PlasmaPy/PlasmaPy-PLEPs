@@ -71,8 +71,18 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.diagnostics``                                            |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of functions, classes, and sub-packages that fully defines    |
+|   the parameters of a "diagnostic."  A "diagnostic" is any data collecting   |
+|   instrument ranging from experimental probes, like Langmuir and magnetic    |
+|   flux probes, to analogous synthetic diagnostics for simulations.           |
+|                                                                              |
+|   Tools in this package do not define any analysis routines, but focus on    |
+|   defining probe characteristics/calibrations that can be seamlessly passed  |
+|   to ``plasmapy.analysis`` routines.                                         |
+|                                                                              |
+|   A ``Diagnostic`` class should fully define its diagnostic characteristics  |
+|   and provide access to its most relevant analysis tools found in            |
+|   ``plasmapy.analysis``.                                                     |
 +------------------------------------------------------------------------------+
 | **dispersion**                                                               |
 +------------------------------------------------------------------------------+
