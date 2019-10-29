@@ -80,8 +80,11 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.dispersion``                                             |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of functions, classes, and sub-packages dedicated to solving  |
+|   various plasma dispersion relations.                                       |
+|                                                                              |
+|   All dispersion solvers defined in this sub-package should be accessible    |
+|   through a dispersion solver factory class, ``DispersionSolver``.           |
 +------------------------------------------------------------------------------+
 | **examples**                                                                 |
 +------------------------------------------------------------------------------+
@@ -115,7 +118,7 @@ Top-Level Sub-Packages
 |   super-particles for simulations, etc.                                      |
 |                                                                              |
 |   All types of particles in this sub-package should be able to be            |
-|   instantiated through a particle factory class, `Particle`.                 |
+|   instantiated through a particle factory class, ``Particle``.               |
 +------------------------------------------------------------------------------+
 | **plasma**                                                                   |
 +------------------------------------------------------------------------------+
