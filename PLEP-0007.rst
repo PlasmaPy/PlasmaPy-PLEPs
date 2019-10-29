@@ -56,7 +56,13 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.analysis``                                              |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   blah blah blah                                                             |
+|   A collection of functions, classes, and sub-packages focused on providing  |
+|   analysis techniques that can be applied to data collected from a variety   |
+|   of sources (simulation, experimental, space, etc.).                        |
+|                                                                              |
+|   The focus of an analysis routine should be made as broad as possible.      |
+|   When the routine's functionality becomes highly-tailor to its application, |
+|   then it should be placed into an appropriate explicit namespace.           |
 +------------------------------------------------------------------------------+
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
@@ -93,7 +99,7 @@ Top-Level Sub-Packages
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that provide          |
 |   mathematical and scientific formulas for calculating physical parameters   |
-|   of various plasmas.
+|   of various plasmas.                                                        |
 +------------------------------------------------------------------------------+
 | **particle**                                                                 |
 +------------------------------------------------------------------------------+
