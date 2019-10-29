@@ -54,7 +54,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/analysis/``                                         |
 | :access: ``plasmapy.analysis``                                               |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages focused on providing  |
 |   analysis techniques that can be applied to data collected from a variety   |
@@ -69,7 +69,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/diagnostics/``                                      |
 | :access: ``plasmapy.diagnostics``                                            |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that fully defines    |
 |   the parameters of a "diagnostic."  A "diagnostic" is any data collecting   |
@@ -88,7 +88,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/dispersion/``                                       |
 | :access: ``plasmapy.dispersion``                                             |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages dedicated to solving  |
 |   various plasma dispersion relations.                                       |
@@ -100,7 +100,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/examples/``                                         |
 | :access: ``plasmapy.examples``                                               |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
@@ -109,7 +109,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/formulary/``                                        |
 | :access: ``plasmapy.formulary``                                              |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that provide          |
 |   mathematical and scientific formulas for calculating physical parameters   |
@@ -119,7 +119,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/particle/``                                         |
 | :access: ``plasmapy.particle``                                               |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that fully defines    |
 |   the properties of a "particle."  A "particle" can come in many forms       |
@@ -134,7 +134,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/plasma/``                                           |
 | :access: ``plasmapy.plasma``                                                 |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
@@ -143,7 +143,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/simulation/``                                       |
 | :access: ``plasmapy.simulation``                                             |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages focused on            |
 |   interfacing with simulations and/or running simulations.                   |
@@ -157,7 +157,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/tests/``                                            |
 | :access: ``plasmapy.tests``                                                  |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of tests for top-level modules (i.e. functions and classes    |
 |   defined in top-level ``.py`` files).                                       |
@@ -166,7 +166,7 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/utils/``                                            |
 | :access: ``plasmapy.utils``                                                  |
-| :sub-package PLEP:                                                           |
+| :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of "utility" functions and classes to help us write           |
 |   (what we try to think of as) clean, readable, and informative code.        |
