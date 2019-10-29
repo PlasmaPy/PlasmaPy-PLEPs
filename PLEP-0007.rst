@@ -107,8 +107,14 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.particle``                                              |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of functions, classes, and sub-packages that fully defines    |
+|   the properties of a "particle."  A "particle" can come in many forms       |
+|   ranging from a traditional particle (electron, ion, atom, etc.) to more    |
+|   exotic types like dust particles, dimensionless particles for simulations, |
+|   super-particles for simulations, etc.                                      |
+|                                                                              |
+|   All types of particles in this sub-package should be able to be            |
+|   instantiated through a particle factory class, `Particle`.                 |
 +------------------------------------------------------------------------------+
 | **plasma**                                                                   |
 +------------------------------------------------------------------------------+
