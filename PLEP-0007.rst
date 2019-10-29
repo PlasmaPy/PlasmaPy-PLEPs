@@ -124,8 +124,10 @@ Top-Level Sub-Packages
 | :directory: ``./plasmapy/utils/``                                            |
 | :access: ``plasamapy.utils``                                                 |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   * A collection of "utility" functions and classes to help us write         |
+|     (what we try to think of as) clean, readable, and informative code.      |
+|   * This collection does not provide any physics tools, instead it is        |
+|     focused on providing package development tools.                          |
 +------------------------------------------------------------------------------+
 
 Implementation
