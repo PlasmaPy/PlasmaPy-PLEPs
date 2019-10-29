@@ -53,7 +53,7 @@ Top-Level Sub-Packages
 | **analysis**                                                                 |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/analysis/``                                         |
-| :access: ``plasamapy.analysis``                                              |
+| :access: ``plasmapy.analysis``                                               |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages focused on providing  |
@@ -61,13 +61,14 @@ Top-Level Sub-Packages
 |   of sources (simulation, experimental, space, etc.).                        |
 |                                                                              |
 |   The focus of an analysis routine should be made as broad as possible.      |
-|   When the routine's functionality becomes highly-tailor to its application, |
-|   then it should be placed into an appropriate explicit namespace.           |
+|   When the routine's functionality becomes highly-tailored to its            |
+|   application, then it should be placed into an appropriate explicit         |
+|   namespace.                                                                 |
 +------------------------------------------------------------------------------+
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/diagnostics/``                                      |
-| :access: ``plasamapy.diagnostics``                                           |
+| :access: ``plasmapy.diagnostics``                                            |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
@@ -76,7 +77,7 @@ Top-Level Sub-Packages
 | **dispersion**                                                               |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/dispersion/``                                       |
-| :access: ``plasamapy.dispersion``                                            |
+| :access: ``plasmapy.dispersion``                                             |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
@@ -85,7 +86,7 @@ Top-Level Sub-Packages
 | **examples**                                                                 |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/examples/``                                         |
-| :access: ``plasamapy.examples``                                              |
+| :access: ``plasmapy.examples``                                               |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
@@ -94,7 +95,7 @@ Top-Level Sub-Packages
 | **formulary**                                                                |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/formulary/``                                        |
-| :access: ``plasamapy.formulary``                                             |
+| :access: ``plasmapy.formulary``                                              |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that provide          |
@@ -104,7 +105,7 @@ Top-Level Sub-Packages
 | **particle**                                                                 |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/particle/``                                         |
-| :access: ``plasamapy.particle``                                              |
+| :access: ``plasmapy.particle``                                               |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
@@ -113,16 +114,16 @@ Top-Level Sub-Packages
 | **plasma**                                                                   |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/plasma/``                                           |
-| :access: ``plasamapy.plasma``                                                |
+| :access: ``plasmapy.plasma``                                                 |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   | blah blah blah                                                           |
 |   | blah blah blah                                                           |
 +------------------------------------------------------------------------------+
-| **simulations**                                                              |
+| **simulation**                                                               |
 +------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/simulations/``                                      |
-| :access: ``plasamapy.simulations``                                           |
+| :directory: ``./plasmapy/simulation/``                                       |
+| :access: ``plasmapy.simulation``                                             |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages focused on            |
@@ -131,12 +132,12 @@ Top-Level Sub-Packages
 |   If a new feature falls under the scope of the ``analysis`` and/or          |
 |   ``diagnostics`` sub-packages, then the feature should be included one of   |
 |   respective packages.  For example, a synthetic diagnostic should be        |
-|   included in the ``plasmapy.diagnotics`` sub-package.                       |
+|   included in the ``plasmapy.diagnostics`` sub-package.                      |
 +------------------------------------------------------------------------------+
 | **tests**                                                                    |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/tests/``                                            |
-| :access: ``plasamapy.tests``                                                 |
+| :access: ``plasmapy.tests``                                                  |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   A collection of tests for top-level modules (i.e. functions and classes    |
@@ -145,7 +146,7 @@ Top-Level Sub-Packages
 | **utils**                                                                    |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/utils/``                                            |
-| :access: ``plasamapy.utils``                                                 |
+| :access: ``plasmapy.utils``                                                  |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
 |   A collection of "utility" functions and classes to help us write           |
