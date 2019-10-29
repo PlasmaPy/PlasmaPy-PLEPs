@@ -116,8 +116,8 @@ Top-Level Sub-Packages
 | :directory: ``./plasmapy/tests/``                                            |
 | :access: ``plasamapy.tests``                                                 |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   * A collection of tests for top-level modules (i.e. functions and classes  |
+|     defined in top-level `.py` files).                                       |
 +------------------------------------------------------------------------------+
 | **utils**                                                                    |
 +------------------------------------------------------------------------------+
