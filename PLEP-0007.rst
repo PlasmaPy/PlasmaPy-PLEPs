@@ -118,13 +118,6 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.simulations``                                           |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   * A collection of functions, classes, and sub-packages focused on          |
-|     interfacing with simulations and/or running simulations.                 |
-|   * If a new feature falls under the scope of the `analysis` and/or          |
-|     `diagnostics` sub-packages, then the feature should be included one of   |
-|     respective packages.  For example, a synthetic diagnostic should be      |
-|     included in the `plasmapy.diagnotics` sub-package.                       |
-|                                                                              |
 |   A collection of functions, classes, and sub-packages focused on            |
 |   interfacing with simulations and/or running simulations.                   |
 |                                                                              |
