@@ -91,8 +91,9 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.formulary``                                             |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of functions, classes, and sub-packages that provide          |
+|   mathematical and scientific formulas for calculating physical parameters   |
+|   of various plasmas.
 +------------------------------------------------------------------------------+
 | **particle**                                                                 |
 +------------------------------------------------------------------------------+
@@ -132,8 +133,8 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.tests``                                                 |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   * A collection of tests for top-level modules (i.e. functions and classes  |
-|     defined in top-level `.py` files).                                       |
+|   A collection of tests for top-level modules (i.e. functions and classes    |
+|   defined in top-level `.py` files).                                         |
 +------------------------------------------------------------------------------+
 | **utils**                                                                    |
 +------------------------------------------------------------------------------+
@@ -141,10 +142,11 @@ Top-Level Sub-Packages
 | :access: ``plasamapy.utils``                                                 |
 | :sub-package PLEP:                                                           |
 | :scope:                                                                      |
-|   * A collection of "utility" functions and classes to help us write         |
-|     (what we try to think of as) clean, readable, and informative code.      |
-|   * This collection does not provide any physics tools, instead it is        |
-|     focused on providing package development tools.                          |
+|   A collection of "utility" functions and classes to help us write           |
+|   (what we try to think of as) clean, readable, and informative code.        |
+|                                                                              |
+|   This collection does not provide any physics tools, instead it is          |
+|   focused on providing package development tools.                            |
 +------------------------------------------------------------------------------+
 
 Implementation
