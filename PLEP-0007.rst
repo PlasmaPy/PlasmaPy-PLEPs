@@ -102,8 +102,8 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.examples``                                               |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   | blah blah blah                                                           |
-|   | blah blah blah                                                           |
+|   A collection of routines showing how to use and/or interface with the      |
+|   various PlasmaPy tools.                                                    |
 +------------------------------------------------------------------------------+
 | **formulary**                                                                |
 +------------------------------------------------------------------------------+
