@@ -49,7 +49,10 @@ directed to where code can be added and the ``PlasmaPy``
 Top-Level Sub-Packages
 ----------------------
 
+* `analysis`_
+
 +------------------------------------------------------------------------------+
+| .. _analysis:                                                                |
 | **analysis**                                                                 |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/analysis/``                                         |
