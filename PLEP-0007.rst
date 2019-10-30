@@ -108,8 +108,8 @@ Top-Level Sub-Packages
 +------------------------------------------------------------------------------+
 | **particles**                                                                |
 +------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/particles/``                                         |
-| :access: ``plasmapy.particles``                                               |
+| :directory: ``./plasmapy/particles/``                                        |
+| :access: ``plasmapy.particles``                                              |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that fully defines    |
@@ -170,8 +170,7 @@ Top-Level Sub-Packages
 |   focused on providing package development tools.                            |
 +------------------------------------------------------------------------------+
 
-..
-   +------------------------------------------------------------------------------+
+.. +------------------------------------------------------------------------------+
    | **examples**                                                                 |
    +------------------------------------------------------------------------------+
    | :directory: ``./plasmapy/examples/``                                         |
