@@ -96,15 +96,6 @@ Top-Level Sub-Packages
 |   All dispersion solvers defined in this sub-package should be accessible    |
 |   through a dispersion solver factory class, ``DispersionSolver``.           |
 +------------------------------------------------------------------------------+
-| **examples**                                                                 |
-+------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/examples/``                                         |
-| :access: ``plasmapy.examples``                                               |
-| :PLEP:                                                                       |
-| :scope:                                                                      |
-|   A collection of routines showing how to use and/or interface with the      |
-|   various PlasmaPy tools.                                                    |
-+------------------------------------------------------------------------------+
 | **formulary**                                                                |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/formulary/``                                        |
@@ -115,10 +106,10 @@ Top-Level Sub-Packages
 |   mathematical and scientific formulas for calculating physical parameters   |
 |   of various plasmas.                                                        |
 +------------------------------------------------------------------------------+
-| **particle**                                                                 |
+| **particles**                                                                |
 +------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/particle/``                                         |
-| :access: ``plasmapy.particle``                                               |
+| :directory: ``./plasmapy/particles/``                                         |
+| :access: ``plasmapy.particles``                                               |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A collection of functions, classes, and sub-packages that fully defines    |
@@ -178,6 +169,18 @@ Top-Level Sub-Packages
 |   This collection does not provide any physics tools, instead it is          |
 |   focused on providing package development tools.                            |
 +------------------------------------------------------------------------------+
+
+..
+   +------------------------------------------------------------------------------+
+   | **examples**                                                                 |
+   +------------------------------------------------------------------------------+
+   | :directory: ``./plasmapy/examples/``                                         |
+   | :access: ``plasmapy.examples``                                               |
+   | :PLEP:                                                                       |
+   | :scope:                                                                      |
+   |   A collection of routines showing how to use and/or interface with the      |
+   |   various PlasmaPy tools.                                                    |
+   +------------------------------------------------------------------------------+
 
 Implementation
 ==============
