@@ -51,6 +51,13 @@ Top-Level Sub-Packages
 
 #. `analysis`_
 #. `diagnostics`_
+#. `dispersion`_
+#. `formulary`_
+#. `particles`_
+#. `plasma`_
+#. `simulation`_
+#. `tests`_
+#. `utils`_
 
 +------------------------------------------------------------------------------+
 | .. _analysis:                                                                |
@@ -70,7 +77,7 @@ Top-Level Sub-Packages
 |   application, then it should be placed into an appropriate explicit         |
 |   namespace.                                                                 |
 +------------------------------------------------------------------------------+
-|   .. _diagnostics:                                                           |
+| .. _diagnostics:                                                             |
 |                                                                              |
 | **diagnostics**                                                              |
 +------------------------------------------------------------------------------+
@@ -91,6 +98,8 @@ Top-Level Sub-Packages
 |   and provide access to its most relevant analysis tools found in            |
 |   ``plasmapy.analysis``.                                                     |
 +------------------------------------------------------------------------------+
+| .. _dispersion:                                                              |
+|                                                                              |
 | **dispersion**                                                               |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/dispersion/``                                       |
@@ -103,6 +112,8 @@ Top-Level Sub-Packages
 |   All dispersion solvers defined in this sub-package should be accessible    |
 |   through a dispersion solver factory class, ``DispersionSolver``.           |
 +------------------------------------------------------------------------------+
+| .. _formulary:                                                               |
+|                                                                              |
 | **formulary**                                                                |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/formulary/``                                        |
@@ -113,6 +124,8 @@ Top-Level Sub-Packages
 |   mathematical and scientific formulas for calculating physical parameters   |
 |   of various plasmas.                                                        |
 +------------------------------------------------------------------------------+
+| .. _particles:                                                               |
+|                                                                              |
 | **particles**                                                                |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/particles/``                                        |
@@ -128,6 +141,8 @@ Top-Level Sub-Packages
 |   All types of particles in this sub-package should be able to be            |
 |   instantiated through a particle factory class, ``Particle``.               |
 +------------------------------------------------------------------------------+
+| .. _plasma:                                                                  |
+|                                                                              |
 | **plasma**                                                                   |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/plasma/``                                           |
@@ -141,6 +156,8 @@ Top-Level Sub-Packages
 |   Any tools that go into defining a plasma or its environment (e.g. a field  |
 |   solver) should be included in a sub-package withing ``plasmapy.plasma``.   |
 +------------------------------------------------------------------------------+
+| .. _simulation:                                                              |
+|                                                                              |
 | **simulation**                                                               |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/simulation/``                                       |
@@ -155,6 +172,8 @@ Top-Level Sub-Packages
 |   respective packages.  For example, a synthetic diagnostic should be        |
 |   included in the ``plasmapy.diagnostics`` sub-package.                      |
 +------------------------------------------------------------------------------+
+| .. _tests:                                                                   |
+|                                                                              |
 | **tests**                                                                    |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/tests/``                                            |
@@ -164,6 +183,8 @@ Top-Level Sub-Packages
 |   A collection of tests for top-level modules (i.e. functions and classes    |
 |   defined in top-level ``.py`` files).                                       |
 +------------------------------------------------------------------------------+
+| .. _utils:                                                                   |
+|                                                                              |
 | **utils**                                                                    |
 +------------------------------------------------------------------------------+
 | :directory: ``./plasmapy/utils/``                                            |
