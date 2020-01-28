@@ -49,6 +49,7 @@ directed to where code can be added and the ``PlasmaPy``
 Top-Level Sub-Packages
 ----------------------
 
+#. `addons`_
 #. `analysis`_
 #. `diagnostics`_
 #. `dispersion`_
@@ -59,6 +60,29 @@ Top-Level Sub-Packages
 #. `tests`_
 #. `utils`_
 
+.. _`native namespace package`: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
+.. _`PEP 420`: https://www.python.org/dev/peps/pep-0420/
+
++------------------------------------------------------------------------------+
+| .. _addons:                                                                  |
+|                                                                              |
+| **addons**                                                                   |
++------------------------------------------------------------------------------+
+| :directory: ``./plasmapy/addons/``                                           |
+| :access: ``plasmapy.addons``                                                 |
+| :PLEP:                                                                       |
+| :scope:                                                                      |
+|   The ``addons`` sub-package is a `native namespace package`_ setup          |
+|   in accordance with the `PEP 420`_ guidelines.                              |
+|                                                                              |
+|   A collection of functions, classes, and sub-packages focused on providing  |
+|   analysis techniques that can be applied to data collected from a variety   |
+|   of sources (simulation, experimental, space, etc.).                        |
+|                                                                              |
+|   The focus of an analysis routine should be made as broad as possible.      |
+|   When the routine's functionality becomes highly-tailored to its            |
+|   application, then it should be placed into an appropriate explicit         |
+|   namespace.                                                                 |
 +------------------------------------------------------------------------------+
 | .. _analysis:                                                                |
 |                                                                              |
@@ -141,7 +165,7 @@ Top-Level Sub-Packages
 |   All types of particles in this sub-package should be able to be            |
 |   instantiated through a particle factory class, ``Particle``.               |
 +------------------------------------------------------------------------------+
-| .. _plasma:                                                                 |
+| .. _plasma:                                                                  |
 |                                                                              |
 | **plasma**                                                                   |
 +------------------------------------------------------------------------------+
