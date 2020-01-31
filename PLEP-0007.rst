@@ -230,13 +230,25 @@ Top-Level Sub-Packages
 Implementation
 ==============
 
-*Describe the steps necessary to implement this PLEP, if necessary.*
+Implementing this PLEP requires refactoring (renaming of moving) of existing
+modules and sub-packages into the structure defined by this PLEP.
+
+Implementation of this PLEP was started in the development of ``plasmapy``
+``v0.3.0``.
 
 Issues, Pull Requests, and Branches
 ===================================
 
-*Provide repository links related to this PLEP, and include
-descriptions.*
+All issues and pull requests were managed under the GitHub project
+`PLEP-0007 Implementation <https://github.com/PlasmaPy/PlasmaPy/projects/14>`_.
+The key pull requests were:
+
+* `PR #692 <https://github.com/PlasmaPy/PlasmaPy/pull/692>`_:
+  "plasmapy.formulary - reshuffle"
+* `PR #742 <https://github.com/PlasmaPy/PlasmaPy/pull/742>`_:
+  "Rename plasmapy.atomic to plasmapy.particles"
+* `PR #728 <https://github.com/PlasmaPy/PlasmaPy/pull/728>`_:
+  "Refactor pytest helper functionality"
 
 Backward Compatibility
 ======================
