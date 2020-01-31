@@ -233,8 +233,8 @@ Implementation
 Implementing this PLEP requires refactoring (renaming of moving) of existing
 modules and sub-packages into the structure defined by this PLEP.
 
-Implementation of this PLEP was started in the development of ``plasmapy``
-``v0.3.0``.
+Implementation of this PLEP was started during the development of ``plasmapy
+v0.3.0``.
 
 Issues, Pull Requests, and Branches
 ===================================
