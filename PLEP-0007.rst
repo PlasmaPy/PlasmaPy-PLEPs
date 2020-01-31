@@ -141,9 +141,6 @@ Top-Level Sub-Packages
 | :PLEP:                                                                       |
 | :scope:                                                                      |
 |   A sub-package dedicated to solving various plasma dispersion relations.    |
-|                                                                              |
-|   All dispersion solvers defined in this sub-package should be accessible    |
-|   through a dispersion solver factory class, ``DispersionSolver``.           |
 +------------------------------------------------------------------------------+
 | .. _formulary:                                                               |
 |                                                                              |
@@ -181,7 +178,7 @@ Top-Level Sub-Packages
 | :scope:                                                                      |
 |   A sub-package that fully defines a plasma.  This would include the         |
 |   plasma's species constituents and physical parameters (like temperature,   |
-|   boundary conditions, magnetic fields, etc.).                               |
+|   boundary conditions, magnetic fields, distribution functions, etc.).       |
 |                                                                              |
 |   Any tools that go into defining a plasma or its environment (e.g. a field  |
 |   solver) should be included in a sub-package within ``plasmapy.plasma``.    |
@@ -213,8 +210,9 @@ Top-Level Sub-Packages
 |   A collection of tests for top-level modules (i.e. functions and classes    |
 |   defined in top-level ``.py`` files).                                       |
 |                                                                              |
-|   Utility's associated with running and developing tests (e.g.               |
-|   ``pytest_helpers``) should also be included here over ``plasmapy.utils``.  |
+|   .. note:: Utility's associated with running and developing tests (e.g.     |
+|             "pytest helpers") should also be included here over              |
+|             ``plasmapy.utils``.                                              |
 +------------------------------------------------------------------------------+
 | .. _utils:                                                                   |
 |                                                                              |
@@ -237,8 +235,9 @@ Top-Level Sub-Packages
 Implementation
 ==============
 
-Implementing this PLEP requires refactoring (renaming of moving) of existing
-modules and sub-packages into the structure defined by this PLEP.
+Implementing this PLEP requires creation of new sub-packages and refactoring
+(renaming and/or moving) of existing modules and sub-packages into the
+structure defined by this PLEP.
 
 Implementation of this PLEP was started during the development of ``plasmapy
 v0.3.0``.
