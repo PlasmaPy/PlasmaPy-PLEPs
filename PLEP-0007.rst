@@ -243,12 +243,6 @@ Backward Compatibility
 
 This PLEP will NOT maintain backward compatibility.
 
-Alternatives
-============
-
-*Summarize alternative possibilities to address (or not address) the
-problem described in this PLEP, if necessary.*
-
 Decision Rationale
 ==================
 
