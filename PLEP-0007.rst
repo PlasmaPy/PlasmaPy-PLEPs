@@ -29,10 +29,14 @@ This PLEP defines the top-level structure of ``PlasmaPy`` (i.e.
 ``plasmapy.<subpackage>``).  Its intent is to name the top-level
 sub-packages and define the general scope of the code they encompass.
 Sub-package details are left to be defined in package focused
-PLEPs, which should *NOT* conflict with this PLEP.  This
-structure should help developers decided where new code should be
-placed and keep the top-level namespace from getting bloated.  If
-new code does NOT fall within the current framework, then this PLEP
+PLEPs, which should *NOT* conflict with this PLEP.  Defining this
+structure should:
+
+  #. keep the top-level namespace from getting bloated.
+  #. help developers decided where new code should be placed
+  #. help navigate users to the functionality they need
+
+If new code does NOT fall within the current framework, then this PLEP
 needs to be modified/updated accordingly before any new top-level
 sub-packages are created.
 
@@ -42,9 +46,12 @@ Detailed Description
 Why?
 ----
 
-By defining a top-level sub-package namespace, developers are better
-directed to where code can be added and the ``PlasmaPy``
-**Coordinating Committee** can better manage package bloat.
+By defining a top-level sub-package namespace developers are better
+directed to where code can be added, the ``PlasmaPy``
+`Coordinating Committee
+<https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0003.rst>`_
+can better manage package bloat, and users are better directed to the code
+they need.
 
 Top-Level Sub-Packages
 ----------------------
