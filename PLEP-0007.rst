@@ -146,7 +146,7 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.formulary``                                              |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   A sub-package that provides mathematical and scientific formulas for      |
+|   A sub-package that provides mathematical and scientific formulas for       |
 |   calculating physical parameters of various plasmas.  This is inspired by,  |
 |   and akin to, the `NRL Plasma Formulary`_.                                  |
 +------------------------------------------------------------------------------+
@@ -158,7 +158,7 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.particles``                                              |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   A sub-package that fully defines the properties of a "particle."  A       |
+|   A sub-package that fully defines the properties of a "particle."  A        |
 |   "particle" can come in many forms ranging from a traditional particle      |
 |   (electron, ion, atom, etc.) to more exotic types like dust particles,      |
 |   dimensionless particles for simulations, super-particles for simulations,  |
@@ -172,7 +172,7 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.plasma``                                                 |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   A sub-package that fully defines a plasma.  This would include the        |
+|   A sub-package that fully defines a plasma.  This would include the         |
 |   plasma's species constituents and physical parameters (like temperature,   |
 |   boundary conditions, magnetic fields, etc.).                               |
 |                                                                              |
@@ -187,7 +187,7 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.simulation``                                             |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   A sub-package focused on interfacing with simulations and/or running      |
+|   A sub-package focused on interfacing with simulations and/or running       |
 |   simulations.                                                               |
 |                                                                              |
 |   If a new feature falls under the scope of the ``analysis`` and/or          |
