@@ -140,7 +140,9 @@ Top-Level Sub-Packages
 | :access: ``plasmapy.dispersion``                                             |
 | :PLEP:                                                                       |
 | :scope:                                                                      |
-|   A sub-package dedicated to solving various plasma dispersion relations.    |
+|   A sub-package containing tools to work with plasma dispersion relations.   |
+|   This includes, but is not limited to, solving dispersion relations,        |
+|   defining dispersion functions, plotting dispersion relations, etc.         |
 +------------------------------------------------------------------------------+
 | .. _formulary:                                                               |
 |                                                                              |
