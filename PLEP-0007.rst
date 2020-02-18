@@ -198,8 +198,8 @@ Top-Level Sub-Packages
 |   simulations.                                                               |
 |                                                                              |
 |   If a new feature falls under the scope of the ``analysis`` and/or          |
-|   ``diagnostics`` sub-packages, then the feature should be included one of   |
-|   respective sub-packages.  For example, a synthetic diagnostic should be    |
+|   ``diagnostics`` sub-packages, then the new feature should be included in   |
+|   one of those sub-packages.  For example, a synthetic diagnostic should be  |
 |   included in the ``plasmapy.diagnostics`` sub-package.                      |
 +------------------------------------------------------------------------------+
 | .. _tests:                                                                   |
