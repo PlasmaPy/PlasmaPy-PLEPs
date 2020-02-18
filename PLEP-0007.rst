@@ -109,7 +109,8 @@ Top-Level Sub-Packages
 |   When the routine's functionality becomes highly-tailored to its            |
 |   application, then it should be placed into an explicitly appropriate       |
 |   namespace.  For example, linear, langmuir, magnetic-flux, etc. analysis    |
-|   tools should be placed in their respective namespaces.                     |
+|   tools should be placed in their respective namespaces within               |
+|   ``plasmapy.analysis``.                                                     |
 +------------------------------------------------------------------------------+
 | .. _diagnostics:                                                             |
 |                                                                              |
