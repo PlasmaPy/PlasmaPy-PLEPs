@@ -213,7 +213,7 @@ Top-Level Sub-Packages
 |   A collection of tests for top-level modules (i.e. functions and classes    |
 |   defined in top-level ``.py`` files).                                       |
 |                                                                              |
-|   .. note:: Utility's associated with running and developing tests (e.g.     |
+|   .. note:: Utilities associated with running and developing tests (e.g.     |
 |             "pytest helpers") should also be included here over              |
 |             ``plasmapy.utils``.                                              |
 +------------------------------------------------------------------------------+
