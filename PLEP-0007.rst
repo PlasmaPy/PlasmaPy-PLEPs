@@ -56,6 +56,9 @@ they need.
 Top-Level Sub-Packages
 ----------------------
 
+.. _`PlasmaPy`: https://www.plasmapy.org/
+.. _`NRL Plasma Formulary`: https://www.nrl.navy.mil/ppd/content/nrl-plasma-formulary
+
 #. `addons`_
 #. `analysis`_
 #. `diagnostics`_
@@ -67,31 +70,38 @@ Top-Level Sub-Packages
 #. `tests`_
 #. `utils`_
 
-.. _`PlasmaPy`: https://www.plasmapy.org/
-.. _`NRL Plasma Formulary`: https://www.nrl.navy.mil/ppd/content/nrl-plasma-formulary
+.. _addons:
 
-+------------------------------------------------------------------------------+
-| .. _addons:                                                                  |
-|                                                                              |
++------------+-----------------------------------------------------------------+
 | **addons**                                                                   |
-+------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/addons/``                                           |
-| :access: ``plasmapy.addons``                                                 |
-| :PLEP:                                                                       |
-| :scope:                                                                      |
-|   The ``addons`` sub-package is intended to be a plugin location to allow    |
-|   3rd party users to extent the capabilities of `PlasmaPy`_.                 |
-|                                                                              |
-|   `PlasmaPy`_'s primary goal is to provide common functionality to the       |
-|   plasma community as a whole and avoids getting too focused on              |
-|   resources/functionality that are specific to a research group, instrument, |
-|   laboratory, etc.  However, we do see the benefit of having this            |
-|   functionality available in the `PlasmaPy`_ ecosystem.  This ``addons``     |
-|   entry point allows for the PlasmaPy community to develop separate          |
-|   open-source distributions that extend the functionality of ``plasmapy``.   |
-|                                                                              |
-|   .. note:: How to extend `PlasmaPy`_ by adding to ``plasmapy.addons`` will  |
-|             be covered in a future PLEP.                                     |
++============+=================================================================+
+| directory: | ``./plasmapy/addons/``                                          |
++------------+-----------------------------------------------------------------+
+| access:    | ``plasmapy.addons``                                             |
++------------+-----------------------------------------------------------------+
+| PLEP:      |                                                                 |
++------------+-----------------------------------------------------------------+
+| scope:     | | The ``addons`` sub-package is intended to be a plugin         |
+|            |   location to allow 3rd party users to extent the capabilities  |
+|            |   of `PlasmaPy`_.                                               |
+|            | |                                                               |
+|            | | `PlasmaPy`_'s primary goal is to provide common functionality |
+|            |   to the plasma community as a whole and avoids getting too     |
+|            |   focused on resources/functionality that are specific to a     |
+|            |   research group, instrument, laboratory, etc.  However, we do  |
+|            |   see the benefit of having this functionality available in the |
+|            |   `PlasmaPy`_ ecosystem.  This ``addons`` entry point allows    |
+|            |   for the PlasmaPy community to develop separate open-source    |
+|            |   distributions that extend the functionality of ``plasmapy``.  |
+|            | |                                                               |
+|            |                                                                 |
+|            | .. note:: How to extend `PlasmaPy`_ by adding to                |
+|            |           ``plasmapy.addons`` will be covered in a future PLEP. |
++------------+-----------------------------------------------------------------+
+
+.. note:: How to extend `PlasmaPy`_ by adding to
+          ``plasmapy.addons`` will be covered in a future PLEP.
+
 +------------------------------------------------------------------------------+
 | .. _analysis:                                                                |
 |                                                                              |
