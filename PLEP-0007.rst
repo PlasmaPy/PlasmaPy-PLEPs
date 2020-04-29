@@ -99,25 +99,30 @@ Top-Level Sub-Packages
 |            |   will be covered in a future PLEP.                             |
 +------------+-----------------------------------------------------------------+
 
-+------------------------------------------------------------------------------+
-| .. _analysis:                                                                |
-|                                                                              |
+.. _analysis:
+
++------------+-----------------------------------------------------------------+
 | **analysis**                                                                 |
-+------------------------------------------------------------------------------+
-| :directory: ``./plasmapy/analysis/``                                         |
-| :access: ``plasmapy.analysis``                                               |
-| :PLEP:                                                                       |
-| :scope:                                                                      |
-|   A sub-package focused on providing analysis techniques that can be         |
-|   applied to data collected from a variety of sources (simulation,           |
-|   experimental, space, etc.).                                                |
-|                                                                              |
-|   The focus of an analysis routine should be made as broad as possible.      |
-|   When the routine's functionality becomes highly-tailored to its            |
-|   application, then it should be placed into an explicitly appropriate       |
-|   namespace.  For example, linear, langmuir, magnetic-flux, etc. analysis    |
-|   tools should be placed in their respective namespaces within               |
-|   ``plasmapy.analysis``.                                                     |
++============+=================================================================+
+| directory: | ``./plasmapy/analysis/``                                        |
++------------+-----------------------------------------------------------------+
+| access:    | ``plasmapy.analysis``                                           |
++------------+-----------------------------------------------------------------+
+| PLEP:      |                                                                 |
++------------+-----------------------------------------------------------------+
+| scope:     | | A sub-package focused on providing analysis techniques that   |
+|            |   can be applied to data collected from a variety of sources    |
+|            |  (simulation, experimental, space, etc.).                       |
+|            | |                                                               |
+|            | | The focus of an analysis routine should be made as broad as   |
+|            |  possible.  When the routine's functionality becomes            |
+|            |  highly-tailored to its application, then it should be placed   |
+|            |  into an explicitly appropriate namespace.  For example,        |
+|            |  linear, langmuir, magnetic-flux, etc. analysis tools should    |
+|            |  be placed in their respective namespaces within                |
+|            |  ``plasmapy.analysis``.                                         |
++------------+-----------------------------------------------------------------+
+
 +------------------------------------------------------------------------------+
 | .. _diagnostics:                                                             |
 |                                                                              |
