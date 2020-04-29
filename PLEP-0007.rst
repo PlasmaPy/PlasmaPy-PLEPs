@@ -94,13 +94,10 @@ Top-Level Sub-Packages
 |            |   for the PlasmaPy community to develop separate open-source    |
 |            |   distributions that extend the functionality of ``plasmapy``.  |
 |            | |                                                               |
-|            |                                                                 |
-|            | .. note:: How to extend `PlasmaPy`_ by adding to                |
-|            |           ``plasmapy.addons`` will be covered in a future PLEP. |
+|            | | *Note:*                                                       |
+|            | | Extending `PlasmaPy`_ by adding to ``plasmapy.addons``        |
+|            |   will be covered in a future PLEP.                             |
 +------------+-----------------------------------------------------------------+
-
-.. note:: How to extend `PlasmaPy`_ by adding to
-          ``plasmapy.addons`` will be covered in a future PLEP.
 
 +------------------------------------------------------------------------------+
 | .. _analysis:                                                                |
