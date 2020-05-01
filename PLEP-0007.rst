@@ -41,12 +41,12 @@ Abstract
 
 This PLEP defines the top-level structure of ``PlasmaPy`` (i.e.
 ``plasmapy.<subpackage>``).  Its intent is to name the top-level
-sub-packages and define the general scope of the code they encompass.
-Sub-package details are left to be defined in package focused
-PLEPs, which should *NOT* conflict with this PLEP.  Defining this
+sub-packages and define the general scope of each package.
+Sub-package details are left to be defined in package focused PLEPs,
+which should *NOT* conflict with this PLEP.  Defining the top-level
 structure should:
 
-  #. keep the top-level namespace from getting bloated.
+  #. keep the top-level namespace from getting bloated
   #. help developers decided where new code should be placed
   #. help navigate users to the functionality they need
 
@@ -327,8 +327,8 @@ Implementation
 ==============
 
 Implementing this PLEP requires creation of new sub-packages and refactoring
-(renaming and/or moving) of existing modules and sub-packages into the
-structure defined by this PLEP.
+(renaming and/or moving) of existing modules and sub-packages into the outlined
+structure.
 
 Implementation of this PLEP was started during the development of ``plasmapy
 v0.3.0``.
@@ -355,5 +355,6 @@ This PLEP will NOT maintain backward compatibility.
 Decision Rationale
 ==================
 
-Defining a top-level namespace for ``plasmapy`` will prevent namespace
-pollution and help guide developers on where to place new code.
+Defining a top-level namespace for ``plasmapy`` will (1) prevent namespace
+pollution, (2) help guide developers on where to place new code, and (3) help
+navigate users to the functionality they need.
