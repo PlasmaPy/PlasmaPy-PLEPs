@@ -22,6 +22,20 @@ PLEP-0007 – Structure of Top-Level Sub-Packages
 |                   |                                             |
 +-------------------+---------------------------------------------+
 
+**Contents**
+
+* `Abstract`_
+* `Detailed Description`_
+
+  * `Why?`_
+  * `Top-Level Sub-Packages`_
+
+* `Extensible Packages are Exempt`_
+* `Implementation`_
+* `Issues, Pull Requests, and Branches`_
+* `Backward Compatibility`_
+* `Decision Rationale`_
+
 Abstract
 ========
 
