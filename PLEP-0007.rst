@@ -298,6 +298,17 @@ respective package PLEPs.
 |                 |   be placed in ``plasmapy.tests`` instead.                  |
 +-----------------+-------------------------------------------------------------+
 
+Extensible Packages are Exempt
+==============================
+
+Any package separately distributed from ``plasmapy`` does not need to go through a
+PLEP-7 review to add a top-level package to ``plasmapy``.  For example, a
+``plasmapy-foo`` distribution does not require a PLEP-7 review to create the extensible
+sub-package ``plasmapy.foo``.  The reasoning here is (1) this top-level sub-package
+``plasmapy.foo`` is not distributed with the main ``plasmapy`` package and (2) any
+user is purposefully installing the extensible package ``plasmapy-foo``.
+
+
 Implementation
 ==============
 
