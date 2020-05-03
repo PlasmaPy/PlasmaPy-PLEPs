@@ -9,7 +9,7 @@ PLEP-0007 – Structure of Top-Level Sub-Packages
 +===================+=============================================+
 | author(s)         | | Erik T. Everson                           |
 |                   | | Tulasi Parashar                           |
-|                   | | Steve Vincena                             |
+|                   | | Stephen Vincena                           |
 |                   | | Nicholas A. Murphy                        |
 +-------------------+---------------------------------------------+
 | contact email     | eeverson@ucla.edu                           |
