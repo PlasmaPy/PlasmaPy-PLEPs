@@ -54,9 +54,9 @@ structure should:
   #. help developers decided where new code should be placed
   #. help navigate users to the functionality they need
 
-If new code does NOT fall within the current framework, then this PLEP
-needs to be modified/updated accordingly before any new top-level
-sub-packages are created.
+If new code does NOT fall within the current framework after a thorough and
+exhaustive review, then this PLEP needs to be modified/updated accordingly
+before any new top-level sub-packages are created.
 
 Detailed Description
 ====================
