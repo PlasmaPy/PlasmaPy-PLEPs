@@ -104,7 +104,7 @@ respective package PLEPs.
 | PLEP:           |                                                             |
 +-----------------+-------------------------------------------------------------+
 | scope:          | | The ``addons`` sub-package is intended to be a plugin     |
-|                 |   location to allow 3rd party users to extent the           |
+|                 |   location to allow 3rd party users to extend the           |
 |                 |   capabilities of `PlasmaPy`_.                              |
 |                 | |                                                           |
 |                 | | `PlasmaPy`_'s primary goal is to provide common           |
