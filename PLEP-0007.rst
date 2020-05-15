@@ -1,0 +1,364 @@
+===============================================
+PLEP-0007 – Structure of Top-Level Sub-Packages
+===============================================
+
+.. _`10.5281/zenodo.3774573`: https://doi.org/10.5281/zenodo.3774573
+
++-------------------+---------------------------------------------+
+| PLEP              | 7                                           |
++===================+=============================================+
+| author(s)         | | Erik T. Everson                           |
+|                   | | Tulasi Parashar                           |
+|                   | | Stephen Vincena                           |
+|                   | | Nicholas A. Murphy                        |
++-------------------+---------------------------------------------+
+| contact email     | eeverson@ucla.edu                           |
++-------------------+---------------------------------------------+
+| date created      | 2019-10-27                                  |
++-------------------+---------------------------------------------+
+| date last revised | 2020-05-12                                  |
++-------------------+---------------------------------------------+
+| type              | Standard                                    |
++-------------------+---------------------------------------------+
+| status            | Accepted                                    |
++-------------------+---------------------------------------------+
+| DOI               | `10.5281/zenodo.3774573`_                   |
+|                   |                                             |
++-------------------+---------------------------------------------+
+
+**Contents**
+
+* `Abstract`_
+* `Detailed Description`_
+
+  * `Why?`_
+  * `Top-Level Sub-Packages`_
+
+* `Extensible Packages are Exempt`_
+* `Implementation`_
+* `Issues, Pull Requests, and Branches`_
+* `Backward Compatibility`_
+* `Decision Rationale`_
+
+Abstract
+========
+
+This PLEP defines the top-level structure of ``PlasmaPy`` (i.e.
+``plasmapy.<subpackage>``).  Its intent is to name the top-level
+sub-packages and define the general scope of each package.
+Sub-package details are left to be defined in package focused PLEPs,
+which should *NOT* conflict with this PLEP.  Defining the top-level
+structure should:
+
+  #. keep the top-level namespace from getting bloated
+  #. help developers decided where new code should be placed
+  #. help navigate users to the functionality they need
+
+If new code does NOT fall within the current framework after a thorough and
+exhaustive review, then this PLEP needs to be modified/updated accordingly
+before any new top-level sub-packages are created.
+
+Detailed Description
+====================
+
+Why?
+----
+
+By defining the top-level sub-package namespace developers are better
+directed to where code should be added, the ``PlasmaPy``
+`Coordinating Committee
+<https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/master/PLEP-0003.rst>`_
+can better manage package bloat, and users are better directed to the code
+they need.
+
+Top-Level Sub-Packages
+----------------------
+
+.. _`PlasmaPy`: https://www.plasmapy.org/
+.. _`NRL Plasma Formulary`: https://www.nrl.navy.mil/ppd/content/nrl-plasma-formulary
+
+The following sub-packages are outlined in this PLEP, with brief synopses given in
+the tables below.  The details of each package are left to be fully defined by their
+respective package PLEPs.
+
+  #. `addons`_
+  #. `analysis`_
+  #. `diagnostics`_
+  #. `dispersion`_
+  #. `formulary`_
+  #. `particles`_
+  #. `plasma`_
+  #. `simulation`_
+  #. `tests`_
+  #. `utils`_
+
+.. _addons:
+
++-----------------+-------------------------------------------------------------+
+| **addons**                                                                    |
++=================+=============================================================+
+| directory:      | ``./plasmapy/addons/``                                      |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.addons``                                         |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | The ``addons`` sub-package is intended to be a plugin     |
+|                 |   location to allow 3rd party users to extend the           |
+|                 |   capabilities of `PlasmaPy`_.                              |
+|                 | |                                                           |
+|                 | | `PlasmaPy`_'s primary goal is to provide common           |
+|                 |   functionality to the plasma community as a whole and      |
+|                 |   avoids getting too focused on resources/functionality     |
+|                 |   that are specific to a research group, instrument,        |
+|                 |   laboratory, etc.  However, we do see the benefit of       |
+|                 |   having this functionality available in the `PlasmaPy`_    |
+|                 |   ecosystem.  This ``addons`` entry point allows for the    |
+|                 |   PlasmaPy community to develop separate open-source        |
+|                 |   distributions that extend the functionality of            |
+|                 |   ``plasmapy``.                                             |
+|                 | |                                                           |
+|                 | | *Note:*                                                   |
+|                 | | Extending `PlasmaPy`_ by adding to ``plasmapy.addons``    |
+|                 |   will be covered in a future PLEP.                         |
++-----------------+-------------------------------------------------------------+
+
+.. _analysis:
+
++-----------------+-------------------------------------------------------------+
+| **analysis**                                                                  |
++=================+=============================================================+
+| directory:      | ``./plasmapy/analysis/``                                    |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.analysis``                                       |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A sub-package focused on providing analysis techniques    |
+|                 |   that can be applied to data collected from a variety of   |
+|                 |   sources (simulation, experimental, space, etc.).          |
+|                 | |                                                           |
+|                 | | The focus of an analysis routine should be made as broad  |
+|                 |   as possible.  When the routine's functionality becomes    |
+|                 |   highly-tailored to its application, then it should be     |
+|                 |   placed into an explicitly appropriate namespace.  For     |
+|                 |   example, linear, langmuir, magnetic-flux, etc. analysis   |
+|                 |   tools should be placed in their respective namespaces     |
+|                 |   within ``plasmapy.analysis``.                             |
++-----------------+-------------------------------------------------------------+
+
+.. _diagnostics:
+
++-----------------+-------------------------------------------------------------+
+| **diagnostics**                                                               |
++=================+=============================================================+
+| directory:      | ``./plasmapy/diagnostics/``                                 |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.diagnostics``                                    |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A sub-package that fully defines the parameters of a      |
+|                 |   "diagnostic."  A "diagnostic" is any data collecting      |
+|                 |   instrument ranging from experimental probes, like         |
+|                 |   Langmuir and magnetic flux probes, to analogous           |
+|                 |   synthetic diagnostics for simulations.                    |
+|                 | |                                                           |
+|                 | | Tools in this package do not define any analysis          |
+|                 |   routines, but focus on defining probe                     |
+|                 |   characteristics/calibrations that can be seamlessly       |
+|                 |   passed to ``plasmapy.analysis`` routines.                 |
+|                 | |                                                           |
+|                 | | A "``Diagnostic``" class should fully define its          |
+|                 |   diagnostic characteristics and provide access to its      |
+|                 |   most relevant analysis tools found in                     |
+|                 |   ``plasmapy.analysis``.                                    |
++-----------------+-------------------------------------------------------------+
+
+.. _dispersion:
+
++-----------------+-------------------------------------------------------------+
+| **dispersion**                                                                |
++=================+=============================================================+
+| directory:      | ``./plasmapy/dispersion/``                                  |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.dispersion``                                     |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | A sub-package containing tools to work with plasma          |
+|                 | dispersion relations.  This includes, but is not limited    |
+|                 | to, solving dispersion relations, defining dispersion       |
+|                 | functions, plotting dispersion relations, etc.              |
++-----------------+-------------------------------------------------------------+
+
+.. _formulary:
+
++-----------------+-------------------------------------------------------------+
+| **formulary**                                                                 |
++=================+=============================================================+
+| directory:      | ``./plasmapy/formulary/``                                   |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.formulary``                                      |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | A sub-package that provides mathematical and scientific     |
+|                 | formulas for calculating physical parameters of various     |
+|                 | plasmas.  This is inspired by, and akin to, the             |
+|                 | `NRL Plasma Formulary`_.                                    |
++-----------------+-------------------------------------------------------------+
+
+.. _particles:
+
++-----------------+-------------------------------------------------------------+
+| **particles**                                                                 |
++=================+=============================================================+
+| directory:      | ``./plasmapy/particles/``                                   |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.particles``                                      |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | A sub-package that fully defines the properties of a        |
+|                 | "particle."  A "particle" can come in many forms ranging    |
+|                 | from a traditional particle (electron, ion, atom, etc.) to  |
+|                 | more exotic types like dust particles, dimensionless        |
+|                 | particles for simulations, super-particles for simulations, |
+|                 | etc.                                                        |
++-----------------+-------------------------------------------------------------+
+
+.. _plasma:
+
++-----------------+-------------------------------------------------------------+
+| **plasma**                                                                    |
++=================+=============================================================+
+| directory:      | ``./plasmapy/plasma/``                                      |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.plasma``                                         |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A sub-package that fully defines a plasma.  This would    |
+|                 |   include the plasma's species constituents and physical    |
+|                 |   parameters (like temperature, boundary conditions,        |
+|                 |   magnetic fields, distribution functions, etc.).           |
+|                 | |                                                           |
+|                 | | Any tools that go into defining a plasma or its           |
+|                 |   environment (e.g. a field solver) should be included in   |
+|                 |   a sub-package within ``plasmapy.plasma``.                 |
++-----------------+-------------------------------------------------------------+
+
+.. _simulation:
+
++-----------------+-------------------------------------------------------------+
+| **simulation**                                                                |
++=================+=============================================================+
+| directory:      | ``./plasmapy/simulation/``                                  |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.simulation``                                     |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A sub-package focused on interfacing with simulations     |
+|                 |   and/or running simulations.                               |
+|                 | |                                                           |
+|                 | | If a new feature falls under the scope of the             |
+|                 |   ``analysis`` and/or ``diagnostics`` sub-packages, then    |
+|                 |   the new feature should be included in one of those        |
+|                 |   sub-packages.  For example, a synthetic diagnostic        |
+|                 |   should be included in the ``plasmapy.diagnostics``        |
+|                 |   sub-package.                                              |
++-----------------+-------------------------------------------------------------+
+
+.. _tests:
+
++-----------------+-------------------------------------------------------------+
+| **tests**                                                                     |
++=================+=============================================================+
+| directory:      | ``./plasmapy/tests/``                                       |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.tests``                                          |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A collection of tests for top-level modules (i.e.         |
+|                 |   functions and classes defined in top-level ``.py``        |
+|                 |   files).                                                   |
+|                 | |                                                           |
+|                 | | *Note:*                                                   |
+|                 | | Utilities associated with running and developing tests    |
+|                 |   (e.g. "pytest helpers") should also be included here over |
+|                 |   ``plasmapy.utils``.                                       |
++-----------------+-------------------------------------------------------------+
+
+.. _utils:
+
++-----------------+-------------------------------------------------------------+
+| **utils**                                                                     |
++=================+=============================================================+
+| directory:      | ``./plasmapy/utils/``                                       |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.utils``                                          |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | | A collection of "utility" functions and classes to help   |
+|                 |   us write (what we try to think of as) clean, readable,    |
+|                 |   and informative code.                                     |
+|                 | |                                                           |
+|                 | | This collection does not provide any physics tools,       |
+|                 |   instead it is focused on providing package development    |
+|                 |   tools.                                                    |
+|                 | |                                                           |
+|                 | | *Note:*                                                   |
+|                 | | Utilities focused on running and developing tests should  |
+|                 |   be placed in ``plasmapy.tests`` instead.                  |
++-----------------+-------------------------------------------------------------+
+
+Extensible Packages are Exempt
+==============================
+
+Any package separately distributed from ``plasmapy`` does not need to go through a
+PLEP-7 review to add a top-level package to ``plasmapy``.  For example, a
+``plasmapy-foo`` distribution does not require a PLEP-7 review to create the extensible
+sub-package ``plasmapy.foo``.  The reasoning here is (1) this top-level sub-package
+``plasmapy.foo`` is not distributed with the main ``plasmapy`` package and (2) any
+user is purposefully installing the extensible package ``plasmapy-foo``.
+
+
+Implementation
+==============
+
+Implementing this PLEP requires creation of new sub-packages and refactoring
+(renaming and/or moving) of existing modules and sub-packages into the outlined
+structure.
+
+Implementation of this PLEP was started during the development of ``plasmapy
+v0.3.0``.
+
+Issues, Pull Requests, and Branches
+===================================
+
+All issues and pull requests were managed under the GitHub project
+`PLEP-0007 Implementation <https://github.com/PlasmaPy/PlasmaPy/projects/14>`_.
+The key pull requests were:
+
+* `PR #692 <https://github.com/PlasmaPy/PlasmaPy/pull/692>`_:
+  "plasmapy.formulary - reshuffle"
+* `PR #742 <https://github.com/PlasmaPy/PlasmaPy/pull/742>`_:
+  "Rename plasmapy.atomic to plasmapy.particles"
+* `PR #728 <https://github.com/PlasmaPy/PlasmaPy/pull/728>`_:
+  "Refactor pytest helper functionality"
+
+Backward Compatibility
+======================
+
+This PLEP will NOT maintain backward compatibility.
+
+Decision Rationale
+==================
+
+Defining a top-level namespace for ``plasmapy`` will (1) prevent namespace
+pollution, (2) help guide developers on where to place new code, and (3) help
+navigate users to the functionality they need.
