@@ -27,6 +27,7 @@ authors=( \
     [0004]="Nicholas A. Murphy" \
     [0005]="Nicholas A. Murphy and Stuart J. Mumford" \
     [0006]="Andrew J. Leonard" \
+    [0007]="Erik T. Everson" \
 )
 
 for rstfile in PLEP-????.rst; do
