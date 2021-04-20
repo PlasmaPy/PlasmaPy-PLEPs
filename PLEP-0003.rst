@@ -28,18 +28,18 @@ Coordinating Committee Membership
 
 The PlasmaPy Coordinating Committee includes the following members:
 
-+------------------+-------------------------------+-------------------------------------------+
-| Name             | Institution                   | GitHub nickname                           |
-+==================+===============================+===========================================+
-| Nicholas         | Center for Astrophysics       | `@namurphy                                |
-| Murphy           | ``|`` Harvard & Smithsonian   |  <https://github.com/namurphy>`__         |
-+------------------+-------------------------------+-------------------------------------------+
-| Dominik Stańczak | University of Warsaw          | `@StanczakDominik                         |
-|                  |                               | <https://github.com/StanczakDominik>`__   |
-+------------------+-------------------------------+-------------+------------------------------
-| Erik T. Everson  | University of California      | `@rocco8773                               |
-|                  | Los Angeles                   | <https://github.com/rocco8773>`__         |
-+------------------+-------------------------------+-------------------------------------------+
++------------------+-------------------------------+-------------------------------------------+-----------+
+| Name             | Institution                   | GitHub nickname                           | Term ends |
++==================+===============================+===========================================+===========+
+| Nicholas         | Center for Astrophysics       | `@namurphy                                | 2023      |
+| Murphy           | ``|`` Harvard & Smithsonian   |  <https://github.com/namurphy>`__         |           |
++------------------+-------------------------------+-------------------------------------------+-----------+
+| Dominik Stańczak | University of Warsaw          | `@StanczakDominik                         | 2023      |
+|                  |                               | <https://github.com/StanczakDominik>`__   |           |
++------------------+-------------------------------+-------------+-----------------------------------------+
+| Erik T. Everson  | University of California      | `@rocco8773                               | 2023      |
+|                  | Los Angeles                   | <https://github.com/rocco8773>`__         |           |
++------------------+-------------------------------+-------------------------------------------+-----------+
 
 Unless otherwise stated, terms end on December 31 of the year listed.
 The institutions of PlasmaPy Coordinating Committee members are
