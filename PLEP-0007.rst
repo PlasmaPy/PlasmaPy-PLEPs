@@ -16,7 +16,7 @@ PLEP-0007 – Structure of Top-Level Sub-Packages
 +-------------------+---------------------------------------------+
 | date created      | 2019-10-27                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2020-05-12                                  |
+| date last revised | 2021-04-20                                  |
 +-------------------+---------------------------------------------+
 | type              | Standard                                    |
 +-------------------+---------------------------------------------+
@@ -90,6 +90,7 @@ respective package PLEPs.
   #. `plasma`_
   #. `simulation`_
   #. `tests`_
+  #. `transport`_
   #. `utils`_
 
 .. _addons:
@@ -290,6 +291,22 @@ respective package PLEPs.
 |                 | | Utilities associated with running and developing tests    |
 |                 |   (e.g. "pytest helpers") should also be included here over |
 |                 |   ``plasmapy.utils``.                                       |
++-----------------+-------------------------------------------------------------+
+
+.. _transport:
+
++-----------------+-------------------------------------------------------------+
+| **transport**                                                                 |
++=================+=============================================================+
+| directory:      | ``./plasmapy/transport/``                                   |
++-----------------+-------------------------------------------------------------+
+| access:         | ``plasmapy.transport``                                      |
++-----------------+-------------------------------------------------------------+
+| PLEP:           |                                                             |
++-----------------+-------------------------------------------------------------+
+| scope:          | This sub-package will contain functionality for calculating |
+|                 | plasma transport coefficients and/or modeling plasma        |
+|                 | transport.                                                  |
 +-----------------+-------------------------------------------------------------+
 
 .. _utils:
