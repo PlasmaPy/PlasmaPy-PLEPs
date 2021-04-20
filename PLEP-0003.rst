@@ -31,11 +31,7 @@ The PlasmaPy Coordinating Committee includes the following members:
 +------------------+---------------------------------------------+-----------------------------------------------------------+
 | Name             | Institution                                 | GitHub nickname                                           |
 +==================+=============================================+===========================================================+
-| Drew Leonard     | Aperio Software                             | `@SolarDrew <https://github.com/SolarDrew>`__             |
-+------------------+---------------------------------------------+-----------------------------------------------------------+
 | Nicholas Murphy  | Harvard-Smithsonian Center for Astrophysics | `@namurphy <https://github.com/namurphy>`__               |
-+------------------+---------------------------------------------+-----------------------------------------------------------+
-| Tulasi Parashar  | University of Delaware                      | `@tulasinandan <https://github.com/tulasinandan>`__       |
 +------------------+---------------------------------------------+-----------------------------------------------------------+
 | Dominik Stańczak | University of Warsaw                        | `@StanczakDominik <https://github.com/StanczakDominik>`__ |
 +------------------+---------------------------------------------+-----------------------------------------------------------+
