@@ -9,7 +9,7 @@ PLEP-0003 – Members of Coordinating Committee
 +-------------------+---------------------------------------------+
 | date created      | 2017-09-29                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2020-06-23                                  |
+| date last revised | 2021-04-20                                  |
 +-------------------+---------------------------------------------+
 | type              | informational                               |
 +-------------------+---------------------------------------------+
@@ -28,15 +28,19 @@ Coordinating Committee Membership
 
 The PlasmaPy Coordinating Committee includes the following members:
 
-+------------------+---------------------------------------------+-----------------------------------------------------------+
-| Name             | Institution                                 | GitHub nickname                                           |
-+==================+=============================================+===========================================================+
-| Nicholas Murphy  | Harvard-Smithsonian Center for Astrophysics | `@namurphy <https://github.com/namurphy>`__               |
-+------------------+---------------------------------------------+-----------------------------------------------------------+
-| Dominik Stańczak | University of Warsaw                        | `@StanczakDominik <https://github.com/StanczakDominik>`__ |
-+------------------+---------------------------------------------+-----------------------------------------------------------+
-| Erik T. Everson  | University of California, Los Angeles       | `@rocco8773 <https://github.com/rocco8773>`__             |
-+------------------+---------------------------------------------+-----------------------------------------------------------+
++------------------+-------------------------------+-------------------------------------------+
+| Name             | Institution                   | GitHub nickname                           |
++==================+===============================+===========================================+
+| Nicholas         | Center for Astrophysics       | `@namurphy                                |
+| Murphy           | ``|`` Harvard & Smithsonian   |  <https://github.com/namurphy>`__         |
++------------------+-------------------------------+-------------------------------------------+
+| Dominik Stańczak | University of Warsaw          | `@StanczakDominik                         |
+|                  |                               | <https://github.com/StanczakDominik>`__   |
++------------------+-------------------------------+-------------+------------------------------
+| Erik T. Everson  | University of California      | `@rocco8773                               |
+|                  | Los Angeles                   | <https://github.com/rocco8773>`__         |
++------------------+-------------------------------+-------------------------------------------+
 
-The institutions of Coordinating Committee members are included for
-identification purposes only.
+Unless otherwise stated, terms end on December 31 of the year listed.
+The institutions of PlasmaPy Coordinating Committee members are
+included for identification purposes only.
