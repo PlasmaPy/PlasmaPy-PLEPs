@@ -310,7 +310,8 @@ respective package PLEPs.
 |                 | |                                                           |
 |                 | | *Note:*                                                   |
 |                 | | Simulations that focus on calculating transport           |
-|                 |   coefficients should be included in this sub-package.      |
+|                 |   coefficients should be included in this sub-package and   |
+|                 |   not ``plasmapy.simulation``.                              |
 +-----------------+-------------------------------------------------------------+
 
 .. _utils:
