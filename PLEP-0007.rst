@@ -307,6 +307,11 @@ respective package PLEPs.
 | scope:          | This sub-package will contain functionality for calculating |
 |                 | plasma transport coefficients and/or modeling plasma        |
 |                 | transport.                                                  |
+|                 | |                                                           |
+|                 | | *Note:*                                                   |
+|                 | | Simulations that focus on calculating transport           |
+|                 |   coefficients should generally be included in this         |
+|                 |   sub-package.                                              |
 +-----------------+-------------------------------------------------------------+
 
 .. _utils:
