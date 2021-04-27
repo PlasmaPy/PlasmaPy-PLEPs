@@ -304,9 +304,9 @@ respective package PLEPs.
 +-----------------+-------------------------------------------------------------+
 | PLEP:           |                                                             |
 +-----------------+-------------------------------------------------------------+
-| scope:          | This sub-package will contain functionality for calculating |
-|                 | plasma transport coefficients and/or modeling plasma        |
-|                 | transport.                                                  |
+| scope:          | | This sub-package will contain functionality for           |
+|                 |   calculating plasma transport coefficients and/or modeling |
+|                 |   plasma transport.                                         |
 |                 | |                                                           |
 |                 | | *Note:*                                                   |
 |                 | | Simulations that focus on calculating transport           |
