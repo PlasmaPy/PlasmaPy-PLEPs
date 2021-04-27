@@ -32,7 +32,7 @@ The PlasmaPy Coordinating Committee includes the following members:
 | Name             | Institution                   | GitHub nickname                           | Term ends |
 +==================+===============================+===========================================+===========+
 | Nicholas         | Center for Astrophysics       | `@namurphy                                | 2023      |
-| Murphy           | ``|`` Harvard & Smithsonian   | <https://github.com/namurphy>`__         |           |
+| Murphy           | ``|`` Harvard & Smithsonian   | <https://github.com/namurphy>`__          |           |
 +------------------+-------------------------------+-------------------------------------------+-----------+
 | Dominik Stańczak | University of Warsaw          | `@StanczakDominik                         | 2023      |
 |                  |                               | <https://github.com/StanczakDominik>`__   |           |
