@@ -1,0 +1,113 @@
+PLEP-0008 – Calendar Versioning
+===============================
+
++-------------------+---------------------------------------------+
+| PLEP              | number                                      |
++===================+=============================================+
+| title             | PlasmaPy Versioning and Releases            |
++-------------------+---------------------------------------------+
+| author(s)         | Nick Murphy                                 |
++-------------------+---------------------------------------------+
+| contact email     | namurphy@cfa.harvard.edu                    |
++-------------------+---------------------------------------------+
+| date created      | 2022-11-22                                  |
++-------------------+---------------------------------------------+
+| date last revised | 2022-11-22                                  |
++-------------------+---------------------------------------------+
+| type              | process                                     |
++-------------------+---------------------------------------------+
+| status            | discussion                                  |
++-------------------+---------------------------------------------+
+| DOI               |                                             |
+|                   |                                             |
++-------------------+---------------------------------------------+
+
+Brief Description
+-----------------
+
+PlasmaPy will use `calendar versioning`_ starting with its first
+release in 2023.
+
+This PLEP supersedes PLEP 5, which is no longer in effect.
+
+Tradeoff Analysis
+-----------------
+
+The advantages of calendar versioning are:
+
+* We can understand the age of a release solely from the version
+  number.
+
+* The quantity of changes to PlasmaPy is roughly proportional to the
+  time between releases.
+
+* The versions would be more consistent with projects like xarray,
+  dask, pip, Ubuntu, and PyCharm, which each use some form of calendar
+  versioning.
+
+* The differences between the last two releases beginning with ``0.``
+  are likely to be comparable to the differences between the last
+  ``0.`` release and ``1.0.0``. Hence, a change to ``1.0.0`` would
+  indicate more changes than were actually happening.
+
+The disadvantages to adopting calendar versioning are:
+
+* A change to calendar versioning would likely need to be permanent in
+  order to preserve monotonicity.
+
+* Calendar versioning is not used by many of the packages we depend on,
+  like NumPy, SciPy, matplotlib, and Astropy.
+
+* The version number itself would not indicate how mature the package
+  is.
+
+* Calendar-based version numbers of PlasmaPy would differ
+  substantially from the version numbers of prior releases.
+
+Versioning Specification
+------------------------
+
+PlasmaPy final releases will use `calendar based versioning`_ of the
+form ``YY.0M.MICRO``, where:
+
+* The major release number ``YY`` is the year minus 2000,
+* The minor release number ``0M`` is the zero-padded month, and
+* The bugfix release number ``MICRO`` will start from ``0`` and be
+  incremented by one for each bugfix release.
+
+For example, the first release in April 2023 would be ``23.04.0``,
+with ``23.04.1`` being its first bugfix release in that series.
+
+Changes to the API (including backward incompatible changes) may only
+occur when there is a change in the major and/or minor release
+number. No changes to the API shall be made in bugfix releases.
+
+Release schedule
+----------------
+
+Major/minor releases should be made every ∼4 months.
+
+Alternatives
+------------
+
+This PLEP supersedes `PLEP 5`_, which is no longer in effect. PLEP 5
+specified that PlasmaPy use `semantic versioning`_. In `semantic
+versioning`_, versions are of the form ``MAJOR.MINOR.PATCH``.  For
+releases following ``1.0.0``, ``MAJOR`` is incremented when there are
+backwards incompatible changes to the API, ``MINOR`` is incremented
+when there are backwards compatible changes, and ``PATCH`` is
+incremented when the API does not change.  The main advantage of
+semantic versioning is that it is easy to tell when there are
+backwards incompatible changes. Because a community software project
+will have features at different stages of development, it is likely
+that there will be some backward incompatible changes during every
+release. Hence, date-based versioning is more appropriate to PlasmaPy
+than versioning based on whether or not backwards incompatible changes
+have been made.
+
+Decision Rationale
+------------------
+
+.. _calendar versioning: https://calver.org/
+.. _plep 5: https://doi.org/10.5281/zenodo.1451975
+.. _semanticversioning: https://semver.org
