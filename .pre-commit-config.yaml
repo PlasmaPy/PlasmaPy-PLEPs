@@ -26,3 +26,9 @@ repos:
   rev: v2.2.2
   hooks:
   - id: codespell
+
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.4.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix]
