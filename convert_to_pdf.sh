@@ -2,7 +2,7 @@
 
 # This bash script loops through PLEPs and converts the
 # ReStructuredText (.rst) files into PDF files with a consistent
-# style.  
+# style.
 #
 # The author metadata right now must be implemented manually in order
 # for middle initials to be included.
