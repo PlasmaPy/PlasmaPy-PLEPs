@@ -326,7 +326,7 @@ Licensing of creative works
       contained within the CC BY and CC BY-SA licenses. However,
       attribution is beneficial to the scientific process because it
       allows recipients to better understand the origin of an idea or
-      data which in turn helps reprodducibility.
+      data which in turn helps reproducibility.
 
    -  Creative Commons licenses that prohibit derivative and/or
       commercial reuse run contrary to the principles associated with
