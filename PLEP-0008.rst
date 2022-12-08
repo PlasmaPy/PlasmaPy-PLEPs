@@ -140,7 +140,7 @@ useful information can be gleaned via calendar versioning.
 Long-term support versioning
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Astropy releases with a version of ``n.0.*`` for :math:`n ∈ ℕ` are
+Astropy releases with a version of ``n.0.*`` for n ∈ ℕ are
 designated as LTS releases. This versioning scheme makes it clear which
 releases are LTS releases. However, this advantage for LTS versioning is
 minor compared to the advantages of calendar versioning. Additionally,
