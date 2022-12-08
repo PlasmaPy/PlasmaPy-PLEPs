@@ -2,7 +2,7 @@ PLEP-0008 – Calendar Versioning
 ===============================
 
 +-------------------+---------------------------------------------+
-| PLEP              | number                                      |
+| PLEP              | 8                                           |
 +===================+=============================================+
 | title             | PlasmaPy Versioning and Releases            |
 +-------------------+---------------------------------------------+
@@ -12,7 +12,7 @@ PLEP-0008 – Calendar Versioning
 +-------------------+---------------------------------------------+
 | date created      | 2022-11-22                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2022-11-29                                  |
+| date last revised | 2022-12-08                                  |
 +-------------------+---------------------------------------------+
 | type              | process                                     |
 +-------------------+---------------------------------------------+
@@ -43,8 +43,8 @@ form ``YYYY.0M.MICRO``, where:
 * The bugfix release number ``MICRO`` will start from ``0`` and be
   incremented by one for each bugfix release.
 
-For example, the first release in April 2023 would be ``2023.04.0``,
-with ``2023.04.1`` as the first bugfix release of the ``2023.04.*``
+For example, the first release in April 2023 would be ``2023.4.0``,
+with ``2023.4.1`` as the first bugfix release of the ``2023.4.*``
 series.
 
 Bugfix releases shall contain no changes to the API.
@@ -62,8 +62,8 @@ Advantages of adopting calendar versioning
   be gauged more accurately with date-based versioning.
 
 * The versioning scheme would be consistent with projects that use some
-  form of calendar versioning such as xarray, dask, pip, Ubuntu, and
-  PyCharm.
+  form of calendar versioning such as ``xarray``, ``dask``, ``pip``,
+  Ubuntu, and PyCharm.
 
 * The extent of changes between the last two releases in the ``0.*`` series
   is likely to be comparable to the extent of changes between the last
