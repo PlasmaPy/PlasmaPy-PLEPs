@@ -107,9 +107,6 @@ Disadvantages of adopting calendar versioning
 Additional considerations for adopting calendar versioning
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* A change to calendar versioning would need to be permanent in order to
-  preserve version monotonicity.
-
 * Calendar versioning is compatible with :pep:`440` and
   ``setuptools_scm``.
 
