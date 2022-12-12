@@ -111,8 +111,7 @@ Additional considerations for adopting calendar versioning
   ``setuptools_scm``.
 
 * Using the full year in the version number will reduce the chance of
-  ambiguity. Similarly, using the zero-padded month will increase the
-  likelihood that the minor version number is interpreted as a month.
+  ambiguity.
 
 Alternatives
 ------------
