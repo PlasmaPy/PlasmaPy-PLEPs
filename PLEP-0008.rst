@@ -39,7 +39,7 @@ PlasmaPy final releases will use `calendar versioning`_ of the
 form ``YYYY.MM.MICRO``, where:
 
 * The major release number ``YYYY`` is the year,
-* The minor release number ``MM`` is positive integer representing the release month, and
+* The minor release number ``MM`` is a positive integer representing the release month, and
 * The bugfix release number ``MICRO`` will start from ``0`` and be
   incremented by one for each bugfix release.
 
