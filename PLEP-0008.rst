@@ -18,8 +18,7 @@ PLEP-0008 – Calendar Versioning
 +-------------------+---------------------------------------------+
 | status            | discussion                                  |
 +-------------------+---------------------------------------------+
-| DOI               |                                             |
-|                   |                                             |
+| DOI               | `10.5281/zenodo.7434060`_                   |
 +-------------------+---------------------------------------------+
 
 Brief Description
@@ -154,6 +153,8 @@ software package with functionality at different stages of development,
 calendar versioning is more appropriate than semantic versioning or LTS
 versioning.
 
+
+.. _`10.5281/zenodo.7434060`: https://doi.org/10.5281/zenodo.7434060
 .. _calendar versioning: https://calver.org/
 .. _plep 5: https://doi.org/10.5281/zenodo.1451975
 .. _numpy enhancement proposal 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
