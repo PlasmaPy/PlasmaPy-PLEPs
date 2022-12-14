@@ -13,7 +13,7 @@ PLEP-0008 – Calendar Versioning
 +-------------------+--------------------------------------+
 | date created      | 2022-11-22                           |
 +-------------------+--------------------------------------+
-| date last revised | 2022-12-13                           |
+| date last revised | 2022-12-14                           |
 +-------------------+--------------------------------------+
 | type              | process                              |
 +-------------------+--------------------------------------+
@@ -43,9 +43,8 @@ PlasmaPy final releases will use `calendar versioning`_ of the form
 * The bugfix release number ``MICRO`` will start from ``0`` and be
   incremented by one for each bugfix release.
 
-For example, the feature release in April 2023 would be ``2023.4.0``,
-with ``2023.4.1`` as the first bugfix release of the ``2023.4.*``
-series.
+For example, a feature release in April 2023 would be ``2023.4.0``, with
+``2023.4.1`` as the first bugfix release of the ``2023.4.*`` series.
 
 Bugfix releases shall contain no changes to the API.
 
@@ -130,8 +129,8 @@ release includes breaking changes.
 PlasmaPy is likely to continue having functionality at different levels
 of maturity and stability in each release. Some subpackages are likely
 to be stable enough to expect few breaking changes, whereas breaking
-changes are likely to occur for newer or prototype functionality.
-Because there there would likely be some breaking changes to prototype
+changes are likely to occur often for prototype functionality. Because
+there there would likely be some breaking changes to prototype
 functionality in nearly every release, there is less of a need for the
 version number to indicate breaking changes (as in semantic
 versioning). Because the extent of breaking changes between releases
