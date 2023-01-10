@@ -22,10 +22,8 @@ PLEP-0005 – PlasmaPy Versioning and Releases
 |                   | <https://doi.org/10.5281/zenodo.1451974>`__ |
 +-------------------+---------------------------------------------+
 
-.. important::
-
-    This PLEP has been superseded by |PLEP 8| and is therefore no longer
-    in effect.
+This PLEP has been superseded by |PLEP 8| and is therefore no longer
+in effect.
 
 Brief Description
 -----------------
