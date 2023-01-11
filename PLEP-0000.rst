@@ -50,7 +50,7 @@ Accepted PLEPs
 +--------+--------------------------------------------------------------+----------------------+------------+---------------------------+
 | 6      | `A New General-Purpose Plasma Object`_                       | Andrew J. Leonard    | standard   | `10.5281/zenodo.1460976`_ |
 +--------+--------------------------------------------------------------+----------------------+------------+---------------------------+
-| 7      | `Structure of Top-Level Sub-Packages`_                       | Erik T. Everson,     | standard   |                           |
+| 7      | `Structure of Top-Level Sub-Packages`_                       | Erik T. Everson,     | standard   | `10.5281/zenodo.3774573`_ |
 |        |                                                              | Tulasi Parashar,     |            |                           |
 |        |                                                              | Stephen Vincena, and |            |                           |
 |        |                                                              | Nicholas A. Murphy   |            |                           |
@@ -74,6 +74,7 @@ Accepted PLEPs
 .. _10.5281/zenodo.1460976: https://doi.org/10.5281/zenodo.1460976
 
 .. _Structure of Top-Level Sub-Packages: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0007.rst
+.. _10.5281/zenodo.3774573: https://doi.org/10.5281/zenodo.3774573
 
 .. _10.5281/zenodo.7434060: https://doi.org/10.5281/zenodo.7434060
 .. _Calendar Versioning: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0008.rst
