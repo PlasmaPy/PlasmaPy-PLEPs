@@ -13,7 +13,7 @@ PLEP-0008 – Calendar Versioning
 +-------------------+--------------------------------------+
 | date created      | 2022-11-22                           |
 +-------------------+--------------------------------------+
-| date last revised | 2022-12-14                           |
+| date last revised | 2023-01-11                           |
 +-------------------+--------------------------------------+
 | type              | process                              |
 +-------------------+--------------------------------------+
@@ -27,7 +27,7 @@ Brief Description
 
 PlasmaPy will use `calendar versioning`_ starting in 2023.
 
-This PLEP supersedes |PLEP 5|, which is no longer in effect.
+This PLEP supersedes `PLEP 5`_, which is no longer in effect.
 
 Versioning Specification
 ------------------------
@@ -157,5 +157,3 @@ appropriate than semantic versioning or LTS versioning.
 .. _plep 5: https://doi.org/10.5281/zenodo.1451975
 .. _numpy enhancement proposal 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
 .. _semantic versioning: https://semver.org
-
-.. |PLEP 5| replace:: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0005.rst
