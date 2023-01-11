@@ -97,7 +97,7 @@ PLEPs that are no longer in effect
 +========+=====================================+========================+============+===========================+
 | 5      | `PlasmaPy Versioning and Releases`_ | Nicholas A. Murphy and | process    | `10.5281/zenodo.1451974`_ |
 |        |                                     | Stuart J. Mumford      |            |                           |
-+--------+--------------------------------------+------------------------+-----------+---------------------------+
++--------+-------------------------------------+------------------------+------------+---------------------------+
 
 .. _PlasmaPy Versioning and Releases: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0005.rst
 .. _10.5281/zenodo.1451974: https://doi.org/10.5281/zenodo.1451974
