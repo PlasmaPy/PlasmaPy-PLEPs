@@ -38,3 +38,6 @@ convenience, an abbreviated index of PLEPs is provided below.
 | 7      | `Structure of Top-Level Sub-Packages <./PLEP-0007.rst>`__                        | .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3774573.svg |
 |        |                                                                                  |    :target:  http://doi.org/10.5281/zenodo.3774573                 |
 +--------+----------------------------------------------------------------------------------+--------------------------------------------------------------------+
+| 8      | `Calendar Versioning <./PLEP-0008.rst>`__                                        | .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7434060.svg |
+|        |                                                                                  |    :target:  http://doi.org/10.5281/zenodo.7434060                 |
++--------+----------------------------------------------------------------------------------+--------------------------------------------------------------------+

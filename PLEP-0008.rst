@@ -1,0 +1,159 @@
+PLEP-0008 – Calendar Versioning
+===============================
+
++-------------------+--------------------------------------+
+| PLEP              | 8                                    |
++===================+======================================+
+| title             | PlasmaPy Versioning and Releases     |
++-------------------+--------------------------------------+
+| author(s)         | Nicholas A. Murphy, Erik T. Everson, |
+|                   | and Dominik Stańczak-Marikin         |
++-------------------+--------------------------------------+
+| contact email     | namurphy@cfa.harvard.edu             |
++-------------------+--------------------------------------+
+| date created      | 2022-11-22                           |
++-------------------+--------------------------------------+
+| date last revised | 2023-01-11                           |
++-------------------+--------------------------------------+
+| type              | process                              |
++-------------------+--------------------------------------+
+| status            | accepted                             |
++-------------------+--------------------------------------+
+| DOI               | `10.5281/zenodo.7434060`_            |
++-------------------+--------------------------------------+
+
+Brief Description
+-----------------
+
+PlasmaPy will use `calendar versioning`_ starting in 2023.
+
+This PLEP supersedes `PLEP 5`_, which is no longer in effect.
+
+Versioning Specification
+------------------------
+
+PlasmaPy final releases will use `calendar versioning`_ of the form
+``YYYY.MM.MICRO``, where:
+
+* The major release number ``YYYY`` is the year,
+* The minor release number ``MM`` is a positive integer representing the
+  release month, and
+* The bugfix release number ``MICRO`` will start from ``0`` and be
+  incremented by one for each bugfix release.
+
+For example, a feature release in April 2023 would be ``2023.4.0``, with
+``2023.4.1`` as the first bugfix release of the ``2023.4.*`` series.
+
+Bugfix releases shall contain no changes to the API.
+
+Tradeoff Analysis
+-----------------
+
+Advantages of adopting calendar versioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* The age of a release can be gauged directly from the version number,
+  which can make it easier to trace back to the release used in a
+  research publication.
+
+* The extent of changes between releases of a package tends to be
+  roughly proportional to the time between releases, and can therefore
+  be gauged more accurately with date-based versioning.
+
+* The versioning scheme would be consistent with projects that use some
+  form of calendar versioning such as ``xarray``, ``dask``, ``pip``,
+  Ubuntu, and PyCharm.
+
+* The extent of changes between the last two releases in the ``0.*``
+  series is likely to be comparable to the extent of changes between the
+  last ``0.*`` release and the ``1.0.0`` release. Hence, having a
+  ``1.0.0`` release would indicate more changes than would actually be
+  happening. In calendar versioning, no ``1.0.0`` release will occur.
+
+* To computationally reproduce prior scientific results, it is sometimes
+  necessary to find a combination of historical releases of different
+  packages that are interoperable with each other. Because packages that
+  were released at about the same time are more likely to be
+  interoperable with each other, this process is simplified by using
+  calendar versioning.
+
+* Calendar versioning makes it easier to determine the appropriate time
+  to drop support for prior releases of packages, in particular if there
+  is a policy to support all releases made within a certain amount of
+  time in the past (e.g., `NumPy Enhancement Proposal 29`_).
+
+Disadvantages of adopting calendar versioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Calendar versioning is not used by most of the packages PlasmaPy
+  depends on (i.e., NumPy, SciPy, matplotlib, and Astropy).
+
+* The version number itself would not indicate the maturity of the
+  package.
+
+* Calendar version numbers of PlasmaPy would differ substantially from
+  the version numbers of prior releases.
+
+* Changes to the version number would not indicate whether a release
+  contains backward incompatible changes, as in `semantic versioning`_.
+
+* The version number itself would not indicate whether a release is a
+  long-term support (LTS) release.
+
+* Versions of the form ``0.*.*`` (as currently in use) indicate that
+  breaking changes could occur for any release.
+
+Additional considerations for adopting calendar versioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Calendar versioning is compatible with :pep:`440` and
+  ``setuptools_scm``.
+
+* Using the full year in the version number will reduce the chance of
+  ambiguity.
+
+Alternatives
+------------
+
+Semantic versioning
+~~~~~~~~~~~~~~~~~~~
+
+`PLEP 5`_ (which was superseded by this PLEP) specified that PlasmaPy
+would use `semantic versioning`_, where versions are of the form
+``MAJOR.MINOR.PATCH``. Before ``1.0.0``, breaking changes are allowed in
+any minor release. After ``1.0.0``, ``MAJOR`` is incremented when a
+release includes breaking changes.
+
+PlasmaPy is likely to continue having functionality at different levels
+of maturity and stability in each release. Some subpackages are likely
+to be stable enough to expect few breaking changes, whereas breaking
+changes are likely to occur often for prototype functionality. Because
+there there would likely be some breaking changes to prototype
+functionality in nearly every release, there is less of a need for the
+version number to indicate breaking changes (as in semantic
+versioning). Because the extent of breaking changes between releases
+is likely to be roughly proportional to the time between releases, more
+useful information can be gleaned via calendar versioning.
+
+Long-term support versioning
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Astropy releases with a version of ``n.0.*`` for n ∈ ℕ are designated as
+LTS releases. This versioning scheme makes it clear which releases are
+LTS releases. However, this advantage for LTS versioning is minor
+compared to the advantages of calendar versioning. Additionally, LTS
+version numbers could be mistakenly interpreted as semantic version
+numbers.
+
+Decision Rationale
+------------------
+
+Because of the nature of PlasmaPy as a community-developed scientific
+software package in perpetual development, calendar versioning is more
+appropriate than semantic versioning or LTS versioning.
+
+.. _`10.5281/zenodo.7434060`: https://doi.org/10.5281/zenodo.7434060
+.. _calendar versioning: https://calver.org/
+.. _plep 5: https://doi.org/10.5281/zenodo.1451975
+.. _numpy enhancement proposal 29: https://numpy.org/neps/nep-0029-deprecation_policy.html
+.. _semantic versioning: https://semver.org
