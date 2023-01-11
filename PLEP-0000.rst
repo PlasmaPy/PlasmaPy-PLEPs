@@ -55,7 +55,10 @@ Accepted PLEPs
 |        |                                                              | Stephen Vincena, and |            |                           |
 |        |                                                              | Nicholas A. Murphy   |            |                           |
 +--------+--------------------------------------------------------------+----------------------+------------+---------------------------+
-| 8      | `Calendar Versioning`_                                       | Nicholas A. Murphy   | process    | `10.5281/zenodo.7434060`_ |
+| 8      | `Calendar Versioning`_                                       | Nicholas A. Murphy,  | process    | `10.5281/zenodo.7434060`_ |
+|        |                                                              | Erik T. Everson, and |            |                           |
+|        |                                                              | Dominik              |            |                           |
+|        |                                                              | Stańczak-Marikin     |            |                           |
 +--------+--------------------------------------------------------------+----------------------+------------+---------------------------+
 
 .. _Purpose and Guidelines for PlasmaPy Enhancement Proposals: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0001.rst
