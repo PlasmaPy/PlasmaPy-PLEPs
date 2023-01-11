@@ -27,9 +27,7 @@ Brief Description
 
 PlasmaPy will use `calendar versioning`_ starting in 2023.
 
-.. note::
-
-    This PLEP supersedes |PLEP 5|, which is no longer in effect.
+This PLEP supersedes |PLEP 5|, which is no longer in effect.
 
 Versioning Specification
 ------------------------
