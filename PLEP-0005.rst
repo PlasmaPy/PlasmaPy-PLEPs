@@ -12,18 +12,17 @@ PLEP-0005 – PlasmaPy Versioning and Releases
 +-------------------+---------------------------------------------+
 | date created      | 2017-10-14                                  |
 +-------------------+---------------------------------------------+
-| date last revised | 2018-09-17                                  |
+| date last revised | 2023-01-11                                  |
 +-------------------+---------------------------------------------+
 | type              | process                                     |
 +-------------------+---------------------------------------------+
-| status            | superseded by |PLEP 8|                      |
+| status            | superseded by `PLEP 8`_                      |
 +-------------------+---------------------------------------------+
 | DOI               | `10.5281/zenodo.1451974                     |
 |                   | <https://doi.org/10.5281/zenodo.1451974>`__ |
 +-------------------+---------------------------------------------+
 
-This PLEP has been superseded by |PLEP 8| and is therefore no longer
-in effect.
+This PLEP has been superseded by `PLEP 8`_ and is no longer in effect.
 
 Brief Description
 -----------------
@@ -261,4 +260,4 @@ users with useful information about whether or not there were any
 backward incompatible changes.  This scheme is well-suited to a core
 scientific software package that will require stability.
 
-.. |PLEP 8| replace:: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0007.rst
+.. _PLEP 8: https://github.com/PlasmaPy/PlasmaPy-PLEPs/blob/main/PLEP-0008.rst
