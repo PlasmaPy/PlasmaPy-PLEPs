@@ -1,0 +1,97 @@
+=========================================================
+PLEP-0008 – Release schedule and long-term support policy
+=========================================================
+
++-------------------+---------------------------------------------+
+| PLEP              | number                                      |
++===================+=============================================+
+| author(s)         | Nicholas A. Murphy                          |
++-------------------+---------------------------------------------+
+| contact email     | namurphy@cfa.harvard.edu                    |
++-------------------+---------------------------------------------+
+| date created      | *YYYY-MM-DD*                                |
++-------------------+---------------------------------------------+
+| date last revised | *YYYY-MM-DD*                                |
++-------------------+---------------------------------------------+
+| type              | process                                     |
++-------------------+---------------------------------------------+
+| status            | discussion                                  |
++-------------------+---------------------------------------------+
+| DOI               |                                             |
+|                   |                                             |
++-------------------+---------------------------------------------+
+
+Abstract
+========
+
+This PLEP describes the nominal release schedule and long-term support
+(LTS) policy for PlasmaPy. 
+
+Detailed Description
+====================
+
+Release schedule
+----------------
+
+Feature releases of PlasmaPy will be scheduled for January, May, and
+September of each year, and maintained with backwards compatible bug
+fixes and documentation improvements until the next feature release.
+
+Python support policy
+---------------------
+
+For consistency with NumPy Enhancement Proposal 29, each feature
+release will be compatible with minor versions of Python released in
+the prior 42 months and minor versions of NumPy released in the prior
+24 months. Because Python minor releases occur each October, the May
+release of PlasmaPy will drop support of the oldest-supported version
+of Python. For example, the May 2025 release of Python will drop
+compatibility with Python 3.10 and require Python 3.11 or newer.
+
+Long-term support policy
+------------------------
+
+If there is sufficient funding for the development and maintenance of
+PlasmaPy, then the first release in even-numbered years will be an LTS
+release that will be maintained with bugfixes and documentation
+improvements for two years.
+
+Implementation
+==============
+
+To implement this PLEP, it will be necessary to implement
+infrastructure for performing backports for LTS releases. For example,
+when a pull request for Astropy is labeled as appropriate for a
+backport, then a GitHub tool will automatically create a pull request
+to the appropriate branches. This infrastructure will reduce the
+effort needed to perform backports and minor releases.
+
+Alternatives
+============
+
+Feature release cadence
+-----------------------
+
+This PLEP specifies a feature release cadence of four months.
+
+* A less frequent release schedule would reduce the amount of effort
+  by developers, but would delay new features being made available to
+  new users. Too much time between releases would also increase the
+  risk that developers would forget how to perform the releases.
+
+* A more frequent release schedule would enable features to become
+  available to users more quickly, but with the tradeoffs of
+  additional work overhead for each release, less stability for
+  users, and more difficulty keeping track of citations.  
+
+A release cadence of four months balances these tradeoffs.
+
+Decision Rationale
+==================
+
+*Summarize the discussion on this PLEP and describe the reasoning
+behind the decision, if necessary.*
+
+*Not all PLEPs require all of these sections, and occasionally
+additional sections may be necessary. Emphasized text should be
+deleted.*
