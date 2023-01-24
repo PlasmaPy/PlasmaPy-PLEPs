@@ -25,7 +25,7 @@ Abstract
 ========
 
 This PLEP describes the nominal release schedule and long-term support
-(LTS) policy for PlasmaPy. 
+(LTS) policy for PlasmaPy.
 
 Detailed Description
 ====================
@@ -82,7 +82,7 @@ This PLEP specifies a feature release cadence of four months.
 * A more frequent release schedule would enable features to become
   available to users more quickly, but with the tradeoffs of
   additional work overhead for each release, less stability for
-  users, and more difficulty keeping track of citations.  
+  users, and more difficulty keeping track of citations.
 
 A release cadence of four months balances these tradeoffs.
 
